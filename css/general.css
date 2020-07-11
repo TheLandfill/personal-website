@@ -16,6 +16,11 @@ html {
 	color: white;
 }
 
+#content {
+	margin: 0 auto;
+	width: 81ch;
+}
+
 #footer {
 	background: #000000;
 }
