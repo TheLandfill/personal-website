@@ -13,7 +13,6 @@ a code {
 html {
 	scroll-behavior: smooth;
 	background-image: url(https://vanthiennguyen.com/Space.jpg);
-	color: white;
 }
 
 #super-header {
@@ -42,7 +41,7 @@ nav a {
 	float: left;
 	display: block;
 	overflow: auto;
-	color: white;
+	color: #ff9999;
 	background: #333333;
 	width: 25%;
 	text-align: center;
@@ -56,16 +55,20 @@ nav a {
 nav a:hover {
 	text-decoration: none;
 	background-color: #666666;
-	color: white;
+	color: #ff6666;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #ff7777;
 }
 
 #content {
 	margin: 0 auto;
 	width: 83ch;
-	background: #77777744;
+	background: #00000099;
 	min-height: calc(100vh - 14em);
 	padding: 1.5em 1ch 0 1ch;
-	backdrop-filter: blur(2px);
+	backdrop-filter: blur(3px);
 }
 
 @media screen and (max-width: 815px) {
@@ -101,4 +104,3 @@ nav a:hover {
 		margin: auto;
 	}
 }
-
