@@ -19,7 +19,6 @@ html {
 #header {
 	height: 8em;
 	background: #444444;
-	margin-bottom: 2em;
 }
 
 #header h1 {
@@ -28,9 +27,9 @@ html {
 	height: 6rem;
 }
 
-/*#header nav {
-	bottom: 0;
-}*/
+nav {
+	margin-bottom: 2em;
+}
 
 nav a {
 	float: left;
