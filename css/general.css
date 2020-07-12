@@ -16,6 +16,17 @@ html {
 	color: white;
 }
 
+#header {
+	height: 5em;
+	background: #444444;
+}
+
+#header nav a {
+	float: left;
+	display: block;
+	width: 25%;
+}
+
 #content {
 	margin: 0 auto;
 	width: 81ch;
