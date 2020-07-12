@@ -80,10 +80,14 @@ h1,h2,h3,h4,h5,h6 {
 
 #footer {
 	background: #000000;
+	height: 6.5em;
+	text-align: center;
 }
 
 #footer a {
-	color: #DC143C;
+	color: #ea1f48;
+	padding-top: 2em;
+	display: block;
 }
 
 #footer-links a {
