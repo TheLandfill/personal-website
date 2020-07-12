@@ -12,7 +12,7 @@ a code {
 
 html {
 	scroll-behavior: smooth;
-	background: black;
+	background-image: url(https://vanthiennguyen.com/Space.jpg);
 	color: white;
 }
 
@@ -61,9 +61,10 @@ nav a:hover {
 #content {
 	margin: 0 auto;
 	width: 83ch;
-	background: #111111;
+	background: #11111144;
 	min-height: calc(100vh - 14em);
 	padding: 1.5em 1ch 0 1ch;
+	backdrop-filter: blur(2px);
 }
 
 @media screen and (max-width: 815px) {
