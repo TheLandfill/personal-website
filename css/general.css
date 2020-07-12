@@ -12,11 +12,13 @@ a code {
 
 html {
 	scroll-behavior: smooth;
-	background-image: url(/resources/blue-universe-956981.jpg) no-repeat center center fixed;
-	-webkit-background-size:	cover;
-	-moz-background-size:	cover;
-	-o-background-size:	cover;
-	background-size:	cover;
+	background-image: url(/resources/blue-universe-956981.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover;
 }
 
 #super-header {
@@ -69,10 +71,10 @@ h1,h2,h3,h4,h5,h6 {
 #content {
 	margin: 0 auto;
 	width: 83ch;
-	background: #00000099;
+	background: #00000044;
 	min-height: calc(100vh - 14em);
 	padding: 1.5em 1ch 0 1ch;
-	backdrop-filter: blur(3px);
+	backdrop-filter: blur(2px);
 }
 
 @media screen and (max-width: 815px) {
