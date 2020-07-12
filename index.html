@@ -6,15 +6,15 @@
 		<meta name="description" content="The website for Joseph Mellor, undergrad student majoring in Physics, CS, and Math">
 		<link rel="prefetch" href="resources/blue-universe-blurred.svg">
 		<script>
-			var a = document.querySelector('.blur-image');
 
 			document.addEventListener("DOMContentLoaded", function() {
 				console.log("DOMContentLoaded");
+				var a = document.querySelector('.blur-image');
+				console.log("a = " + a);
 				if (!a) return !1;
 				var b = a.getAttribute("data-src"),
 					c = document.querySelector('.full-image'),
 					img = new Image;
-				console.log("a = " + a);
 				console.log("b = " + b);
 				console.log("c = " + c);
 
