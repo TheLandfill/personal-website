@@ -12,7 +12,11 @@ a code {
 
 html {
 	scroll-behavior: smooth;
-	background-image: url(/resources/blue-universe-956981.jpg);
+	background-image: url(/resources/blue-universe-956981.jpg) no-repeat center center fixed;
+	-webkit-background-size:	cover;
+	-moz-background-size:	cover;
+	-o-background-size:	cover;
+	background-size:	cover;
 }
 
 #super-header {
