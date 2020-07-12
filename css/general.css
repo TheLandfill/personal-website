@@ -19,11 +19,13 @@ html {
 #header {
 	height: 8em;
 	background: #444444;
+	margin-bottom: 2em;
 }
 
 #header h1 {
 	text-align: center;
-	height: 5rem;
+	display: block;
+	height: 6rem;
 }
 
 #header nav {
