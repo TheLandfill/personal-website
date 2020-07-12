@@ -23,6 +23,11 @@ html {
 
 #header h1 {
 	text-align: center;
+	height: 5rem;
+}
+
+#header nav {
+	bottom: 0;
 }
 
 #header nav a {
