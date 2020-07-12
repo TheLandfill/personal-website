@@ -16,11 +16,11 @@ html {
 
 .blur-image {
 	filter: none;
-	transition: -webkit-filter 0s 0.3s linear, filter 0s 0.3s linear;
+	transition: -webkit-filter 0s 3s linear, filter 0s 3s linear;
 }
 
 .image-loaded {
-	transition: opacity .25s linear;
+	transition: opacity 5s linear;
 }
 
 .full-image, .image-loaded {
