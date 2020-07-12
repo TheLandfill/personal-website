@@ -23,7 +23,7 @@ html {
 #header {
 	display: block;
 	overflow: auto;
-	background: red;
+	background: #333333;
 }
 
 #header h1 {
