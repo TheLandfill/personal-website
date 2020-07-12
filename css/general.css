@@ -85,7 +85,7 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0 auto;
 	width: 83ch;
 	background: #00000044;
-	min-height: calc(100vh - 13em);
+	min-height: calc(100vh - 14em);
 	padding: 1.5em 1ch 2em 1ch;
 	backdrop-filter: blur(2px);
 }
