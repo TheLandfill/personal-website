@@ -21,10 +21,15 @@ html {
 	background: #444444;
 }
 
+#header h1 {
+	text-align: center;
+}
+
 #header nav a {
 	float: left;
 	display: block;
 	width: 25%;
+	text-align: center;
 }
 
 #content {
