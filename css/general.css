@@ -24,10 +24,6 @@ html {
 	opacity: 0;
 }
 
-.image-loaded * {
-	opacity: 1;
-}
-
 .full-image, .image-loaded {
 	background-position: center center;
 	background-repeat: no-repeat;
