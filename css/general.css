@@ -28,11 +28,11 @@ html {
 	height: 6rem;
 }
 
-#header nav {
+/*#header nav {
 	bottom: 0;
-}
+}*/
 
-#header nav a {
+nav a {
 	float: left;
 	display: block;
 	width: 25%;
