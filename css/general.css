@@ -27,10 +27,6 @@ html {
 	height: 6rem;
 }
 
-nav {
-	margin-bottom: 2em;
-}
-
 nav a {
 	float: left;
 	display: block;
@@ -42,6 +38,7 @@ nav a {
 #content {
 	margin: 0 auto;
 	width: 81ch;
+	padding-top: 2em;
 }
 
 #footer {
