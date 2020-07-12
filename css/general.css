@@ -12,13 +12,25 @@ a code {
 
 html {
 	scroll-behavior: smooth;
-	background-image: url(/resources/blue-universe-blurred.svg);
+}
+
+.blur-image {
+	filter: none;
+	transition: -webkit-filter 0s 0.3s linear, filter 0s 0.3s linear;
+}
+
+.image-loaded {
+	transition: opacity .25s linear;
+}
+
+.full-image, .image-loaded {
+	background-position: center center;
+	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
+	background-size: cover;
 	-o-background-size: cover;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-    background-size:cover;
+	-webkit-filter: none;
 }
 
 #super-header {
