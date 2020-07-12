@@ -18,11 +18,11 @@ html {
 
 #super-header {
 	margin-bottom: 2em;
+	background: #444444;
 }
 
 #header {
 	height: 8em;
-	background: #444444;
 }
 
 #header h1 {
