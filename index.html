@@ -9,10 +9,14 @@
 			var a = document.querySelector('.blur-image');
 
 			document.addEventListener("DOMContentLoaded", function() {
+				console.log("DOMContentLoaded");
 				if (!a) return !1;
 				var b = a.getAttribute("data-src"),
 					c = document.querySelector('.full-image'),
 					img = new Image;
+				console.log("a = " + a);
+				console.log("b = " + b);
+				console.log("c = " + c);
 
 				img.src = b;
 				img.onload = function () {
