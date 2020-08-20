@@ -58,6 +58,10 @@ html {
 	min-height: 2em;
 }
 
+#header a {
+	text-decoration: none;
+}
+
 nav {
 	display: block;
 	overflow: auto;
