@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /tests/
+Sitemap: https://josephmellor.xyz/sitemap.xml
