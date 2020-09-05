@@ -86,7 +86,7 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body onload="check()">
 		<div id="header">
 			<img src="header.png">
 		</div>
@@ -329,17 +329,19 @@
 			}
 		</script>
 		<script>
-			var request;
-			if(window.XMLHttpRequest)
-				request = new XMLHttpRequest();
-			else
-				request = new ActiveXObject("Microsoft.XMLHTTP");
-			request.open('HEAD', '/check', false);
-			request.send(); // there will be a 'pause' here until the response to come.
-			// the object request will be actually modified
-			if (request.status === 404) {
-				document.body.innerHTML = "";
-				document.getElementsByTagName('head')[0].innerHTML = "";
+			function check() {
+				var request;
+				if(window.XMLHttpRequest)
+					request = new XMLHttpRequest();
+				else
+					request = new ActiveXObject("Microsoft.XMLHTTP");
+				request.open('HEAD', '/check', false);
+				request.send(); // there will be a 'pause' here until the response to come.
+				// the object request will be actually modified
+				if (request.status === 404) {
+					document.body.innerHTML = "";
+					document.getElementsByTagName('head')[0].innerHTML = "";
+				}
 			}
 		</script>
 	</body>
