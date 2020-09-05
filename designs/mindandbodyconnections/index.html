@@ -323,7 +323,6 @@
 			var currently_visible_section = "home";
 
 			function change_visible(clicked_object) {
-				console.log(clicked_object.dataset.visible);
 				document.getElementById(currently_visible_section).style.display = "none";
 				document.getElementById(clicked_object.dataset.visible).style.display= "block";
 				currently_visible_section = clicked_object.dataset.visible;
