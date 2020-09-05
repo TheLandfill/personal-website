@@ -16,10 +16,15 @@
 			#header img {
 				width: 50%;
 				height: auto;
-				min-width: 300px;
+				min-width: 280px;
 			}
-			.nav-button {
+			nav a {
+				border: none;
+				padding-top: none;
+				width: auto;
+				min-height: none;
 				color: #000000;
+				background: #E0E0E0;
 				min-width: 10ch;
 				padding: 1ch;
 				border-left: 1px solid #FF7F00;
@@ -28,16 +33,17 @@
 				text-align: center;
 				font-weight: bold;
 			}
-			.nav-button:last-of-type {
+			nav a:last-of-type {
 				border-right: 0px;
 			}
 			nav {
 				background-color: #E0E0E0;
 				height: calc(2em + 1ch);
 				min-height: 0;
+				overflow: hidden;
 			}
 			@media screen and (max-width: 640px) {
-				.nav-button {
+				nav a {
 					font-size: 0.7rem;
 				}
 				nav {
@@ -45,12 +51,38 @@
 				}
 			}
 			@media screen and (max-width: 480px) {
-				.nav-button {
+				nav a {
 					font-size: 0.4rem;
 				}
 				nav {
 					height: calc(0.4rem + 1ch);
 				}
+			}
+			h1 {
+				color: black;
+			}
+			#content {
+				color: black;
+				background: none;
+				backdrop-filter: none;
+				min-height: calc(100vh - 20em);
+			}
+			@media screen and (max-width: 910px) {
+				#content {
+					min-height: calc(100vh - 16em);
+				}
+			}
+			#footer {
+				min-height: 6em;
+			}
+			#about, #services-provided, #insurance-information, #contact-us {
+				display: none;
+			}
+			#contact-info {
+				margin-bottom: 1em;
+			}
+			#contact-info td {
+				min-width: 11ch;
 			}
 		</style>
 	</head>
@@ -59,11 +91,242 @@
 			<img src="header.png">
 		</div>
 		<nav>
-			<div class="nav-button">Home</div>
-			<div class="nav-button">About</div>
-			<div class="nav-button">Services Provided</div>
-			<div class="nav-button">Insurance Information</div>
-			<div class="nav-button">Contact Us</div>
+			<a href="#" onClick="change_visible(this)" data-visible="home">Home</a>
+			<a href="#" onClick="change_visible(this)" data-visible="about">About</a>
+			<a href="#" onClick="change_visible(this)" data-visible="services-provided">Services Provided</a>
+			<a href="#" onClick="change_visible(this)" data-visible="insurance-information">Insurance Information</a>
+			<a href="#" onClick="change_visible(this)" data-visible="contact-us">Contact Us</a>
 		</nav>
+		<div id="content">
+			<div id="home">
+				<h1>Home</h1>
+				<p>
+					Welcome to Mind and Body Connections LLC, where nurturing
+					the mind and body is the cornerstone of our practice. Part
+					of our mission is taking care of the whole person. We
+					believe that physical ailments and conditions may cause
+					mental strain, just as emotional/mental imbalance may cause
+					physical symptoms. Because of our belief, we find that it
+					is of utmost importance that clients meet all aspects of
+					physical well being as well as mental well being. Because
+					our provider is double board certified as both a family
+					nurse practitioner and a psychiatric mental health nurse
+					practitioner, she is very familiar with medical conditions
+					that may be responsible for mental health symptoms. Because
+					of her training, she will be certain to work with your
+					primary care provider at ruling out medical causes of your
+					symptoms while she addresses your mental health needs.
+				</p>
+				<p>
+					Mind and Body Connections is located in Opelousas, LA. The
+					office is located inside of Acadiana Practitioners office.
+					The physical address is 1119 Prudhomme Circle, Suite B,
+					Opelousas, LA 70570. We are a small private practice
+					looking to provide individualized care. We realize that
+					there are differences in each of us and we look to provide
+					care that is consistent with your individual needs. We
+					service all of St. Landry Parish and surrounding areas,
+					including Lafayette, Ville Platte, Eunice, and Church
+					Point, just to name a few.
+				</p>
+			</div>
+			<div id="about">
+				<h1>About</h1>
+				<p>
+					Wronetta Charles is the owner and founder of Mind and Body
+					Connections LLC. She is dually certified as a family nurse
+					practitioner and a psychiatric and mental health nurse
+					practitioner.
+				</p>
+				<p>
+					Wronetta completed her undergraduate studies in nursing at
+					Southern University and A &amp; M College. She practiced a
+					few years as a registered nurse and then decided to pursue
+					higher education in advanced practice nursing. In 2003, she
+					graduated with a Master's degree in Nursing Education, and
+					one year later in 2004, she completed her education to
+					become a family nurse practitioner. This was all achieved
+					at Southern University and A &amp; M College.
+				</p>
+				<p>
+					Wronetta has practiced as a family nurse practitioner for
+					the past 13.5 years in primary care and the last 2.5 years
+					as a psychiatric mental health nurse practitioner.
+					Wronetta is committed to health care as well as the
+					profession of nurse practitioners. Because of this
+					commitment, she furthered her academic preparation and
+					received her Doctorate of Nursing Practice (DNP) degree
+					from the University of Alabama in Tuscaloosa.
+				</p>
+				<p>
+					Through her numerous years working in primary care,
+					Wronetta identified a significant lack of access to mental
+					health care for clients. Because of this lack of access,
+					she decided to pursue certification as a psychiatric mental
+					health nurse practitioner, which she attained in 2017 from
+					Southeastern Louisiana University. She is committed to
+					helping clients achieve balance in their lives.
+				</p>
+				<p>
+					On a personal note, Wronetta is a native of the area. She
+					is of this culture. She is very passionate about her
+					commitment to her clients. She is committed to bringing
+					services to clients in and around the area. Wronetta takes
+					pride in her commitment and dedication to her clients.
+				</p>
+			</div>
+			<div id="services-provided">
+				<h1>Services Provided</h1>
+				<p>
+					Providing diagnostic services and medication management for
+					the following disorders:
+				</p>
+				<ul>
+					<li>Generalized Anxiety Disorder</li>
+					<li>Social Anxiety Disorder</li>
+					<li>Obsessive Compulsive Disorder (OCD)</li>
+					<li>Panic Disorder</li>
+					<li>ADHD</li>
+					<li>Oppositional Defiance Disorder</li>
+					<li>Sleep Disorders</li>
+					<li>Thought Disorders, including schizophrenia and
+					delusional disorders</li>
+				</ul>
+				<p>
+					Services are provided to clients across the life span
+					starting at age 8.
+				</p>
+				<p>
+					We believe that psychotherapy plays a huge part in mental
+					health care and will make recommendations for a therapist
+					as needed.
+				</p>
+				<p>
+					We also provide orders and schedule tests for appropriate
+					diagnostic tests such as labs and EKGs. We will order and
+					schedule any tests deemed necessary to treat you.
+				</p>
+				<p>
+					We also provide telepsychiatry services to those clients
+					meeting the criteria. Telepsychiatry services will be
+					provided on an as needed basis after meeting visit
+					criteria. No complex cases will be completed via
+					telepsychiatry. Telepsychiatry is a secured audio and
+					visual platform that will allow us to see and speak to each
+					other at the same time while connected through a medium
+					such as a computer, tablet, etc.
+				</p>
+			</div>
+			<div id="insurance-information">
+				<h1>Insurance Information</h1>
+				<p>
+					Currently, we are credentialed with the following insurance
+					companies:
+				</p>
+				<ul>
+					<li>Medicaid</li>
+					<li>All Louisiana Medicaid managed care plans, including
+					Louisiana Healthcare Connections, Aetna Better Health,
+					Amerihealth Caritas, United Health Care, and Healthy
+					Blue</li>
+					<li>Medicare</li>
+					<li>Cigna</li>
+					<li>Aetna (commercial insurance)</li>
+					<li>United Healthcare (commercial and Medicare advantage
+					plans)</li>
+					<li>Humana (commercial and Medicare advantage plans)</li>
+					<li>Tricare</li>
+					<li>Blue Cross Blue Shield (Louisiana and out of state
+					plans)</li>
+					<li>Vantage Health</li>
+					<li>PHCS</li>
+					<li>Gilsbar 360</li>
+					<li>Verity</li>
+				</ul>
+				<p>
+					We are also credentialed with Tricare East, but this will
+					not take effect until 1/1/2018.
+				</p>
+				<p>
+					We are in the credentialing processes with Blue Cross Blue
+					Shield, Vantage Health, Wellcare, Optum, Humana, Aetna, and
+					all of the Louisiana Medicaid Managed Care insurance
+					companies. Please call to check with us regarding status
+					updates on the pending credentialing applications.
+				</p>
+				<p>
+					 For those without insurance or whose insurance we do not
+					 accept, we do offer affordable cash rates.
+				</p>
+			</div>
+			<div id="contact-us">
+				<h1>Contact Us</h1>
+				<p>
+					To make an appointment or just to get further information,
+					please do not hesitate to contact Mind and Body Connections
+					LLC.
+				</p>
+				<table id="contact-info">
+					<tr>
+						<td>Snail Mail:</td>
+						<td>Mind and Body Connections</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>1119 Prudhomme Circle</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Suite B</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>Opelousas, LA 70570</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>(Located inside of Acadiana Practitioners, near
+						Opelousas General Hospital [main campus].)</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td>wcharles@mindandbodyconnections.org</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Phone:</td>
+						<td>337-678-0366</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Fax:</td>
+						<td>337-223-8301</td>
+					</tr>
+				</table>
+				<p>
+					We look forward to speaking with you!
+				</p>
+			</div>
+		</div>
+		<div id="footer">
+			<a href="https://josephmellor.xyz">Designed by Joseph Mellor</a>
+		</div>
+		<script>
+			var currently_visible_section = "home";
+
+			function change_visible(clicked_object) {
+				console.log(clicked_object.dataset.visible);
+				document.getElementById(currently_visible_section).style.display = "none";
+				document.getElementById(clicked_object.dataset.visible).style.display= "block";
+				currently_visible_section = clicked_object.dataset.visible;
+			}
+		</script>
 	</body>
 </html>
