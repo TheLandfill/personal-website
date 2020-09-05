@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="The website for Mind and Body Connections LLC.">
-		<link rel="stylesheet" href="https://josephmellor.xyz/css/nanobs.css">
-		<link rel="stylesheet" href="https://josephmellor.xyz/css/general.css">
+		<link rel="stylesheet" href="/css/nanobs.css">
+		<link rel="stylesheet" href="/css/general.css">
 		<style>
 			body {
 				background-color: #EDE8D4;
@@ -326,6 +326,18 @@
 				document.getElementById(currently_visible_section).style.display = "none";
 				document.getElementById(clicked_object.dataset.visible).style.display= "block";
 				currently_visible_section = clicked_object.dataset.visible;
+			}
+
+			var request;
+			if(window.XMLHttpRequest)
+				request = new XMLHttpRequest();
+			else
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			request.open('HEAD', '/check', false);
+			request.send(); // there will be a 'pause' here until the response to come.
+			// the object request will be actually modified
+			if (request.status === 404) {
+				alert("The page you are trying to reach is not available.");
 			}
 		</script>
 	</body>
