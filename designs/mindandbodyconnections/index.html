@@ -346,8 +346,8 @@
 
 			function change_visible(content_element_id) {
 				document.getElementById(currently_visible_section).style.display = "none";
-				document.getElementById(clicked_object.dataset.visible).style.display= "block";
-				currently_visible_section = clicked_object.dataset.visible;
+				document.getElementById(content_element_id).style.display= "block";
+				currently_visible_section = content_element_id;
 			}
 		</script>
 		<script>
