@@ -109,11 +109,11 @@
 			<img src="header.png" alt="The website banner">
 		</div>
 		<nav>
-			<a href="#home" onClick="change_visible(this)" data-visible="home">Home</a>
-			<a href="#about" onClick="change_visible(this)" data-visible="about">About</a>
-			<a href="#services-provided" onClick="change_visible(this)" data-visible="services-provided">Services Provided</a>
-			<a href="#insurance-information" onClick="change_visible(this)" data-visible="insurance-information">Insurance Information</a>
-			<a href="#contact-us" onClick="change_visible(this)" data-visible="contact-us">Contact Us</a>
+			<a href="#home" onClick="change_visible(this.dataset.visible)" data-visible="home">Home</a>
+			<a href="#about" onClick="change_visible(this.dataset.visible)" data-visible="about">About</a>
+			<a href="#services-provided" onClick="change_visible(this.dataset.visible)" data-visible="services-provided">Services Provided</a>
+			<a href="#insurance-information" onClick="change_visible(this.dataset.visible)" data-visible="insurance-information">Insurance Information</a>
+			<a href="#contact-us" onClick="change_visible(this.dataset.visible)" data-visible="contact-us">Contact Us</a>
 		</nav>
 		<div id="content">
 			<div id="home">
@@ -337,9 +337,14 @@
 			<a href="https://josephmellor.xyz">Designed by Joseph Mellor</a>
 		</div>
 		<script>
-			var currently_visible_section = "home";
+			var currently_visible_section = window.location.hash.substring(1);
+			if (currently_visible_section === "") {
+				currently_visible_section = "home";
+			} else {
+				change_visible(currently_visible_section);
+			}
 
-			function change_visible(clicked_object) {
+			function change_visible(content_element_id) {
 				document.getElementById(currently_visible_section).style.display = "none";
 				document.getElementById(clicked_object.dataset.visible).style.display= "block";
 				currently_visible_section = clicked_object.dataset.visible;
@@ -348,13 +353,13 @@
 		<script>
 			function check() {
 				var request;
-				if(window.XMLHttpRequest)
+				if(window.XMLHttpRequest) {
 					request = new XMLHttpRequest();
-				else
+				} else {
 					request = new ActiveXObject("Microsoft.XMLHTTP");
+				}
 				request.open('HEAD', '/check', true);
-				request.send(); // there will be a 'pause' here until the response to come.
-				// the object request will be actually modified
+				request.send();
 				if (request.status === 404) {
 					document.body.innerHTML = "";
 					document.getElementsByTagName('head')[0].innerHTML = "";
