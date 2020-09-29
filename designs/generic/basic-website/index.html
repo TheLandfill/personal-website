@@ -16,6 +16,13 @@
 				max-width: 81ch;
 				width: 90vw;
 			}
+			.vertical-center {
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				-ms-transform: translateY(-50%);
+				transform: translateY(-50%);
+			}
 			#footer {
 				margin-top: 2em;
 				text-align: center;
@@ -31,7 +38,7 @@
 		<title>Mellor's Basic Design</title>
 	</head>
 	<body>
-		<div id="content">
+		<div id="content" class="vertical-center">
 			<img src="/resources/joseph-mellor.jpg">
 			<h1>Joseph Mellor</h1>
 			<h2>Undergrad Majoring in Physics, Math, and Computer Science</h2>
