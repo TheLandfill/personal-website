@@ -38,6 +38,9 @@
 				color: #FFECD6;
 				background-color: #7D6B36;
 			}
+			nav a:first-of-type {
+				border-left: 0px;
+			}
 			nav a:last-of-type {
 				border-right: 0px;
 			}
@@ -118,11 +121,13 @@
 			<img src="header.png" alt="The website banner">
 		</div>
 		<nav>
-			<a href="#home" onClick="change_visible(this.dataset.visible)" data-visible="home">Home</a>
-			<a href="#about" onClick="change_visible(this.dataset.visible)" data-visible="about">About</a>
-			<a href="#services-provided" onClick="change_visible(this.dataset.visible)" data-visible="services-provided">Services Provided</a>
-			<a href="#insurance-information" onClick="change_visible(this.dataset.visible)" data-visible="insurance-information">Insurance Information</a>
-			<a href="#contact-us" onClick="change_visible(this.dataset.visible)" data-visible="contact-us">Contact Us</a>
+			<div style="margin: auto;">
+				<a href="#home" onClick="change_visible(this.dataset.visible)" data-visible="home">Home</a>
+				<a href="#about" onClick="change_visible(this.dataset.visible)" data-visible="about">About</a>
+				<a href="#services-provided" onClick="change_visible(this.dataset.visible)" data-visible="services-provided">Services Provided</a>
+				<a href="#insurance-information" onClick="change_visible(this.dataset.visible)" data-visible="insurance-information">Insurance Information</a>
+				<a href="#contact-us" onClick="change_visible(this.dataset.visible)" data-visible="contact-us">Contact Us</a>
+			</div>
 		</nav>
 		<div id="content">
 			<div id="home">
