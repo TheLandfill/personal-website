@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="The website for Mind and Body Connections LLC.">
+		<link rel="icon" href="/resources/favicon.png">
+		<link rel="stylesheet" href="/css/nanobs.css">
+		<link rel="stylesheet" href="/css/general.css">
+		<style>
+			body {
+				background-color: #EDE8D4;
+			}
+			#header {
+				background-color: #646464;
+			}
+			#header img {
+				width: 50%;
+				height: auto;
+				min-width: 240px;
+			}
+			nav a {
+				border: none;
+				padding-top: none;
+				width: auto;
+				min-height: none;
+				color: #973300;
+				background: #DFD8BE;
+				min-width: calc(3ch + 7vw);
+				padding: 1ch;
+				border-left: 1px solid #FF7F00;
+				border-right: 1px solid #E1C5BB;
+				float: left;
+				text-align: center;
+				font-weight: bold;
+			}
+			nav a:hover {
+				color: #FFECD6;
+				background-color: #7D6B36;
+			}
+			nav a:first-of-type {
+				border-left: 0px;
+			}
+			nav a:last-of-type {
+				border-right: 0px;
+			}
+			nav {
+				background: #DFD8BE;
+				height: calc(2em + 1ch);
+				min-height: 0;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+			}
+			@media screen and (max-width: 640px) {
+				nav a {
+					font-size: 0.7rem;
+				}
+				nav {
+					height: calc(0.7rem + 2ch);
+				}
+			}
+			@media screen and (max-width: 480px) {
+				nav a {
+					font-size: 0.6rem;
+				}
+				nav {
+					height: calc(0.6rem + 1.5ch);
+				}
+			}
+			@media screen and (max-width: 380px) {
+				nav a {
+					font-size: 0.45rem;
+				}
+				nav {
+					height: calc(0.45rem + 1ch);
+				}
+			}
+			@media screen and (max-width: 300px) {
+				nav a {
+					font-size: 0.4rem;
+				}
+				nav {
+					height: calc(0.4rem + 1ch);
+				}
+			}
+			h1 {
+				color: black;
+			}
+			#content {
+				color: black;
+				background: none;
+				backdrop-filter: none;
+				min-height: calc(100vh - 20em);
+			}
+			@media screen and (max-width: 910px) {
+				#content {
+					min-height: calc(100vh - 14em);
+				}
+			}
+			#footer {
+				min-height: 6em;
+				background: #DFD8BE;
+			}
+			#footer a {
+				color: #973300;
+				font-weight: bold;
+			}
+			#about, #services-provided, #insurance-information, #contact-us {
+				display: none;
+			}
+			#contact-info {
+				margin-bottom: 1em;
+			}
+			#contact-info td {
+				min-width: 11ch;
+			}
+		</style>
+		<title>Mind and Body Connections</title>
+	</head>
+	<body onload="check()">
+		<div id="header">
+			<img src="header.png" alt="The website banner">
+		</div>
+		<nav>
+			<a href="#home" onClick="change_visible(this.dataset.visible)" data-visible="home">Home</a>
+			<a href="#about" onClick="change_visible(this.dataset.visible)" data-visible="about">About</a>
+			<a href="#services-provided" onClick="change_visible(this.dataset.visible)" data-visible="services-provided">Services Provided</a>
+			<a href="#contact-us" onClick="change_visible(this.dataset.visible)" data-visible="contact-us">Contact Us</a>
+		</nav>
+		<div id="content">
+			<div id="home">
+				<h1>Home</h1>
+				<p>
+					We're [organization], where [mission statement]. We believe
+					[list of beliefs], which led us to [restatement of mission
+					statement]. We provide [services]. Our team consists of
+					[qualifications of each team member], giving us an unique
+					edge on our competition. We're using [some technique] to
+					ensure that we can provide [personalized or individualized]
+					[services].
+				</p>
+				<p>
+					You can find us at [location]. We're looking forward to see
+					you there!
+				</p>
+			</div>
+			<div id="about">
+				<h1>About</h1>
+				<p>
+					[Person] is the founder and owner of [organization].
+					[Person's life history].
+				</p>
+				<p>
+					[More life story].
+				</p>
+				<p>
+					After seeing [some need or opportunity], [person] took the
+					initiatve of [doing something] and founded [organization].
+					[Explanation of what company does different].
+				</p>
+				<p>
+					[Organization] is committed to providing the best [product
+					or service] with the best possible [something not product or
+					service like customer service].
+				</p>
+			</div>
+			<div id="services-provided">
+				<h1>Services Provided</h1>
+				<p>
+					We can do
+				</p>
+				<ul>
+					<li>[Something]</li>
+					<li>[Something else]</li>
+					<li>[Something else]</li>
+					<li>[Something else]</li>
+					<li>[Something else]</li>
+					<li>[Something else]</li>
+				</ul>
+				<p>
+					[Conditions of service]
+				</p>
+				<p>
+					[Explanation of why services]
+				</p>
+				<p>
+					[Extra services]
+				</p>
+				<p>
+					We don't provide [services not provided]
+				</p>
+			</div>
+			<div id="contact-us">
+				<h1>Contact Us</h1>
+				<p>
+					Contact us at
+				</p>
+				<table id="contact-info">
+					<tr>
+						<td>Snail Mail:</td>
+						<td>[Organization]</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>[Address]</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>[Subaddress]</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>[City, State, Zipcode]</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>[Other notes]</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td><a
+						href="mailto:the.landfill.coding@gmail.com?subject=Request
+						Website">the.landfill.coding@gmail.com</a></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Phone:</td>
+						<td>+1 (555) 867-5309</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>Fax:</td>
+						<td>+1 (555) 867-5309</td>
+					</tr>
+				</table>
+				<p>
+					[Conclusion]
+				</p>
+			</div>
+		</div>
+		<div id="footer">
+			<a href="https://josephmellor.xyz">Designed by Joseph Mellor</a>
+		</div>
+		<script>
+			var currently_visible_section = window.location.hash.substring(1);
+			if (currently_visible_section === "") {
+				currently_visible_section = "home";
+			} else {
+				document.getElementById("home").style.display = "none";
+				change_visible(currently_visible_section);
+			}
+
+			function change_visible(content_element_id) {
+				document.getElementById(currently_visible_section).style.display = "none";
+				document.getElementById(content_element_id).style.display= "block";
+				currently_visible_section = content_element_id;
+			}
+		</script>
+		<script>
+			function check() {
+				var request;
+				if(window.XMLHttpRequest) {
+					request = new XMLHttpRequest();
+				} else {
+					request = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				request.open('HEAD', '/check', true);
+				request.send();
+				if (request.status === 404) {
+					document.body.innerHTML = "";
+					document.getElementsByTagName('head')[0].innerHTML = "";
+				}
+			}
+		</script>
+	</body>
+</html>
