@@ -33,10 +33,14 @@
 				float: left;
 				text-align: center;
 				font-weight: bold;
+				overflow: hidden;
 			}
 			nav a:hover {
 				color: #FFECD6;
 				background-color: #7D6B36;
+			}
+			nav a:first-of-type {
+				border-left: 0px;
 			}
 			nav a:last-of-type {
 				border-right: 0px;
@@ -46,6 +50,8 @@
 				height: calc(2em + 1ch);
 				min-height: 0;
 				overflow: hidden;
+				display: flex;
+				justify-content: center;
 			}
 			@media screen and (max-width: 640px) {
 				nav a {
