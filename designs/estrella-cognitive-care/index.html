@@ -7,16 +7,19 @@
 		<link rel="icon" href="/resources/favicon.png">
 		<link rel="stylesheet" href="/css/nanobs.css">
 		<style>
+			html {
+				scroll-behavior: smooth;
+			}
 			body {
 				color: black;
 				background-color: #094275;
 			}
 			h1 {
 				font-weight: bold;
-				font-size: 10vh;
+				font-size: 7vw;
 			}
 			h2 {
-				font-size: 8vh;
+				font-size: 3vw;
 			}
 			hr {
 				height: 1px;
@@ -24,7 +27,7 @@
 				background-color: white;
 			}
 			#header {
-				position: sticky;
+				/*position: sticky;*/
 				top: 0;
 				min-height: 20vh;
 				display: flex;
@@ -36,24 +39,25 @@
 			}
 			#header-image img {
 				margin: 0 auto;
-				width: 10vw;
+				width: 20vw;
 			}
 			nav {
-				flex-grow: 3;
+				flex: 1;
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: space-around;
 			}
-			.nav-item {
-				margin: auto;
-				padding: 5%;
-			}
 			nav a {
+				flex: 1;
 				color: white;
-				font-size: 5vh;
+				font-size: 3vw;
+				text-align: center;
+				padding-top: 5vh;
+				padding-bottom: 5vh;
 			}
 			nav a:hover {
 				color: grey;
+				text-decoration: none;
 			}
 			#welcome {
 				text-align: center;
@@ -67,33 +71,36 @@
 				margin-bottom: 5vh;
 			}
 			#welcome p {
-				font-size: 7vh;
+				font-size: 3vw;
 			}
 			button {
 				background-color: salmon;
 				border-radius: 8px;
-				font-size: 5vh;
+				font-size: 3vw;
+				font-weight: bold;
 				color: black;
-				padding: 0.5em 4ch;
+				padding: 1vw 3vw;
 			}
 			button:hover {
 				background-color: #F36B5D;
 			}
+			#about-link {
+				height: 5vh;
+			}
 			#about {
 				margin-left: 5vw;
 				margin-right: 5vw;
-				padding-bottom: 5em;
+				padding-bottom: 5vh;
 				display: flex;
 				flex-flow: row wrap;
 				align-items: center;
-				min-height: 50vh;
-				font-size: 4vh;
+				font-size: 2vw;
 			}
 			#about-textbox {
 				background-color: salmon;
 				flex: 3;
-				height: 90vh;
-				padding-top: 10vh;
+				height: 60vw;
+				padding-top: calc(60vw / 2 - 2 * 90vw * 3621.0 / 5432.0 / 5 / 2 + 1.9px - 10vw);
 			}
 			#about-textbox * {
 				padding: 2vw;
@@ -101,6 +108,7 @@
 			#about-textbox h2 {
 				padding-bottom: 0;
 				margin-bottom: 0;
+				font-size: 4vw;
 			}
 			#about-textbox p {
 				line-height: 1.75em;
@@ -118,7 +126,7 @@
 				flex-grow: 5;
 			}
 			#about-image .non-image {
-				height: calc(90vh / 2 - 2 * 90vw * 3621 / 5432 / 5 / 2 + 1.5px);
+				height: calc(60vw / 2 - 2 * 90vw * 3621.0 / 5432.0 / 5 / 2 + 1.999px);
 				width: 100%;
 				background: linear-gradient(90deg, salmon 50%, #094275 50%);
 			}
@@ -132,7 +140,13 @@
 				background-color: #094275;
 				color: white;
 			}
-			#services h2, h3 {
+			#services h2 {
+				font-size: 5vw;
+			}
+			#services h3 {
+				font-size: 3vw;
+			}
+			#services h2, h3, h4 {
 				text-align: center;
 			}
 			#service-boxes {
@@ -148,29 +162,40 @@
 			}
 			.service-box img {
 				width: 100%;
-			}
-			#contact {
-				display: flex;
-				flex-flow: row wrap;
-				justify-content: space-around;
-			}
-			#footer {
-				text-align: center;
-				color: salmon;
-				background-color: black;
+				margin-bottom: 5vh;
 			}
 			#contact {
 				background-color: salmon;
-				padding: 10vh;
+				padding: 10vw 5vw;
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-around;
+				font-size: 2vw;
+			}
+			#contact h2 {
+				font-size: 4vw;
+			}
+			#contact-middle, #contact-right {
+				padding-top: 2vw;
 			}
 			#contact-middle img {
 				width: 2vw;
+			}
+			#contact-middle ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
 			}
 			#contact-right p {
 				margin-bottom: 0;
 			}
 			#footer a {
 				color: #DC143C;
+			}
+			#footer {
+				text-align: center;
+				color: salmon;
+				background-color: black;
 			}
 		</style>
 		<title>Estrella Cognitive Care</title>
@@ -181,10 +206,18 @@
 				<img src="logo-cropped.png">
 			</div>
 			<nav>
-				<div class="nav-item"><a href="#home">Home</a></div>
-				<div class="nav-item"><a href="#about">About</a></div>
-				<div class="nav-item"><a href="#services">Services</a></div>
-				<div class="nav-item"><a href="#contact">Contact</a></div>
+				<a href="#home">
+					Home
+				</a>
+				<a href="#about-link">
+					About
+				</a>
+				<a href="#services">
+					Services
+				</a>
+				<a href="#contact">
+					Contact
+				</a>
 			</nav>
 		</div>
 		<div id="welcome">
@@ -192,6 +225,7 @@
 			<p>Let's Chat</p>
 			<button>Book Now</button>
 		</div>
+		<div id="about-link"></div>
 		<div id="about">
 			<div id="about-textbox">
 				<h2>About</h2>
@@ -233,8 +267,8 @@
 			</div>
 		</div>
 		<div id="contact">
-			<h2>Contact</h2>
 			<div id="contact-left">
+				<h2>Contact</h2>
 				<p>I can't read this<br>so this is just<br>some filler text.</p>
 			</div>
 			<div id="contact-middle">
@@ -260,8 +294,10 @@
 				<form>
 					<input type="email" id="email-addr" name="email-addr"
 						placeholder="Enter your email here"
-						pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])">
-					<input type="submit" value="Submit">
+						pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
+						style="background-color: salmon; height: 4vw; width: 20vw; font-size: 1.25vw;"
+					>
+					<input type="submit" value="Submit" style="background-color: black; color: salmon; height: 4vw; border-radius: 0; font-weight: bold; width: 10vw; font-size: 1.5vw;">
 				</form>
 				<p>Thanks for submitting!</p>
 			</div>
