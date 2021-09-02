@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="The website for Estrella Cognitive Care LLC.">
+		<link rel="icon" href="/resources/favicon.png">
+		<link rel="stylesheet" href="/css/nanobs.css">
+		<style>
+			body {
+				color: black;
+				background-color: #094275;
+			}
+			h1 {
+				font-weight: bold;
+				font-size: 10vh;
+			}
+			h2 {
+				font-size: 8vh;
+			}
+			hr {
+				height: 1px;
+				color: white;
+				background-color: white;
+			}
+			#header {
+				position: sticky;
+				top: 0;
+				min-height: 20vh;
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-around;
+				align-items: center;
+				background-color: #094275;
+				color: white;
+			}
+			#header-image img {
+				margin: 0 auto;
+				width: 10vw;
+			}
+			nav {
+				flex-grow: 3;
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-around;
+			}
+			.nav-item {
+				margin: auto;
+				padding: 5%;
+			}
+			nav a {
+				color: white;
+				font-size: 5vh;
+			}
+			nav a:hover {
+				color: grey;
+			}
+			#welcome {
+				text-align: center;
+				padding-top: calc(32vw * 3250 / 6000);
+				padding-bottom: 5em;
+				color: white;
+				background-image:
+				url(christoph-von-gellhorn-kjA82leKmJc-unsplash.jpg);
+				background-size: cover;
+				height: calc(100vw * 3250 / 6000);
+				margin-bottom: 5vh;
+			}
+			#welcome p {
+				font-size: 7vh;
+			}
+			button {
+				background-color: salmon;
+				border-radius: 8px;
+				font-size: 5vh;
+				color: black;
+				padding: 0.5em 4ch;
+			}
+			button:hover {
+				background-color: #F36B5D;
+			}
+			#about {
+				margin-left: 5vw;
+				margin-right: 5vw;
+				padding-bottom: 5em;
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+				min-height: 50vh;
+				font-size: 4vh;
+			}
+			#about-textbox {
+				background-color: salmon;
+				flex: 3;
+				height: 90vh;
+				padding-top: 10vh;
+			}
+			#about-textbox * {
+				padding: 2vw;
+			}
+			#about-textbox h2 {
+				padding-bottom: 0;
+				margin-bottom: 0;
+			}
+			#about-textbox p {
+				line-height: 1.75em;
+				margin-top: 0;
+				padding-top: 1em;
+			}
+			#about-image {
+				flex: 2;
+				display: flex;
+				flex-flow: column;
+				align-items: center;
+				height: 100%;
+			}
+			#about-image div {
+				flex-grow: 5;
+			}
+			#about-image .non-image {
+				height: calc(90vh / 2 - 2 * 90vw * 3621 / 5432 / 5 / 2 + 1.5px);
+				width: 100%;
+				background: linear-gradient(90deg, salmon 50%, #094275 50%);
+			}
+			#about-image img {
+				width: 100%;
+			}
+			#services {
+				padding-bottom: 5em;
+				width: 90vw;
+				margin-left: 5vw;
+				background-color: #094275;
+				color: white;
+			}
+			#services h2, h3 {
+				text-align: center;
+			}
+			#service-boxes {
+				margin: auto;
+				display: flex;
+				align-items: center;
+				flex-flow: row wrap;
+				justify-content: space-around;
+			}
+			.service-box {
+				margin: 1vw;
+				flex: 1;
+			}
+			.service-box img {
+				width: 100%;
+			}
+			#contact {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-around;
+			}
+			#footer {
+				text-align: center;
+				color: salmon;
+				background-color: black;
+			}
+			#contact {
+				background-color: salmon;
+				padding: 10vh;
+			}
+			#contact-middle img {
+				width: 2vw;
+			}
+			#contact-right p {
+				margin-bottom: 0;
+			}
+			#footer a {
+				color: #DC143C;
+			}
+		</style>
+		<title>Estrella Cognitive Care</title>
+	</head>
+	<body>
+		<div id="header">
+			<div id="header-image">
+				<img src="logo-cropped.png">
+			</div>
+			<nav>
+				<div class="nav-item"><a href="#home">Home</a></div>
+				<div class="nav-item"><a href="#about">About</a></div>
+				<div class="nav-item"><a href="#services">Services</a></div>
+				<div class="nav-item"><a href="#contact">Contact</a></div>
+			</nav>
+		</div>
+		<div id="welcome">
+			<h1>Welcome to Estrella<br>Cognitive Care</h1>
+			<p>Let's Chat</p>
+			<button>Book Now</button>
+		</div>
+		<div id="about">
+			<div id="about-textbox">
+				<h2>About</h2>
+				<p>The main discussion topics at Estrella Cognitive Care often
+					pave the way to surprising and unexpected conversations
+					thanks to our engaged forum users. Our Forum is dedicated to
+					enhancing the forum experience by offering plenty of
+					opportunities for users to engage with each other in an
+					interesting and safe online environment.
+				</p>
+			</div>
+			<div id="about-image">
+				<div class="non-image"></div>
+				<div><img src="drew-beamer-7N-cJvr0CYQ-unsplash.jpg"></div>
+				<div class="non-image"></div>
+			</div>
+		</div>
+		<div id="services">
+			<h2>Services</h2>
+			<div id="service-boxes">
+				<div class="service-box">
+					<img src="drew-beamer-7N-cJvr0CYQ-unsplash.jpg">
+					<h3>Kids Photography</h3>
+					<hr>
+					<h4>$25</h4>
+				</div>
+				<div class="service-box">
+					<img src="drew-beamer-7N-cJvr0CYQ-unsplash.jpg">
+					<h3>Pregnancy Portraits</h3>
+					<hr>
+					<h4>$40</h4>
+				</div>
+				<div class="service-box">
+					<img src="drew-beamer-7N-cJvr0CYQ-unsplash.jpg">
+					<h3>Family Photos</h3>
+					<hr>
+					<h4>$20</h4>
+				</div>
+			</div>
+		</div>
+		<div id="contact">
+			<h2>Contact</h2>
+			<div id="contact-left">
+				<p>I can't read this<br>so this is just<br>some filler text.</p>
+			</div>
+			<div id="contact-middle">
+				<ul>
+					<li>Tel 123-123-1234
+					</li>
+					<li>Email <a
+						href="mailto:example@gmail.com">example@gmail.com</a>
+					</li>
+					<li>youtubelink
+					</li>
+					<li>
+						<a href="https://facebook.com"><img
+							src="facebook.svg"></a>
+						<a href="https://instagram.com"><img
+							src="instagram.svg"></a>
+						<a href="https://youtube.com"><img
+							src="youtube.svg"></a>
+					</li>
+			</div>
+			<div id="contact-right">
+				<p>Subscribe to my YouTube channel</p>
+				<form>
+					<input type="email" id="email-addr" name="email-addr"
+						placeholder="Enter your email here"
+						pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])">
+					<input type="submit" value="Submit">
+				</form>
+				<p>Thanks for submitting!</p>
+			</div>
+		</div>
+		<div id="footer">
+			&copy; 2021 by Estrella Cognitive Care.
+			Designed by <a href="https://josephmellor.xyz/designs/">Joseph
+			Mellor</a>.
+		</div>
+	</body>
+</html>
