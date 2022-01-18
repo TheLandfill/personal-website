@@ -49,11 +49,9 @@
 		</div>
 		<div id="content">
 			<h2>Articles</h2>
-			<p>For now, I'm just going to separate my articles out by website.
-			Since I don't have a dedicated webpage for the TUACM articles and I
-			want people to be able to read my Medium articles, I'm going to
-			list them individually.
-			</p>
+			<p>If you like my work, the easiest way to support me is to read
+			and share my articles. Doing so helps out a lot and allows me to
+			dedicate more of my time to writing these articles.
 			<h3>Road to Quantum Mechanics</h3>
 			<p>It's a long road to understanding Quantum Mechanics, and there
 			are no shortcuts. In this series, I'll show you Quantum Mechanics
@@ -147,13 +145,29 @@
 				I also have a <a
 				href="https://www.youtube.com/channel/UCLkXgO7FEs8BHOtUybddLnQ">YouTube
 				channel</a> where I upload videos on topics related to physics,
-				math, and coding. It doesn't have much on it since I don't have
-				enough experience with video editing to make normal length
-				videos, but I definitely plan on starting. For example, I have
-				just released my first serious video: <i><a
-				href="https://youtu.be/sbDcsNTFKLI">Entropy is NOT
-				Disorder</a></i>.
+				math, and coding.
 			</p>
+			<iframe class="latestVideoEmbed" vnum='0' cid="UCLkXgO7FEs8BHOtUybddLnQ" width="100%" frameborder="0" allowfullscreen></iframe>
+			<iframe class="latestVideoEmbed" vnum='1' cid="UCLkXgO7FEs8BHOtUybddLnQ" width="100%" frameborder="0" allowfullscreen></iframe>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+			<script>
+var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
+function loadVideo(iframe) {
+  $.getJSON(reqURL + iframe.getAttribute('cid'),
+    function(data) {
+      var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
+      console.log(videoNumber);
+      var link = data.items[videoNumber].link;
+      id = link.substr(link.indexOf("=") + 1);
+      iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
+    }
+  );
+}
+var iframes = document.getElementsByClassName('latestVideoEmbed');
+for (var i = 0, len = iframes.length; i < len; i++) {
+  loadVideo(iframes[i]);
+}
+			</script>
 			<h2>Request an Article</h2>
 			<p>
 				If you would like me to write an article for you, <a
