@@ -1,0 +1,11 @@
+.finished {
+	color: #80FFC8;
+}
+
+.half-finished {
+	color: #CDF72D;
+}
+
+.not-started {
+	color: #DC143C;
+}
