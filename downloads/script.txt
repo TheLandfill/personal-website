@@ -1,0 +1,591 @@
+Intro
+________________________________________________________________________________
+In the previous video, we derived some high quality symplectic integrators.
+These integrators give amazing performance with a few simple calculations. In
+many cases, you can get incredible improvements by just doing the steps in a
+different order. In this video, we're going to extend these concepts to deal
+with rotations. I'd recommend seeing the previous video, but I'll give a brief
+recap.
+
+Recap
+________________________________________________________________________________
+You describe position and velocity with a set of numbers called coordinates. If
+you're making a 2D game, position and velocity have two coordinates each. If
+you're making a 3D game, position and velocity have three coordinates each. To
+make coordinates make sense, you need a coordinate system. You tend to use the
+Cartesian coordinate system for a bunch of reasons.
+
+For other reasons, you tend to work in Newtonian Mechanics but possibly use
+concepts from Lagrangian and Hamiltonian Mechanics to help improve accuracy,
+with d'Alembert's Principle and Symplectic Integrators being the main examples.
+In Newtonian Mechanics and Cartesian coordinates, force is mass times
+acceleration, which gets you a bunch of second-order differential equations.
+
+To solve these differential equations, you often use a Taylor series
+approximation. You plug the position, velocity, the acceleration, some estimates
+of higher-order derivatives of the position, and a timestep into the Taylor
+series approximation. There are a bunch of different algorithms for calculating
+the necessary derivatives, but we focused on one related to Hamiltonian
+Mechanics. To take a time derivative of a function in Hamiltonian Mechanics, you
+take the Poisson bracket of the function with the Hamiltonian, which is equal to
+the kinetic energy plus the potential energy in a lot of common cases. To take
+higher-order derivatives, you take nested Poisson brackets.
+
+This idea works, but it doesn't produce the best results. To get the best
+results, you need canonical transformations, which are coordinate
+transformations that follow Hamiltonian mechanics. We did so by separating the
+Hamiltonian into kinetic energy terms that only depend on the momentum and
+potential energy terms that only depend on the position. For reasons related to
+Hamiltonian Mechanics and Poisson brackets, the potential energy operator only
+updates the momentum and the kinetic energy operator only updates the position.
+Updating just the position coordinates or just the momentum coordinates
+according to the laws of Physics are canonical transformations, but updating
+both at the same time is not. In practice, this means we use either the updated
+position coordinates to calculate the acceleration or we use the updated
+velocity or momentum coordinates to update the position. In either case, we get
+a semi-implicit Euler method.
+
+We can get more accurate methods, but we need to use some ideas from Lie
+algebras, most notably the Baker-Campbell-Hausdorff formula. It turns out that
+semi-implicit Euler simulates a system described by a slightly modified
+Hamiltonian called the shadow Hamiltonian. To get more accurate methods, you
+combine various operators in different orders. For example, the leapfrog method
+updates the position using the old velocity with half the timestep, then use the
+semi-updated position to calculate the acceleration, then use the acceleration
+to update the new velocity, and finally update the position with the new
+velocity and half a timestep. We'll be using this method throughout the video
+because it's one more addition and multiplication than the simplest possible
+algorithm you could use.
+
+The symplectic integrators work well for a lot of reasons. Most forces in a
+video game can either be represented by a potential or aren't part of the
+numerical integration pipeline, so Hamiltonian Mechanics applies to the
+simulation. Since Hamiltonian Mechanics applies to the simulation, all
+quantities that would normally be conserved in reality are approximately
+conserved on average or sometimes exactly conserved. For example, in a Kepler
+problem where you have a single planet orbiting the sun, the total linear
+momentum and the angular momentum are both exactly conserved while the energy is
+approximately conserved. By enforcing the conservation of these conserved
+quantities, symplectic integrators keep systems from doing unrealistic things
+like a spring or pendulum gaining energy over time. Long story short, symplectic
+integrators are significantly more stable than normal integrators for a lot of
+systems.
+
+Recap over. Let's get on with the video.
+
+Rigid Bodies
+________________________________________________________________________________
+If you took what you learned in the previous video and nothing else, you would
+only be able to simulate infinitesimal particle motion. These particles can't
+collide with anything else, but they can move around based on a set of forces
+applied to the body. In the real world, we don't have particles in the same
+sense. Sure, we have quantum particles, but you're not simulating any of those
+in a video game. You're more likely to simulate things like a bucket or a
+spaceship. These objects are solid objects that don't noticeably deform under
+stress. For this reason, we call these objects rigid bodies.
+
+Rigid bodies are defined by the idea that all points of the rigid body are the
+same relative distance from each other at all times. In most games, you ensure
+that points maintain their relative distance by scaling, rotating, and
+translating the objects around. [ Give example. ]
+
+World and Body Coordinates
+________________________________________________________________________________
+So how do we keep all the relative distances the same in an object? The simplest
+way to do so is to work with just the vertices of the object. The vertices are
+just a list of vectors or points that describe the shape of the body. If we were
+rendering the object, we would also need to know things like how the vertices
+are connected with edges and their corresponding faces, but we're just doing
+physics right now. If we have these vertices, then we just need to make sure to
+transform all the vertices using scale, rotation, and translations. Applying all
+these these transformations transforms our coordinates from local coordinates to
+world coordinates which represent actual points in the world.
+
+Order of Transformations
+________________________________________________________________________________
+As a brief note, to convert from local to world coordinates, you need to do the
+transforms in this order.
+
+1.  Scale
+2.  Rotate
+3.  Translate
+
+I'm not going to explain why because I think you'd learn better if you tried out
+different orders yourself. I have some manim code in the description, and your
+goal is to try to transform the cone from this starting state to this final
+state using the transformations in any order.
+
+Soft Bodies
+________________________________________________________________________________
+In contrast to rigid bodies, objects that noticeably deform under stress are
+called soft bodies. A contiguous mass of jello, hair and cloth in a physics
+simulations, and balloons are typical examples of soft bodies. There are a few
+methods to simulate soft bodies, but the simplest is to make objects out of
+particles joined by springs. While we are going to focus on rigid bodies
+throughout this series, I'm bringing them up for a few reasons.
+
+-	Soft bodies are something you can implement in all games, even games that
+	use rigid body physics. For example, most cloth and hair in video games is
+	either hand-animated or simulated using soft body spring systems.
+-	Soft bodies offer an interesting alternative to the methods described in
+	this video that doesn't require any new math. To do so, we just create soft
+	bodies like normal, but we just set the spring constants to be pretty high.
+	To prevent things from blowing up, we need a symplectic integrator with a
+	reasonably small timestep. To prevent things from jittering too much, we
+	also need a second order or higher symplectic integrator.
+
+We're already using a second-order integrator, so we could use a soft body
+method if we wanted to. Making every rigid body a soft body with stiff springs
+would probably lead to noticeable instability or more work, so we just don't.
+Instead, we just use a standard rigid body approach.
+
+Why Rigid Bodies?
+________________________________________________________________________________
+Rigid bodies are quite nice to simulate in the numerical integrator because
+their motion can be described in terms of their center of mass and a rotation
+about the center of mass. Since the center of mass acts like a particle, we can
+use methods in the previous video to simulate it. Handling rotation on the other
+hand is more difficult, but doable.
+
+2D Rotations
+________________________________________________________________________________
+We're going to start with rotations in 2D. For forces in a video game, the 2D
+Hamiltonian is given by the kinetic energy plus the potential energy. In the
+last video, the 2D kinetic energy was just 1 over 2 m times the square of the
+momentum in the x direction plus the square of the momentum in the y direction.
+In this video, we have to add a rotation term, which is 1 over 2 I times the
+square of the angular momentum, where I is the moment of inertia. As you can
+imagine, the moment of inertia is basically like mass, but for rotations. Its
+exact formula for rotation along a specific axis is defined in terms of an
+integral. If you substitute this definition of inertia into the kinetic energy,
+and move some stuff around, you can see that we're still calculating the kinetic
+energy of every object, but we're just separating it out into a translational
+term and a rotational term.
+
+As a quick note, this separation only works if we're looking at the motion of
+the center of mass in the translational term.
+
+For this video, we're just going to treat it like a value someone tells us. For
+example, a circle of uniform density would have this moment of inertia, a ring
+of uniform density would have this moment of inertia, a square would have this
+moment of inertia, and so on. The higher the moment of inertia, the higher the
+torque needed to change the angular momentum.
+
+Speaking of torque, torque has the same relationship with angular momentum that
+force has with momentum, so we should be able to use a similar algorithm to the
+one we derived in the previous video. If we plug the Hamiltonian into Hamilton's
+equations of motion, we get this result. As you can see, the angular part of the
+system is just like the linear part, but with the moment of inertia replacing
+mass and torque replacing force. At this point, we can use the same algorithm as
+we derived in the previous video with a slight modification to include the
+angular components.
+
+// Leapfrog with Linear and Angular Components
+position += velocity * dt / 2.0;
+orientation += angular_velocity * dt / 2.0;
+
+velocity += calculate_acceleration(position, orientation) * dt;
+angular_velocity += calculate_angular_acceleration(position, orientation) * dt;
+
+position += velocity * dt / 2.0;
+orientation += angular_velocity * dt / 2.0;
+
+// The calculate_acceleration and calculate_angular_acceleration could also
+// depend on the velocity and angular_velocity, but that wouldn't be
+// Hamiltonian. With that being said, the acceleration calculated in this step
+// probably won't depend on the velocity or angular velocity. Also,
+// calculate_angular_accleration would happen at the same time as calculating
+// the acceleration. Lastly, you might want to make sure the orientation stays
+// within [0, 2 pi), which you can do with standard functions like fmodf or just
+// by subtracting 2 pi when the orientation goes above 2 pi and adding 2 pi when
+// it goes below.
+
+This code represents the 2D numerical integration pipeline for a standard
+physics engine except for calculating the forces and torques, constraint
+handling, and damping and drag forces. We'll talk about forces and torques in a
+later video, but, as I said in the previous video, we generally implement drag
+and damping by multiplying the velocity and angular velocity by a number between
+0 and 1 and letting exponential decay do its work. If you want more accuracy,
+use a smaller timestep or use a higher-order method and treat every angular
+component exactly like its linear counterpart.
+
+Representing Rotations in 3D
+________________________________________________________________________________
+We've already solved the 2D rotation problem, but this video has a lot more to
+go. That's because 3D rotations are significantly more difficult. To define a
+rotation in 2D, you only need to know the angle by which you're rotating the
+object. To define a rotation in 3D, you need to know both the angle and the
+axis. The axis can be defined with two numbers corresponding to the latitude and
+longitude, so you need at least three numbers. In the simplest case, you define
+a vector that points in the same direction as the axis with the magnitude
+representing the angle. This representation is known as the axis-angle
+representation, and it has a special place in physics engines because the
+angular momentum is most naturally represented in axis-angle form. It's not that
+great for representing the orientation or even used to rotate vectors because
+it's hard to combine two rotations, so we need something else.
+
+Rotation matrices are our next candidate. Rotation matrices are on the opposite
+extreme. They require nine numbers, tend to be bulky, have a complicated form,
+and they could be susceptible to gimbal lock, but they're the fastest way to
+rotate a vector. Furthermore, rendering objects often requires matrices anyway
+and small matrix multiplication on a GPU is so optimized that the cost doesn't
+matter, so you'll need matrices at some point anyway.
+
+Quaternions are our last candidate. They only need four numbers, they have a
+simple form related to the axis-angle formulation, and they require
+significantly fewer calculations to chain together rotations. Mathematically,
+they're less complicated than people have made them out to be, but 3blue1brown
+has a video on the topic and you can play around with some code they wrote for
+the video. I'm not going to go too deep into the mathematical underpinnings of
+quaternions and we'll talk about implementation details later. For now, just
+known that rotation quaternions must have unit length.
+
+As in many cases in programming, we use all three candidates at different points
+in the pipeline to maximize their effect. We use the axis-angle formulation to
+represent the angular momentum, quaternions to represent the orientation, and
+matrices to send the orientation to the rendering engine.
+
+The Dumb Method
+________________________________________________________________________________
+Now that we have that set up, let's try a naive approach to numerical
+integration. We're not going to do anything symplectic right now, we're just
+going to do the most basic form of the Euler method. Our three steps are to
+calculate the torque, use the torque to update the angular momentum, and use the
+angular momentum to update the orientation. Using the torque to update the
+angular momentum is pretty straightforward, we just scale it by the timestep and
+add it to the angular momentum. To use the angular momentum to update the
+orientation, we need to first convert it to angular velocity. Once we have it in
+terms of angular velocity, we can then convert the angular velocity from its
+axis-angle form to a quaternion, then rotate the orientation by that quaternion
+and we're done.
+
+So now, we just need some way of converting the angular momentum to angular
+velocity, and here's where it starts getting difficult. In the 2D case, we just
+had one constant for the moment of inertia. In the 3D case, we have an inertia
+tensor with six independent components. This inertia tensor is defined by this
+equation, where rho is the density. Again, we don't calculate this on the fly,
+we usually just calculate it ahead of time or look it up in a table. In either
+case, the formula for the rotational kinetic energy in Cartesian coordinates is
+
+1/2 I_{ij} omega^i omega^j (also show the matrix form).
+
+If we plug this equation for rotational kinetic energy into the Hamiltonian and
+then plug the Hamiltonian into Hamilton's equations, we get this result, which
+tells us that the time derivative of the angular momentum is the torque and the
+time derivative of the orientation is the inverse inertia tensor times the
+angular momentum. This almost works, but there's a small problem. We only have
+the inertia tensor in one reference frame. For example, say we have a bar or
+metal that's reasonably approximated by a full cylinder. The moment of inertia
+is this. If we rotate our coordinate system by 90 degrees, we have to switch
+everything around. If we rotate by anything other than 90 degrees, we also have
+to adjust the off-diagonal entries.
+
+To fix this problem, we can take our angular momentum vector, convert it into
+the local coordinate system, then multiply by the inertia tensor, then convert
+it back into the world coordinate system. Doing so is pretty easy and quick
+since our orientation is a quaternion. This orientation quaternion converts our
+body frame coordinates into world frame coordinates, so we'll need its inverse.
+
+Principal Axes
+________________________________________________________________________________
+Now, if you look through a list of moments of inertia, you'll find that the
+matrices tend to have zeros on the off-diagonal. Since all moments of inertia
+are real, symmetric matrices, they can be written as the product of a rotation
+matrix, a diagonal matrix, and the transpose of the rotation matrix. For us,
+this means that there is some orthogonal local coordinate system where the
+moment of inertia for any rigid body is a diagonal matrix. If we can find this
+local orthogonal coordinate system, then multiplying by the inertia tensor only
+takes 3 multiplications rather than the normal 9 multiplications and the 6
+additions. Furthermore, it means you only have to store three floating point
+numbers instead of the six for a symmetric matrix, which means your Physics
+objects take up less space, which means more can fit in the cache, which means
+faster performance. Granted, it's not the craziest performance optimization, but
+it's a pretty simple one to implement, so I wouldn't count it as premature.
+
+In a later video, we'll go into how to find the center of mass and the principal
+axes for arbtirary polyhedron, but for now we're just going to assume it will be
+given to us and the vertices of the rigid body are given as positions relative
+to the center of mass and in the principal axes coordinate system. Our
+orientation is therefore how we'd have to rotate the principal axes to get the
+current orientation.
+
+The Full Naive Approach
+________________________________________________________________________________
+Now that we know how to convert angular momentum into angular velocity, we
+should be able to fill out the naive approach.
+
+position += velocity * dt / 2.0;
+
+calculate_net_force_and_torque();
+
+velocity += force * dt / mass;
+
+position += velocity * dt / 2.0;
+
+angular_momentum += torque * dt;
+body_angular_momentum = angular_momentum.rotate(orientation.inverse());
+angular_velocity = inverse_inertia_tensor * angular_momentum;
+rotation = UnitQuaternion(angular_velocity * dt);
+orientation *= rotation;
+orientation.normalize()
+
+First, note that the translational code doesn't change except for me replacing
+the calculate_acceleration and calculate_torque functions with the
+calculate_net_force_and_torque function. That function stores its results in
+member variables called force and torque. It uses the updated half position, but
+not the updated orientation. Furthermore, note that I'm basically using
+something similar to semi-implicit Euler for the angular component, where I use
+the torque to update the angular momentum before updating the orientation. For
+now, I'm just using a first-order method because it's not really necessary to
+use a second-order method because rotations are automatically bounded. The only
+way for a rotation to look weird is if the angular momentum starts changing
+rapidly or suddenly increasing, which it probably won't.
+
+Euler Equations
+________________________________________________________________________________
+Before we put this method to the test, we have to come up with something to
+compare it to. Since we have the Hamiltonian set up, I want to spend some time
+talking about an alternative approach that lends itself to symplectic
+integration. For those of you who aren't interested in this more advanced
+physics stuff, you can skip to this timecode. For those of you who are
+interested, make sure you check out the previous video because I don't want to
+rederive a lot of the concepts.
+
+Currently, our strategy is to calculate torques in world space, then convert the
+torques and angular momentum to body space. While everything we've done up to
+this point is valid, it's going to be difficult to get a symplectic method by
+splitting the kinetic energy with all these cross terms. To get around this
+problem, we're going to work in the principal axes frame. In this frame, the
+kinetic energy never has any cross terms, which makes it easy to separate, but
+our equations get a little more complicated because we need to figure out how to
+convert from our principal axes frame to the world frame.
+
+To keep things clean, we're going to define two sets of basis vectors for our
+two coordinate systems. For the world coordinate system, we're going to use the
+standard Cartesian basis vectors, x hat, y hat, and z hat. For the principal
+axes coordinate system, we're going to use the basis vectors s1 hat, s2 hat, and
+s3 hat. All these basis vectors have a hat because they're normalized to have
+length one. We can write all the principal axes basis vectors in terms of the
+Cartesian basis vectors like so.
+
+We can use these principal axes basis vectors to represent the orientation. To
+see how, we can try to come up with a transformation that sends s1 hat, s2 hat,
+and s3 hat to some new vectors in the world coordinate system. Since rotations
+don't change the distance between any two points, lines that start out parallel
+must remain parallel and they must remain evenly spaced. When combined with the
+fact that rotations don't move the origin around, we have that rotations must be
+a linear transformation. We can think of linear transformations as matrices
+where each column is where we send the basis vectors in terms of the old basis
+vectors, which looks like this. For example, to rotate this vector in the old
+reference frame into this new reference frame, we can either replace the old
+basis vectors with the new basis vectors or we can do the matrix multiplication.
+As you can see, both give the same result.
+
+For more information on these ideas, check out this 3blue1brown video.
+
+Moving on, we now have to figure out two things: how these basis vectors change
+over time and how the angular momentum in the principal axis frame changes over
+time. Both of these problems require that we figure out how to take the time
+derivative of a vector in a rotating reference frame. Our first step is to write
+our vector in the rotating reference frame. Then, we take the time derivative of
+this vector. We can split this derivative of a sum into a sum of derivatives,
+but we have to be careful here. Since both the coordinates and the basis vectors
+change over time, we need to use product rule here. Doing so gets us this
+result. We can group the results into terms with derivatives of the coordinates
+and derivatives of the basis vectors. Since we're working in the rotating
+reference frame, we'll want this vector, so we're going to get it to one side,
+
+We've reduced our problem to finding the time derivatives of the basis vectors.
+To move forward, we should bring in angular velocity. Let's say we have an
+object with an angular velocity of (0, 0, 2 pi), which corresponds to 1 rotation
+per second around the s3 axis. Since we're rotating around the s3 axis, it
+doesn't change while both the s1 and s2 axes will change. Furthermore, after an
+infinitesimal amount of time, the s1 axis will change in the negative s2
+direction while the s2 axis will change in the positive s1 direction. In other
+words, the s1 and s2 axes will change in a direction perpendicular to both
+themselves and the angular velocity vector. To get a vector perpendicular to two
+vectors in 3D, you typically use a cross product. For this reason, I'd guess
+that the time derivative of the s1 and s2 basis vectors is the cross product
+between the the angular velocity and the vector. By a symmetry argument, s3
+would have a similar equation.
+
+It turns out that these equations are correct and we can plug them back into our
+original time derivative equation. From there, we can factor out the cross
+product since it's a linear operator. To finish everything off, we can replace
+the arbitrary vector with our angular momentum. These equations are known as
+Euler's Rigid Body Equations. When combined with the time derivatives of the
+basis vectors, we have a complete description of how the orientation of a body
+changes over time.
+
+Euler's Rigid Body Equations in Hamiltonian Mechanics
+________________________________________________________________________________
+Now, we're stuck with a problem. If we try plugging the Hamiltonian in the
+principal axes frame into Hamilton's Equations, we do not get Euler's Rigid Body
+Equations. The most prominent failure comes from the fact that none of the terms
+have a cross product, but we're also missing the angular momentum cross the
+angular velocity term in the time derivative of the angular momentum equation.
+
+Our goal now is to try to find some way to get Euler's Rigid Body Equations and
+the basis vector equations out of this Hamiltonian system. Since the Hamiltonian
+is the total energy in this case, we can't change it. Our only option is to
+somehow change Hamilton's Equations to become Euler's Rigid Body Equations while
+still preserving as many of the nice properties of Hamiltonian Mechanics as
+possible. These nice properties can be mostly expressed in terms of Poisson
+brackets, so we should try to do something with Poisson brackets. We can start
+by rewriting Hamilton's Equations in terms of Poisson brackets. We then have to
+set up the Poisson bracket so that these equations are equivalent to the
+equations of motion. For us to do so in a consistent way without losing all the
+nice properties of the Poisson bracket, we have to make sure that it has the
+properties of the Poisson bracket. We'll also need to make sure that we take
+derivatives of the Hamiltonian with respect to all the different coordinates of
+both positions and momenta, which suggests that we should take gradients of the
+functions with respect to all the coordinates.
+
+Since the gradient gives us a vector, we currently have two vectors and we need
+to turn it into a scalar. The simplest way to do so is to do a dot product. If
+we try using this Poisson bracket, we'll get something that's incorrect, but
+similar in form to Hamilton's equations. To fix this problem, we can switch the
+order of the components of the second vector and flipping some of the signs,
+which we can do by multiplying it by a matrix, which we called J in the previous
+video. We have Hamilton's equations in an inertial reference frame.
+
+Now, we want to use these ideas to get things into a rotating reference frame.
+First, we take the partial derivatives of the Hamiltonian with respect to all the
+coordinates because we know we'll need them. First, you can see that the
+gradient with respect to the momentum gets you the momentum times the inverse
+inertia tensor, which is the angular velocity. Second, it's more annoying to
+see, but the gradient with respect to the orientation is somewhat like a
+gradient of potential with respect to position, which is akin to force. More
+specifically, you can imagine it like a force at the tip of the basis vector.
+
+Since we can't really change the gradients, the only thing we can change is the
+matrix. Finding our correct matrix involves writing out our equations of motion
+in an expanded form, then plugging each of the coordinates in as our function to
+the Poisson bracket. For example, to find the first row, we plug in s_1x in for
+our first function and the Hamiltonian for the other function. We can also
+expand out the derivative of the first basis vector in terms of its components,
+then compare terms. Doing so gets us zeros except for the last two columns. All
+the other orientation coordinates follow an almost identical derivation, so
+we're good on that front.
+
+We can then use a trick to figure out the first nine columns. If we flip the
+Poisson bracket, we should get the negative of what we got earlier. We can then
+do the same exact process we did before with comparing terms and whatnot. Then,
+we just need to figure out what to do with the bottom 3x3 chunk. To fill this
+section out, it's easiest to make the potential constant everywhere, which means
+no torque. Then, we can do the exact same process as we've done 18 times, and
+get this to fill out the bottom right corner.
+
+To make sure everything is alright, we can expand it all out. The orientation
+equations are exactly as we would like, but the angular momentum equation looks
+a little weird. Luckily for us, all these terms are some position vector cross
+the gradient of potential, a.k.a. force, so they all become torques. The full
+process is annoying, but you can find the full derivation in section 8.3 of
+Simulating Hamiltonian Dynamics. Then, we can combine all these torques into one
+net torque and we've recovered our equations of motion.
+
+The last thing to do would be to make sure that this Poisson bracket is actually
+a Poisson bracket. Anti-commutativity comes from the fact that the J matrix is
+skew-symmetric, meaning its transpose is equal to its negative. Bilinearity and
+the Leibniz rule come from the fact that we're taking gradients. Lastly, the
+Jacobi identity comes from a tedious proof that you can do if you want, but you
+just expand out the Poisson brackets and check if it adds up to zero.
+
+Note About the J Matrix
+________________________________________________________________________________
+As another quick note, this J matrix probably isn't full rank, which means that
+we can't define a symplectic two-form in the general case. We do get things
+called Casimir functions that are conserved quantities, and we can define
+symplectic two-forms on manifolds of phase space that keep these Casimir
+functions conserved. For example, if our potential energy is constant, then both
+the Hamiltonian and the magnitude of the angular momentum is constant. The
+magnitude of angular momentum is an example of a Casimir function while the
+Hamiltonian is just a normal function.
+
+Splitting Algorithms
+________________________________________________________________________________
+Now that we have all that set up, we can finally come up with a symplectic
+integrator. It's the same process as what we did in the previous video. We write
+up the Taylor series of an arbitrary function, we convert it into the
+exponential of the time derivative operator. We then replace the time derivative
+operator with the Poisson bracket with the Hamiltonian, using a dot as a
+placeholder in the first spot. We then split the Hamiltonian into the relevant
+terms. For computational reasons, we'll want to split the result into four
+terms: one for each kinetic energy term and one for the potential term. By
+splitting the kinetic energy into each of these three terms, we get a system of
+linear differential equations that we can solve exactly. From there, we split
+the Poisson bracket of the sum into a sum of Poisson brackets. Lastly, we split
+the exponential of the sum into a product of exponentials. Then, we calculate
+the effect of the Poisson bracket with each of the split terms. At the end of
+the process, you get that each kinetic energy term corresponds to rotating the
+orientation and the body angular momentum around one of the axes and the
+potential energy term corresponds to adding the torque times a small timestep to
+the angular momentum.
+
+To prove these statements, I'm going to show the work for T_i and V. The
+gradient of T_i with respect to the angular momentum vector is omega_i, which
+represents a rotation around the s_i basis vector. Since we're rotating around
+the s_i basis vector, it doesn't change and therefore we can consider it
+constant in all future derivations. Furthermore, the gradient of T_i with
+respect to the orientation basis vectors is zero. Plugging these facts in gives
+us a system of differential equations that we can solve exactly. We end up
+rotating around one of the s1, s2, or s3 axes by omega_1, omega_2, or omega_3
+times delta t. For V, the basis vectors remain constant. For the angular
+momentum, we just get the torque in the principal axis frame. Conceptually, this
+process looks like:
+
+1.	Calculate the torque in the principal axis frame.
+2.	Update the angular momentum using the torque.
+3.	Rotate everything around the s1 axis by omega_1.
+4.	Rotate everything around the s2 axis by omega_2.
+5.	Rotate everything around the s3 axis by omega_3.
+
+These methods were moderately easy to implement in code, even for quaternions.
+
+A Second Order Method
+________________________________________________________________________________
+We can create a second order method out of this process by doing these steps
+with a half timestep, then doing the steps again in the reverse order with
+another half timestep. This algorithm is similar to the Verlet methods in the
+previous video. In this case, the full algorithm could involve either
+calculating the torque twice with five rotations around an axis or calculating
+the torque once with six rotations around an axis.
+
+
+Results
+________________________________________________________________________________
+To keep this video from being too long, I've decided to release the code
+walkthrough as a separate video. In that video, I talk about the algorithms
+from a coding standpoint and do several tests on things like the energies and
+how many objects the different algorithms can reasonably simulate at one time.
+As a brief summary of the results, the non-symplectic method was around twice as
+fast as the two symplectic methods I implemented, so that's a clear win for the
+non-symplectic method. When it came to energy conservation without damping, the
+first and second-order symplectic methods conserved the energy far better than
+the non-symplectic method. Furthermore, the first-order symplectic method seemed
+to conserve the energy better when the object wasn't experiencing torque while
+the second-order symplectic method seemed to conserve the energy better when the
+object was experiencing a torque. On the other hand, the non-symplectic method
+seemed to lose energy better both with and without torque than the symplectic
+methods. Lastly, both symplectic methods took more accurate paths in all cases
+while the non-symplectic method did not. For example, while all three methods
+demonstrated precession, which is the rotation of the spin axis, the
+non-symplectic method did not demonstrate nutation (new-tation), which looks
+like wobbling.
+
+We're working in the context of game dev where performance matters more than
+realism, especially in cases where people don't intuitively understand what a
+realistic system looks like. For this reason, I decided to go with the
+non-symplectic method with damping in most cases, though I might use the
+first-order symplectic method from time to time if I want more accurate paths or
+if I can't use damping like if I were writing a space simulator.
+
+I also tested the various integration methods in the previous video with
+damping. The second-order symplectic method outperformed the first-order method
+and the bad Euler method went to infinity within a few seconds. Since the
+second-order symplectic method outperformed everything for translational motion,
+we're going to use it in this series.
+
+Outro
+________________________________________________________________________________
+
