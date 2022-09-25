@@ -383,6 +383,21 @@ As you can see, both give the same result.
 
 For more information on these ideas, check out this 3blue1brown video.
 
+Inverse Rotations
+________________________________________________________________________________
+For mathematical and practical reasons, we'll want to solve for a different, yet
+related set of vectors that will convert things from local space to world space.
+It's not as hard as you would expect. We just need to take the columns of the
+inverse of our current rotation matrix. Since we're working with a rotation
+matrix, the inverse is equal to the transpose. I'll call these new vectors sx,
+sy, and sz.
+
+For now, we're going to keep working with s1, s2, and s3 because it's a little
+easier to find the equations of motion, but switching between them shouldn't be
+too difficult.
+
+Changing Basis Vectors and Changing Angular Momentum
+________________________________________________________________________________
 Moving on, we now have to figure out two things: how these basis vectors change
 over time and how the angular momentum in the principal axis frame changes over
 time. Both of these problems require that we figure out how to take the time
@@ -417,13 +432,19 @@ Euler's Rigid Body Equations. When combined with the time derivatives of the
 basis vectors, we have a complete description of how the orientation of a body
 changes over time.
 
+These s1, s2, and s3 vectors would allow us to convert a vector in world
+coordinates to a vector in local coordinates, but we want to convert from local
+to world. Since the inverse transformation is to rotate in the opposite
+direction, we just flip the signs and replace the basis vectors to get our
+actual equations of motion.
+
 Euler's Rigid Body Equations in Hamiltonian Mechanics
 ________________________________________________________________________________
-Now, we're stuck with a problem. If we try plugging the Hamiltonian in the
-principal axes frame into Hamilton's Equations, we do not get Euler's Rigid Body
-Equations. The most prominent failure comes from the fact that none of the terms
-have a cross product, but we're also missing the angular momentum cross the
-angular velocity term in the time derivative of the angular momentum equation.
+Now, we're stuck with a problem. We currently can't even do Hamiltonian
+Mechanics because we don't have any relationship between the momentum and
+position coordinates. For a start, there are three momentum coordinates and nine
+orientation coordinates. To make matters worse, we still wouldn't get cross
+products and certain terms.
 
 Our goal now is to try to find some way to get Euler's Rigid Body Equations and
 the basis vector equations out of this Hamiltonian system. Since the Hamiltonian
@@ -450,13 +471,13 @@ which we can do by multiplying it by a matrix, which we called J in the previous
 video. We have Hamilton's equations in an inertial reference frame.
 
 Now, we want to use these ideas to get things into a rotating reference frame.
-First, we take the partial derivatives of the Hamiltonian with respect to all the
-coordinates because we know we'll need them. First, you can see that the
-gradient with respect to the momentum gets you the momentum times the inverse
-inertia tensor, which is the angular velocity. Second, it's more annoying to
-see, but the gradient with respect to the orientation is somewhat like a
-gradient of potential with respect to position, which is akin to force. More
-specifically, you can imagine it like a force at the tip of the basis vector.
+First, we take the partial derivatives of the Hamiltonian with respect to all
+the coordinates because we know we'll need them. The gradient of the Hamiltonian
+with respect to the momentum gets you the momentum times the inverse inertia
+tensor, which is the angular velocity. Second, it's more annoying to see, but
+the gradient with respect to the orientation is somewhat like a gradient of
+potential with respect to position, which is akin to force. More specifically,
+you can imagine it like a force at the tip of the basis vector.
 
 Since we can't really change the gradients, the only thing we can change is the
 matrix. Finding our correct matrix involves writing out our equations of motion
@@ -500,7 +521,9 @@ symplectic two-forms on manifolds of phase space that keep these Casimir
 functions conserved. For example, if our potential energy is constant, then both
 the Hamiltonian and the magnitude of the angular momentum is constant. The
 magnitude of angular momentum is an example of a Casimir function while the
-Hamiltonian is just a normal function.
+Hamiltonian is just a normal function. As a more complex example, the lengths of
+all the basis vectors and the other relationships between them like
+orthogonality are Casimir functinos.
 
 Splitting Algorithms
 ________________________________________________________________________________
@@ -550,7 +573,6 @@ another half timestep. This algorithm is similar to the Verlet methods in the
 previous video. In this case, the full algorithm could involve either
 calculating the torque twice with five rotations around an axis or calculating
 the torque once with six rotations around an axis.
-
 
 Results
 ________________________________________________________________________________
