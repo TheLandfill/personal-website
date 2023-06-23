@@ -159,7 +159,19 @@
 				This video makes more sense in the context of <a
 				href="https://joseph-mellor1999.medium.com/k-chains-and-k-cells-bc55faf6da1f?source=friends_link&sk=3c1a17994e8fd50e74029d2c5a2f9b47">k-cells</a>,
 				which are boxes with some mathematical formalism that makes
-				them useful for doing integrals.
+				them useful for doing integrals. In particular there is a
+				direct formula for calculating the boundary of a k-cell and
+				this boundary follows all the normal properties of things like
+				boundaries.
+			</p>
+			<img src="/designs/boundary.png">
+			<p>
+				It always helps to have a formal definition of the boundary of
+				a region, and Topology has us covered. The image explains
+				everything in enough detail that I don't feel a need to go any
+				further here. If you'd like to go further, check out <a
+				href="https://www.cantorsparadise.com/an-intro-to-topology-9e0478313b63?source=friends_link&sk=ebf03da0d56777bb635f32907a46fb7e">An
+				Intro to Topology</a>.
 			</p>
 			<div class=video-container>
 				<iframe width="100%" height="100%"
@@ -176,6 +188,24 @@
 				so it looks like the light is moving around, but it will do for
 				what it is.
 			</p>
+			<img src="/designs/tangent-bundle.gif">
+			<p>
+				Blender's python scripting system is incredibly powerful, so
+				it's a shame that I don't see a lot of people using it. Here, I
+				generated a curve from a list of points, I move a sphere along
+				that curve along with its local tangent space (more technically
+				there's a tangent space for every point on the manifold and I'm
+				just displaying the one that corresponds to the current point,
+				but you'll have to read <a
+				href="https://joseph-mellor1999.medium.com/vectors-and-covectors-81b64ff6e38b?source=friends_link&sk=da7b102f327edf03cceba6595baa445d">Vectors
+				and Covectors</a> for more information). Of particular note is
+				the scaling of the tangent space to get larger or smaller as it
+				moves around the torus. It's pretty funny to me that it's
+				actually easier to get working by understanding a matrix in
+				terms of where you send the basis vectors since it's easy
+				enough to get the local basis vectors of the tangent space,
+				which gives me the correct transformation matrix.
+			</p>
 			<div class=video-container>
 				<iframe width="100%" height="100%"
 				src="https://www.youtube.com/embed/lsqPlk6JzWI" title="YouTube
@@ -191,6 +221,21 @@
 				open sets that can be mapped to Euclidean space. I got that
 				effect, but I had to do some spherical coordinate
 				transformations to move the texture around for each disc.
+			</p>
+			<img src="/designs/matrix.png">
+			<p>
+				This image is kind of funny because it's one of my least
+				favorite images in terms of the concept it's supposed to
+				represent, but it's one of my favorite images both
+				aesthetically and technically. To make this image, I had to
+				figure out how to load an arbitrary (both in terms of the
+				position and direction) vector field into Blender. To pull this
+				off, I wrote <a
+				href="https://github.com/TheLandfill/blender-vector-field">a
+				script that would let me do so</a>. It also supports animated
+				vector fields, but it's not perfect. I need to get more
+				practice with Blender before I can get it fully set up, but
+				it's good enough for me now.
 			</p>
 		</div>
 		<div id="footer">
