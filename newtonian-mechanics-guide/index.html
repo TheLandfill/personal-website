@@ -72,7 +72,7 @@
 					</ol>
 				</li>
 				<li>Interactions
-					<ol id="interactions-sub">
+					<ul id="interactions-sub">
 						<li><input id="gravity" type="checkbox">
 							<b>Gravity:</b> Every object with mass attracts
 							every other object with mass.<br>
@@ -130,10 +130,36 @@
 						<li><input id="constraint" type="checkbox">
 							<b>Constraint Forces:</b> Is there anything
 							preventing an object from moving in a direction
-						other than the typical normal force? </li>
+							other than the typical normal force?
+						</li>
+					</ul>
+				</li>
+				<li><p><b>Systems:</b> A system in this context means any
+					collection of matter. Systems at this level are typically
+					collections of rigid bodies, but you could, in principle,
+					make a system with every left shoe in the world, the planet
+					Jupiter, and the Andromeda Galaxy. Newton's Laws hold so
+					long as you consider the center of mass of each system.
+					</p>
+					<p>For each question, write down the name of each prompt in the space below on a separate line.
+					<ol>
+						<li><b>Rigid Bodies:</b> Any object that does not
+							significantly deform under stress.<br><textarea
+							id="rigid-body-list">Ladder<br>Wall<br>Floor</textarea>
+						</li>
+						<li><b>Isolated Systems:</b> Any collection of objects
+							that only interact with objects in the
+							collection.<br><textarea
+							id="isolated-systems-list">Entire System</textarea>
+						</li>
+						<li><b>Interaction Splitters:</b> If there is an
+							interaction you care about, an interaction splitter
+							is a system that contains one of the objects in the
+							interaction, but not both.<br><textarea
+							id="interaction-splitter-list"></textarea>
+						</li>
 					</ol>
 				</li>
-				<li><input id="systems" type="checkbox"> Systems</li>
 				<li><input id="inertial-forces" type="checkbox"> Inertial Forces</li>
 				<li><input id="equations" type="checkbox"> Equations</li>
 				<li><input id="solving" type="checkbox"> Solving</li>
