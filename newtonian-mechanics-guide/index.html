@@ -57,8 +57,20 @@
 			</p>
 			<div id="example-physics-problems">
 			</div>
-			<ol>
-				<li><input id="setup" type="checkbox"> Setup</li>
+			<ol id="steps">
+				<li>Setup
+					<ol id="setup-sub">
+						<li>Determine the goal of the problem.
+							<textarea id="goal-text"></textarea>
+						</li>
+						<li>Underline or write down any context-specific equations.
+							<textarea id="context-specific-equations">
+						</li>
+						<li>Annotate the information with variable names or relevance to the goal.
+							<textarea id="variable-assignments">
+						</li>
+					</ol>
+				</li>
 				<li><input id="interactions" type="checkbox"> Interactions</li>
 				<li><input id="systems" type="checkbox"> Systems</li>
 				<li><input id="inertial-forces" type="checkbox"> Inertial Forces</li>
@@ -71,24 +83,5 @@
 		<div id="footer">
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>
-var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
-function loadVideo(iframe) {
-  $.getJSON(reqURL + iframe.getAttribute('cid'),
-    function(data) {
-      var videoNumber = (iframe.getAttribute('vnum') ? Number(iframe.getAttribute('vnum')) : 0);
-      console.log(videoNumber);
-      var link = data.items[videoNumber].link;
-      id = link.substr(link.indexOf("=") + 1);
-      iframe.setAttribute("src", "https://youtube.com/embed/" + id + "?controls=0&autoplay=1");
-    }
-  );
-}
-var iframes = document.getElementsByClassName('latestVideoEmbed');
-for (var i = 0, len = iframes.length; i < len; i++) {
-  loadVideo(iframes[i]);
-}
-		</script>
 	</body>
 </html>
