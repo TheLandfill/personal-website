@@ -51,8 +51,8 @@
 		</div>
 		<div id="content">
 			<p>Below is the complete list of steps to solve a problem in
-			Newtonian Mechanics. If you see something relevant, click the
-			checkbox. Otherwise, continue down the page. Examples are provided
+			Newtonian Mechanics. Optional steps have a checkbox that you can
+			turn on or off to explore them further. Examples are provided
 			below.
 			</p>
 			<div id="example-physics-problems">
@@ -60,18 +60,79 @@
 			<ol id="steps">
 				<li>Setup
 					<ol id="setup-sub">
-						<li>Determine the goal of the problem.
+						<li>Determine the goal of the problem.<br>
 							<textarea id="goal-text"></textarea>
 						</li>
-						<li>Underline or write down any context-specific equations.
+						<li>Underline or write down any context-specific equations.<br>
 							<textarea id="context-specific-equations"></textarea>
 						</li>
-						<li>Annotate the information with variable names or relevance to the goal.
+						<li>Annotate the information with variable names or relevance to the goal.<br>
 							<textarea id="variable-assignments"></textarea>
 						</li>
 					</ol>
 				</li>
-				<li><input id="interactions" type="checkbox"> Interactions</li>
+				<li>Interactions
+					<ol id="interactions-sub">
+						<li><input id="gravity" type="checkbox">
+							<b>Gravity:</b> Every object with mass attracts
+							every other object with mass.<br>
+
+							<input id="on-earth" type="radio" name="gravity">
+							<label for="on-earth">Would you describe the system
+								as on Earth?</label><br>
+
+							<input id="given-local-g" type="radio"
+							name="gravity">
+							<label for="given-local-g">Are you explicitly given
+								a local gravitational acceleration?</label><br>
+
+							<input id="local" type="radio" name="gravity">
+							<label for="local">Does the object stay within
+								around 0.1% of its initial distance from the
+								planet or moon?</label><br>
+
+							<input id="planet" type="radio" name="gravity">
+							<label for="planet">Are you talking about objects
+							on the scale of planets, asteroids, or
+							stars?</label><br>
+
+							<input id="universal" type="radio" name="gravity">
+							<label for="universal">Are you unable to answer any
+							of the previous questions in this section?</label><br>
+						</li>
+						<li><input id="tension" type="checkbox">
+							<b>Tension:</b> Are there any ropes,
+							chains, cords, cables, etc. that can be
+							bent but not stretched or compressed?
+						</li>
+						<li><input id="normal" type="checkbox"> <b>Normal:</b>
+							Are there any objects that are in physical contact?
+						</li>
+						<li><input id="dynamic-friction" type="checkbox">
+							<b>Dynamic Friction:</b> Are there any objects that
+							are currently sliding past each other?
+						</li>
+						<li><input id="static-friction" type="checkbox">
+							<b>Static Friction:</b> Are there any objects that
+							are in physical contact and could slide past each
+							other?
+						</li>
+						<li><input id="spring" type="checkbox">
+							<b>Elastic/Spring Forces:</b> Are there any
+							springs, bungee cables, or similar objects that can
+							stretch or compress without getting permanently
+							deformed?
+						</li>
+						<li><input id="buoyancy" type="checkbox">
+							<b>Buoyancy:</b> Is there an object in a fluid in a
+							gravitational field?
+						</li>
+						<li><input id="constraint" type="checkbox">
+							<b>Constraint Forces:</b> Is there anything
+							preventing an object from moving in a direction
+						other than the typical normal force? </li>
+					</ol>
+				</li>
 				<li><input id="systems" type="checkbox"> Systems</li>
 				<li><input id="inertial-forces" type="checkbox"> Inertial Forces</li>
 				<li><input id="equations" type="checkbox"> Equations</li>
