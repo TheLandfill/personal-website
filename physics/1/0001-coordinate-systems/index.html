@@ -85,11 +85,13 @@
 				console.log(width);
 				console.log(height);
 				console.log(width / 2);
-				ctx.moveTo(width / 2, 0);
-				ctx.lineTo(width / 2, height);
-				ctx.strokeStyle = "black";
-				ctx.lineWidth = 1;
-				ctx.stroke();
+				for (let index = -8; index < 8; index++) {
+					ctx.moveTo(width / 2 + width * index / 16, 0);
+					ctx.lineTo(width / 2 + width * index / 16, height);
+					ctx.strokeStyle = "black";
+					ctx.lineWidth = 1;
+					ctx.stroke();
+				}
 			};
 			draw_coord_id();
 		</script>
