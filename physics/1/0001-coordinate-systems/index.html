@@ -85,7 +85,7 @@
 				console.log(width);
 				console.log(height);
 				console.log(width / 2);
-				ctx.strokeStyle = "black";
+				ctx.strokeStyle = "#777777";
 				ctx.lineWidth = 1;
 				for (let index = -8; index < 8; index++) {
 					ctx.moveTo(width / 2 + width * index / 16, 0);
@@ -95,6 +95,14 @@
 					ctx.lineTo(width, height / 2 + height * index / 16);
 					ctx.stroke();
 				}
+				ctx.strokeStyle = "#FFFFFF";
+				ctx.lineWidth = 3;
+				ctx.moveTo(width / 2, 0     );
+				ctx.lineTo(width / 2, height);
+				ctx.stroke();
+				ctx.moveTo(0,     height / 2);
+				ctx.lineTo(width, height / 2);
+				ctx.stroke();
 			};
 			draw_coord_id();
 		</script>
