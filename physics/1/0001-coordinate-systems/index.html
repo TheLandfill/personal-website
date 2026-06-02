@@ -76,13 +76,13 @@
 		<script>
 			let canvas = document.getElementById("coordinate-identification");
 			let canvas_div = document.getElementById("coordinate-identification-div");
+			let width = canvas.width;
+			let height = canvas.height;
 			let ctx = canvas.getContext("2d");
 			function gen_random_coord() {
 				return { "x": Math.floor(Math.random() * 15 - 7), "y": Math.floor(Math.random() * 15 - 7) };
 			};
 			function graph_to_canvas(x, y) {
-				let width = canvas.width;
-				let height = canvas.height;
 				return { "x": width / 2 + width * x / 16, "y": height / 2 +
 					height * y / 16 };
 			};
