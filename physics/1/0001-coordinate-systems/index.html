@@ -67,5 +67,18 @@
 		<div id="footer">
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
+		<script>
+			function draw_coord_id() {
+				const canvas = document.getElementById("coordinate-identification");
+				const { width, height } = canvas.getBoundingClientRect();
+				const ctx = canvas.getContext("2d");
+				ctx.lineWidth = 5;
+				ctx.beginPath();
+				ctx.moveTo(width / 2, height);
+				ctx.lineTo(width / 2, 0);
+				ctx.closePath();
+				ctx.stroke();
+			}
+		</script>
 	</body>
 </html>
