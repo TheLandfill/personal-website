@@ -74,6 +74,7 @@
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
 		<script>
+			let id_coords = { "x": Math.floor(Math.random() * 16 - 8), "y": Math.floor(Math.random() * 16 - 8) };
 			function draw_coord_id() {
 				let canvas = document.getElementById("coordinate-identification");
 				let canvas_div = document.getElementById("coordinate-identification-div");
@@ -107,6 +108,14 @@
 				ctx.moveTo(0,     height / 2);
 				ctx.lineTo(width, height / 2);
 				ctx.stroke();
+				ctx.moveTo();
+				ctx.beginPath();
+				ctx.arc(width / 2 + width * id_coords.x / 16, height / 2 + height * id_coords.y / 16, width / 64, 0, 2 * Math.PI, false);
+				ctx.fillStyle = '#DC143C';
+				ctx.fill();
+				//ctx.lineWidth = 5;
+				//ctx.strokeStyle = '#003300';
+				//ctx.stroke();
 			};
 			draw_coord_id();
 		</script>
