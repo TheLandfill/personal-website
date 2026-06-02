@@ -26,7 +26,6 @@
 				};
 			});
 		</script>
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
 		<link rel="icon" href="/resources/favicon.png">
 		<link rel="stylesheet" href="/css/nanobs.css">
@@ -159,7 +158,7 @@
 			function set_coord_to_find() {
 				coords_to_find = gen_random_coord();
 				document.getElementById("coord-to-find").textContent =
-					`$(${coords_to_find.x}, ${-coords_to_find.y})$`;
+					`\\((${coords_to_find.x}, ${-coords_to_find.y})\\)`;
 			}
 			function draw_coord_plot() {
 				let canvas = document.getElementById("plotting-coordinates");
@@ -192,5 +191,6 @@
 					canvas_dat.width / 64);
 			}
 		</script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 	</body>
 </html>
