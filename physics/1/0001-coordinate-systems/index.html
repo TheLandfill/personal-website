@@ -74,12 +74,10 @@
 				var ctx = canvas.getContext("2d");
 				ctx.fillStyle = "white";
 				ctx.fillRect(0, 0, width, height);
-				ctx.fillStyle = "black";
 				ctx.lineWidth = 5;
-				ctx.beginPath();
 				ctx.moveTo(width / 2, height);
 				ctx.lineTo(width / 2, 0);
-				ctx.closePath();
+				ctx.strokeStyle = "black";
 				ctx.stroke();
 			};
 			draw_coord_id();
