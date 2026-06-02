@@ -102,12 +102,12 @@
 				ctx.beginPath();
 				ctx.strokeStyle = "black";
 				ctx.lineWidth = 3;
+				ctx.moveTo(width / 2, 0     );
 				ctx.lineTo(width / 2, height);
 				ctx.stroke();
 				ctx.moveTo(0,     height / 2);
 				ctx.lineTo(width, height / 2);
 				ctx.stroke();
-				ctx.moveTo();
 				ctx.beginPath();
 				ctx.arc(width / 2 + width * id_coords.x / 16, height / 2 + height * id_coords.y / 16, width / 64, 0, 2 * Math.PI, false);
 				ctx.fillStyle = '#DC143C';
