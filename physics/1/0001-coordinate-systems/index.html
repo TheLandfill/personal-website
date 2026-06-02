@@ -74,24 +74,41 @@
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
 		<script>
+			let canvas = document.getElementById("coordinate-identification");
+			let canvas_div = document.getElementById("coordinate-identification-div");
+			let ctx = canvas.getContext("2d");
 			function gen_random_coord() {
 				return { "x": Math.floor(Math.random() * 15 - 7), "y": Math.floor(Math.random() * 15 - 7) };
 			};
-			let id_coords = gen_random_coord();
-			function draw_coord_id() {
-				let canvas = document.getElementById("coordinate-identification");
-				let canvas_div = document.getElementById("coordinate-identification-div");
-				canvas.width = canvas_div.clientWidth;
-				canvas.height = canvas.width;
+			function graph_to_canvas(x, y) {
 				let width = canvas.width;
 				let height = canvas.height;
-				let ctx = canvas.getContext("2d");
+				return { "x": width / 2 + width * x / 16, "y": height / 2 +
+					height * y / 16 };
+			};
+			function draw_dot(x, y) {
+				ctx.beginPath();
+				let cc = graph_to_canvax(x, y);
+				ctx.arc(cc.x, cc.y, width / 64, 0, 2 * Math.PI, false);
+				ctx.lineWidth = 2;
+				ctx.strokeStyle = 'white';
+				ctx.stroke();
+				ctx.lineWidth = 4;
+				ctx.strokeStyle = 'white';
+				ctx.stroke();
+				ctx.lineWidth = 6;
+				ctx.strokeStyle = 'white';
+				ctx.stroke();
+				ctx.fillStyle = '#DC143C';
+				ctx.fill();
+				ctx.lineWidth = 2;
+				ctx.strokeStyle = 'black';
+				ctx.stroke();
+			}
+			function draw_grid() {
 				ctx.fillStyle = "white";
 				ctx.fillRect(0, 0, width, height);
 				ctx.beginPath();
-				console.log(width);
-				console.log(height);
-				console.log(width / 2);
 				ctx.strokeStyle = "#777777";
 				ctx.lineWidth = 1;
 				for (let index = -8; index < 8; index++) {
@@ -111,16 +128,13 @@
 				ctx.moveTo(0,     height / 2);
 				ctx.lineTo(width, height / 2);
 				ctx.stroke();
-				ctx.beginPath();
-				ctx.arc(width / 2 + width * id_coords.x / 16, height / 2 + height * id_coords.y / 16, width / 64, 0, 2 * Math.PI, false);
-				ctx.lineWidth = 6;
-				ctx.strokeStyle = 'white';
-				ctx.stroke();
-				ctx.fillStyle = '#DC143C';
-				ctx.fill();
-				ctx.lineWidth = 2;
-				ctx.strokeStyle = 'black';
-				ctx.stroke();
+			}
+			let id_coords = gen_random_coord();
+			function draw_coord_id() {
+				canvas.width = canvas_div.clientWidth;
+				canvas.height = canvas.width;
+				draw_grid();
+				draw_dot(id_coords.x, id_coords.y);
 			};
 			draw_coord_id();
 		</script>
