@@ -112,9 +112,12 @@
 				ctx.arc(width / 2 + width * id_coords.x / 16, height / 2 + height * id_coords.y / 16, width / 64, 0, 2 * Math.PI, false);
 				ctx.fillStyle = '#DC143C';
 				ctx.fill();
-				//ctx.lineWidth = 5;
-				//ctx.strokeStyle = '#003300';
-				//ctx.stroke();
+				ctx.lineWidth = 2;
+				ctx.strokeStyle = 'white';
+				ctx.stroke();
+				ctx.lineWidth = 1;
+				ctx.strokeStyle = 'black';
+				ctx.stroke();
 			};
 			draw_coord_id();
 		</script>
