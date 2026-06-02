@@ -85,11 +85,14 @@
 				console.log(width);
 				console.log(height);
 				console.log(width / 2);
+				ctx.strokeStyle = "black";
+				ctx.lineWidth = 1;
 				for (let index = -8; index < 8; index++) {
 					ctx.moveTo(width / 2 + width * index / 16, 0);
 					ctx.lineTo(width / 2 + width * index / 16, height);
-					ctx.strokeStyle = "black";
-					ctx.lineWidth = 1;
+					ctx.stroke();
+					ctx.moveTo(0, height / 2 + height * index / 16);
+					ctx.lineTo(width, height / 2 + height * index / 16);
 					ctx.stroke();
 				}
 			};
