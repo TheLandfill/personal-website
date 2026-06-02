@@ -171,8 +171,8 @@
 				let canvas_dat = adjust_canvas(canvas, canvas_div);
 				let canvas_coords = get_coord(e, canvas);
 				let coords = {
-					x: Math.round(canvas_coords.x * 16 / canvas_dat.width),
-					y: Math.round(canvas_coords.y * 16 / canvas_dat.height),
+					x: Math.round(canvas_coords.x * 16 / canvas_dat.width) - 8,
+					y: Math.round(canvas_coords.y * 16 / canvas_dat.height) - 8,
 				};
 				console.log(coords);
 				draw_grid(canvas_dat);
