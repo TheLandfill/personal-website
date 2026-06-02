@@ -67,29 +67,29 @@
 			<p>In this task, your goal is to correctly plot each point given
 			each coordinate.
 			</p>
-			<canvas id="plotting-coordinates">
-			</canvas>
+			<div id="coordinate-identification-div" style="margin: auto; width: 60%">
+				<canvas id="plotting-coordinates" width="501" height="501">
+				</canvas>
+			</div>
 		</div>
 		<div id="footer">
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
 		<script>
-			let canvas = document.getElementById("coordinate-identification");
-			let canvas_div = document.getElementById("coordinate-identification-div");
-			let width = canvas.width;
-			let height = canvas.height;
-			let ctx = canvas.getContext("2d");
 			function gen_random_coord() {
 				return { "x": Math.floor(Math.random() * 15 - 7), "y": Math.floor(Math.random() * 15 - 7) };
 			};
-			function graph_to_canvas(x, y) {
+			function graph_to_canvas(x, y, width, height) {
 				return { "x": width / 2 + width * x / 16, "y": height / 2 +
 					height * y / 16 };
 			};
-			function draw_dot(x, y) {
+			function draw_dot(canvas_dat, x, y, r) {
+				let ctx = canvas_dat.ctx;
+				let width = canvas_dat.width;
+				let height = canvas_dat.height;
 				ctx.beginPath();
-				let cc = graph_to_canvas(x, y);
-				ctx.arc(cc.x, cc.y, width / 64, 0, 2 * Math.PI, false);
+				let cc = graph_to_canvas(x, y, width, height);
+				ctx.arc(cc.x, cc.y, r, 0, 2 * Math.PI, false);
 				ctx.lineWidth = 2;
 				ctx.strokeStyle = 'white';
 				ctx.stroke();
@@ -105,7 +105,10 @@
 				ctx.strokeStyle = 'black';
 				ctx.stroke();
 			}
-			function draw_grid() {
+			function draw_grid(canvas_dat) {
+				let ctx = canvas_dat.ctx;
+				let width = canvas_dat.width;
+				let height = canvas_dat.height;
 				ctx.fillStyle = "white";
 				ctx.fillRect(0, 0, width, height);
 				ctx.beginPath();
@@ -130,16 +133,32 @@
 				ctx.stroke();
 			}
 			let id_coords = {};
-			function draw_coord_id() {
+			function adjust_canvas(canvas, canvas_div) {
+				let ctx = canvas.getContext("2d");
 				canvas.width = canvas_div.clientWidth;
 				canvas.height = canvas.width;
 				id_coords = gen_random_coord();
-				width = canvas.width;
-				height = canvas.height;
-				draw_grid();
-				draw_dot(id_coords.x, id_coords.y);
+				let width = canvas.width;
+				let height = canvas.height;
+				return { 'ctx' : ctx, 'width' : width, 'height' : height };
+			}
+			function draw_coord_id() {
+				let canvas = document.getElementById("coordinate-identification");
+				let canvas_div = document.getElementById("coordinate-identification-div");
+				let canvas_dat = adjust_canvas(canvas, canvas_div);
+				draw_grid(canvas_dat);
+
+				id_coords = gen_random_coord();
+				draw_dot(canvas_dat, id_coords.x, id_coords.y, width / 64);
 			};
 			draw_coord_id();
+			function draw_coord_plot() {
+				let canvas = document.getElementById("plotting-coordinates");
+				let canvas_div = document.getElementById("plotting-coordinates-div");
+				let canvas_dat = adjust_canvas(canvas, canvas_div);
+				draw_grid(canvas_dat);
+
+			}
 		</script>
 	</body>
 </html>
