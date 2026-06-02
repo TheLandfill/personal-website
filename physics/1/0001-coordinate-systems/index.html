@@ -88,7 +88,7 @@
 			};
 			function draw_dot(x, y) {
 				ctx.beginPath();
-				let cc = graph_to_canvax(x, y);
+				let cc = graph_to_canvas(x, y);
 				ctx.arc(cc.x, cc.y, width / 64, 0, 2 * Math.PI, false);
 				ctx.lineWidth = 2;
 				ctx.strokeStyle = 'white';
