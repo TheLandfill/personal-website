@@ -8,7 +8,6 @@
 		<meta name="description" content="My content on Physics, Differential Geometry, Abstract Algebra, Finite Field Theory, and Differential Forms.">
 		<link rel="prefetch" href="/resources/blue-universe-blurred.svg">
 		<script>
-
 			document.addEventListener("DOMContentLoaded", function() {
 				console.log("DOMContentLoaded");
 				var a = document.querySelector('.blur-image');
@@ -68,7 +67,7 @@
 			each coordinate.
 			</p>
 			<div id="plotting-coordinates-div" style="margin: auto; width: 60%">
-				<canvas id="plotting-coordinates" width="501" height="501">
+				<canvas id="plotting-coordinates" width="501" height="501" onclick="coordinate_select(e)">
 				</canvas>
 			</div>
 		</div>
@@ -159,6 +158,24 @@
 				draw_grid(canvas_dat);
 			}
 			draw_coord_plot();
+			function get_coord(e, canvas) {
+				var rect = canvas.getBoundingClientRect();
+				return {
+					x: e.clientX - rect.left,
+					y: e.clientY - rect.top
+				};
+			}
+			function coordinate_select(e) {
+				let canvas = document.getElementById("plotting-coordinates");
+				let canvas_div = document.getElementById("plotting-coordinates-div");
+				let canvas_dat = adjust_canvas(canvas, canvas_div);
+				let canvas_coords = get_coord(e);
+				let coords = {
+					x: Math.round(canvas_coords.x * 16 / canvas_dat.width),
+					y: Math.round(canvas_coords.y * 16 / canvas_dat.height),
+				};
+				draw_dot(canvas_dat, coords.x, coords.y, canvas_dat.width / 64);
+			}
 		</script>
 	</body>
 </html>
