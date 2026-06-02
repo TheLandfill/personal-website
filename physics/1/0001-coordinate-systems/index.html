@@ -71,9 +71,9 @@
 			function draw_coord_id() {
 				var canvas = document.getElementById("coordinate-identification");
 				const { width, height } = canvas.getBoundingClientRect();
+				var ctx = canvas.getContext("2d");
 				ctx.fillStyle = "white";
 				ctx.fillRect(0, 0, width, height);
-				var ctx = canvas.getContext("2d");
 				ctx.lineWidth = 5;
 				ctx.beginPath();
 				ctx.moveTo(width / 2, height);
