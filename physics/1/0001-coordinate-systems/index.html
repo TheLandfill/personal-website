@@ -129,10 +129,11 @@
 				ctx.lineTo(width, height / 2);
 				ctx.stroke();
 			}
-			let id_coords = gen_random_coord();
+			let id_coords = {};
 			function draw_coord_id() {
 				canvas.width = canvas_div.clientWidth;
 				canvas.height = canvas.width;
+				id_coords = gen_random_coord();
 				width = canvas.width;
 				height = canvas.height;
 				draw_grid();
