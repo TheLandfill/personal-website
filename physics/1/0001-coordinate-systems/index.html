@@ -157,8 +157,8 @@
 			draw_coord_id();
 			function set_coord_to_find() {
 				coords_to_find = gen_random_coord();
-				let div_coord = document.getElementById("coord-to-find");
-				div_coord.innerHtml = `(${coords_to_find.x}, ${-coords_to_find.y})`;
+				document.getElementById("coord-to-find").textContent =
+					`(${coords_to_find.x}, ${-coords_to_find.y})`;
 			}
 			function draw_coord_plot() {
 				let canvas = document.getElementById("plotting-coordinates");
