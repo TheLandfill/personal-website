@@ -31,7 +31,7 @@
 		<link rel="icon" href="/resources/favicon.png">
 		<link rel="stylesheet" href="/css/nanobs.css">
 		<link rel="stylesheet" href="/css/general.css">
-		<link rel="stylesheet" href="/css/canvas.css">
+		<!--<link rel="stylesheet" href="/css/canvas.css">-->
 		<title>Joseph Mellor's Personal Website</title>
 	</head>
 	<body>
@@ -69,9 +69,9 @@
 		</div>
 		<script>
 			function draw_coord_id() {
-				const canvas = document.getElementById("coordinate-identification");
+				var canvas = document.getElementById("coordinate-identification");
 				const { width, height } = canvas.getBoundingClientRect();
-				const ctx = canvas.getContext("2d");
+				var ctx = canvas.getContext("2d");
 				ctx.lineWidth = 5;
 				ctx.beginPath();
 				ctx.moveTo(width / 2, height);
