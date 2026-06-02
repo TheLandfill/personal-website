@@ -159,7 +159,7 @@
 			}
 			draw_coord_plot();
 			function get_coord(e, canvas) {
-				var rect = canvas.getBoundingClientRect();
+				let rect = canvas.getBoundingClientRect();
 				return {
 					x: e.clientX - rect.left,
 					y: e.clientY - rect.top
@@ -169,7 +169,7 @@
 				let canvas = document.getElementById("plotting-coordinates");
 				let canvas_div = document.getElementById("plotting-coordinates-div");
 				let canvas_dat = adjust_canvas(canvas, canvas_div);
-				let canvas_coords = get_coord(e);
+				let canvas_coords = get_coord(e, canvas);
 				let coords = {
 					x: Math.round(canvas_coords.x * 16 / canvas_dat.width),
 					y: Math.round(canvas_coords.y * 16 / canvas_dat.height),
