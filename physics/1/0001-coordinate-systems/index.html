@@ -26,6 +26,7 @@
 				};
 			});
 		</script>
+		<script src="/js/lgamma.js"></script>
 		<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
 		<link rel="icon" href="/resources/favicon.png">
@@ -125,7 +126,7 @@
 					a = c;
 					subtract_from_one = false;
 				}
-				let lbeta_ab = Math.lgamma(a) + Math.lgamma(b) - Math.lgamma(a + b);
+				let lbeta_ab = lgamma(a) + lgamma(b) - lgamma(a + b);
 				let front = Math.exp(Math.log(x) * a + Math.log(1.0 - x) * b - lbeta_ab) / a;
 				let f = 1.0;
 				let c = 1.0;
