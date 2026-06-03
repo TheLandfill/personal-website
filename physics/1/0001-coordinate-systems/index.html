@@ -226,14 +226,14 @@
 				if (Object.keys(selected_coords).length === 0) {
 					return;
 				}
-				if (selected_coords.x === coord_to_finds.x && selected_coords.y
-					=== coord_to_finds.y) {
+				if (selected_coords.x === coords_to_find.x && selected_coords.y
+					=== coords_to_find.y) {
 					alert("Correct!");
-				} else if (selected_coords.x === coord_to_finds.y && selected_coords.y
-					=== coord_to_finds.x) {
-					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_finds.x}, ${coord_to_finds.y}).`);
+				} else if (selected_coords.x === coords_to_find.y && selected_coords.y
+					=== coords_to_find.x) {
+					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coords_to_find.x}, ${coords_to_find.y}).`);
 				} else {
-					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_finds.x}, ${coord_to_finds.y}).`);
+					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coords_to_find.x}, ${coords_to_find.y}).`);
 				}
 				draw_coord_plot();
 			}
