@@ -15,9 +15,8 @@ const lct = [
 const ln_sqrt_2_pi = 0.91893853320467274178;
 const g_pi = 3.14159265358979323846;
 
-function lgamma(z) {
+export function lgamma(z) {
 	let sum = 0;
-	let base;
 	let rv;
 	if (z < 0.5) {
 		return Math.log(g_pi / Math.sin(g_pi * z)) - lgamma(1.0 - z);
