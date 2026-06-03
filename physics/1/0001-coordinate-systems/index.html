@@ -186,11 +186,11 @@
 				let canvas_coords = get_coord(e, canvas);
 				selected_coords = {
 					x: Math.round(canvas_coords.x * 16 / canvas_dat.width) - 8,
-					y: Math.round(canvas_coords.y * 16 / canvas_dat.height) - 8,
+					y: -(Math.round(canvas_coords.y * 16 / canvas_dat.height) - 8),
 				};
 				console.log(selected_coords);
 				draw_grid(canvas_dat);
-				draw_dot(canvas_dat, selected_coords.x, -selected_coords.y,
+				draw_dot(canvas_dat, selected_coords.x, selected_coords.y,
 					canvas_dat.width / 64);
 			}
 			function check_coord_id_answer(e) {
