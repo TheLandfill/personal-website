@@ -98,17 +98,7 @@
 
 		<script type="module">
 			import { lgamma } from '/js/lgamma.js';
-			console.log(lgamma);
-			window.exlgamma = function (z) {
-				return lgamma(z);
-			}
-		</script>
 
-		<script>
-
-			function lgamma(z) {
-				return window.exlgamma(z);
-			}
 			let id_coords = {};
 			let coords_to_find = {};
 			let selected_coords = {};
@@ -342,7 +332,7 @@
 					canvas_dat.width / 64);
 			}
 
-			// window.coordinate_select = coordinate_select;
+			window.coordinate_select = coordinate_select;
 
 			function check_coord_id_answer(e) {
 				if(event.key === 'Enter') {
@@ -373,7 +363,7 @@
 				}
 			}
 
-			// window.check_coord_id_answer = check_coord_id_answer;
+			window.check_coord_id_answer = check_coord_id_answer;
 
 			function check_plotting_coord_answer(e) {
 				if (Object.keys(selected_coords).length === 0) {
@@ -401,7 +391,7 @@
 				draw_coord_plot();
 			}
 
-			// window.check_plotting_coord_answer = check_plotting_coord_answer;
+			window.check_plotting_coord_answer = check_plotting_coord_answer;
 		</script>
 	</body>
 </html>
