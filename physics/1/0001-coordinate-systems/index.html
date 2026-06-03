@@ -26,6 +26,7 @@
 				};
 			});
 		</script>
+		<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
 		<link rel="icon" href="/resources/favicon.png">
 		<link rel="stylesheet" href="/css/nanobs.css">
@@ -77,8 +78,8 @@
 		<div id="footer">
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 		<script>
+			MathJax.typeset();
 			let id_coords = {};
 			let coord_to_find = {};
 			let selected_coords = {};
@@ -176,7 +177,7 @@
 				let canvas_div = document.getElementById("plotting-coordinates-div");
 				let canvas_dat = adjust_canvas(canvas, canvas_div);
 				set_coord_to_find();
-				MathJax.typeset();
+				MathJax.typesetClear();
 				console.log(coords_to_find);
 				draw_grid(canvas_dat);
 			}
