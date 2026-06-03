@@ -99,7 +99,9 @@
 		<script type="module">
 			import { lgamma } from '/js/lgamma.js';
 			console.log(lgamma);
-			window.exlgamma = lgamma;
+			window.exlgamma = function (z) {
+				return lgamma(z);
+			}
 		</script>
 
 		<script>
