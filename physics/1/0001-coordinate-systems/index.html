@@ -79,7 +79,6 @@
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
 		<script>
-			MathJax.typeset();
 			let id_coords = {};
 			let coord_to_find = {};
 			let selected_coords = {};
@@ -177,7 +176,7 @@
 				let canvas_div = document.getElementById("plotting-coordinates-div");
 				let canvas_dat = adjust_canvas(canvas, canvas_div);
 				set_coord_to_find();
-				MathJax.typesetClear();
+				MathJax.typeset();
 				console.log(coords_to_find);
 				draw_grid(canvas_dat);
 			}
@@ -227,14 +226,14 @@
 				if (Object.keys(selected_coords).length === 0) {
 					return;
 				}
-				if (selected_coords.x === coord_to_find.x && selected_coords.y
-					=== coord_to_find.y) {
+				if (selected_coords.x === coord_to_finds.x && selected_coords.y
+					=== coord_to_finds.y) {
 					alert("Correct!");
-				} else if (selected_coords.x === coord_to_find.y && selected_coords.y
-					=== coord_to_find.x) {
-					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_find.x}, ${coord_to_find.y}).`);
+				} else if (selected_coords.x === coord_to_finds.y && selected_coords.y
+					=== coord_to_finds.x) {
+					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_finds.x}, ${coord_to_finds.y}).`);
 				} else {
-					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_find.x}, ${coord_to_find.y}).`);
+					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_finds.x}, ${coord_to_finds.y}).`);
 				}
 				draw_coord_plot();
 			}
