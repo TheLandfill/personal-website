@@ -95,7 +95,8 @@
 		<div id="footer">
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
-		<script>
+		<script type="module">
+
 			import { lgamma } from '/js/lgamma.js';
 			let id_coords = {};
 			let coord_to_find = {};
@@ -114,6 +115,7 @@
 					incorrect: 0
 				}
 			};
+
 			// This inc_beta is a modified version of
 			// https://github.com/codeplea/incbeta/blob/master/incbeta.c
 			function get_prob_above(x, a, b) {
