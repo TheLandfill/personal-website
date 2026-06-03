@@ -17,7 +17,6 @@ const g_pi = 3.14159265358979323846;
 
 export function lgamma(z) {
 	let sum = 0;
-	let rv;
 	if (z < 0.5) {
 		return Math.log(g_pi / Math.sin(g_pi * z)) - lgamma(1.0 - z);
 	}
@@ -27,5 +26,9 @@ export function lgamma(z) {
 		sum += lct[i] / (z + i);
 	}
 	sum += lct[0];
-	return ((ln_sqrt_2_pi + Math.log(sum)) - base) + Math.log(base) * (z + 0.5);
+	return (
+		(
+			ln_sqrt_2_pi + Math.log(sum)
+		) - base
+	) + Math.log(base) * (z + 0.5);
 }

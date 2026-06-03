@@ -99,13 +99,13 @@
 		<script type="module">
 			import { lgamma } from '/js/lgamma.js';
 			console.log(lgamma);
-			window.lgamma = lgamma;
+			window.exlgamma = lgamma;
 		</script>
 
 		<script>
 
 			function lgamma(z) {
-				return window.lgamma(z);
+				return window.exlgamma(z);
 			}
 			let id_coords = {};
 			let coords_to_find = {};
