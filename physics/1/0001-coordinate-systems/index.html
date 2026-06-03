@@ -9,15 +9,11 @@
 		<link rel="prefetch" href="/resources/blue-universe-blurred.svg">
 		<script>
 			document.addEventListener("DOMContentLoaded", function() {
-				console.log("DOMContentLoaded");
 				var a = document.querySelector('.blur-image');
-				console.log("a = " + a);
 				if (!a) return !1;
 				var c = document.querySelector('.full-image'),
 					b = c.getAttribute("data-src"),
 					img = new Image;
-				console.log("b = " + b);
-				console.log("c = " + c);
 
 				img.src = b;
 				img.onload = function () {
@@ -204,6 +200,7 @@
 						skill_element = document.getElementById("coordinate-order-skill");
 						break;
 				}
+				console.log(skill);
 				let str = "<span style=\"color: #DC143C\">";
 				let i = 0;
 				for (; i < Math.min(skill, 0.25); i += 0.05) {
@@ -320,7 +317,6 @@
 				draw_grid(canvas_dat);
 
 				id_coords = gen_random_coord();
-				console.log(id_coords);
 				draw_dot(canvas_dat, id_coords.x, id_coords.y, canvas_dat.width / 64);
 			};
 			draw_coord_id();
@@ -339,7 +335,6 @@
 				let canvas_dat = adjust_canvas(canvas, canvas_div);
 				set_coord_to_find();
 				MathJax.typeset();
-				console.log(coords_to_find);
 				draw_grid(canvas_dat);
 			}
 			draw_coord_plot();
@@ -361,7 +356,6 @@
 					x: Math.round(canvas_coords.x * 16 / canvas_dat.width) - 8,
 					y: -(Math.round(canvas_coords.y * 16 / canvas_dat.height) - 8),
 				};
-				console.log(selected_coords);
 				draw_grid(canvas_dat);
 				draw_dot(canvas_dat, selected_coords.x, selected_coords.y,
 					canvas_dat.width / 64);
