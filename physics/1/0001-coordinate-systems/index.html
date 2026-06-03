@@ -204,35 +204,35 @@
 						skill_element = document.getElementById("coordinate-order-skill");
 						break;
 				}
-				skill_element.innerText = "<span style=\"color: #DC143C\">";
+				skill_element.innerHTML = "<span style=\"color: #DC143C\">";
 				let i = 0;
 				for (; i < Math.min(skill, 0.25); i += 0.05) {
-					skill_element.innerText += "▮"
+					skill_element.innerHTML += "▮"
 				}
-				skill_element.innerText += "</span>";
+				skill_element.innerHTML += "</span>";
 				if (skill <= 0.25) {
 					return;
 				}
-				skill_element.innerText += "<span style=\"color: #FF4F00\">";
+				skill_element.innerHTML += "<span style=\"color: #FF4F00\">";
 				for (; i < Math.min(skill, 0.50); i += 0.05) {
-					skill_element.innerText += "▮"
+					skill_element.innerHTML += "▮"
 				}
-				skill_element.innerText += "</span>";
+				skill_element.innerHTML += "</span>";
 				if (skill <= 0.50) {
 					return;
 				}
-				skill_element.innerText += "<span style=\"color: #FFD300\">";
+				skill_element.innerHTML += "<span style=\"color: #FFD300\">";
 				for (; i < Math.min(skill, 0.75); i += 0.05) {
-					skill_element.innerText += "▮"
+					skill_element.innerHTML += "▮"
 				}
-				skill_element.innerText += "</span>";
+				skill_element.innerHTML += "</span>";
 				if (skill <= 0.75) {
 					return;
 				}
 				for (; i < skill; i += 0.05) {
-					skill_element.innerText += "▮"
+					skill_element.innerHTML += "▮"
 				}
-				skill_element.innerText += "</span>";
+				skill_element.innerHTML += "</span>";
 			}
 
 			update_skill(SKILLS.LABELING);
