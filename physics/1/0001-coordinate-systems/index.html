@@ -211,6 +211,7 @@
 				}
 				str += "</span>";
 				if (skill <= 0.25) {
+					skill_element.innerHTML = str;
 					return;
 				}
 				str += "<span style=\"color: #FF4F00\">";
@@ -219,6 +220,7 @@
 				}
 				str += "</span>";
 				if (skill <= 0.50) {
+					skill_element.innerHTML = str;
 					return;
 				}
 				str += "<span style=\"color: #FFD300\">";
@@ -227,6 +229,7 @@
 				}
 				str += "</span>";
 				if (skill <= 0.75) {
+					skill_element.innerHTML = str;
 					return;
 				}
 				for (; i < skill; i += 0.05) {
