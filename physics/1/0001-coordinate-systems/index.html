@@ -95,9 +95,14 @@
 		<div id="footer">
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
 		</div>
-		<script type="module">
 
+		<script type="module">
 			import { lgamma } from '/js/lgamma.js';
+			window.lgamma = lgamma;
+		</script>
+
+		<script>
+
 			let id_coords = {};
 			let coords_to_find = {};
 			let selected_coords = {};
@@ -331,6 +336,8 @@
 					canvas_dat.width / 64);
 			}
 
+			// window.coordinate_select = coordinate_select;
+
 			function check_coord_id_answer(e) {
 				if(event.key === 'Enter') {
 					let answer =
@@ -360,6 +367,8 @@
 				}
 			}
 
+			// window.check_coord_id_answer = check_coord_id_answer;
+
 			function check_plotting_coord_answer(e) {
 				if (Object.keys(selected_coords).length === 0) {
 					return;
@@ -385,6 +394,8 @@
 				}
 				draw_coord_plot();
 			}
+
+			// window.check_plotting_coord_answer = check_plotting_coord_answer;
 		</script>
 	</body>
 </html>
