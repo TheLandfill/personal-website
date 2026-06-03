@@ -70,6 +70,8 @@
 				</canvas>
 				<div id="coord-to-find" style="text-align: center;">
 				</div>
+				<button type="button"
+				onclick="check_plotting_coord_answer()">Submit</button>
 			</div>
 		</div>
 		<div id="footer">
@@ -157,6 +159,7 @@
 			draw_coord_id();
 			function set_coord_to_find() {
 				coords_to_find = gen_random_coord();
+				selected_coords = {};
 				document.getElementById("coord-to-find").textContent =
 					`\\((${coords_to_find.x}, ${-coords_to_find.y})\\)`;
 			}
@@ -198,9 +201,27 @@
 					if (answer === `(${id_coords.x},${id_coords.y})`) {
 						alert("Correct!");
 					} else {
+						if (answer[0] != '(' || answer[answer.length - 1] != ')') {
+							alert("Remember that your coordinates should always start and end with parentheses!");
+						}
 						alert(`The correct answer was (${id_coords.x}, ${id_coords.y}).`);
 					}
 					draw_coord_id();
+				}
+			}
+			function check_plotting_coord_answer(e) {
+				if (selected_coords.keys(obj).length === 0) {
+					return;
+				}
+				if (selected_coords.x === coord_to_find.x && selected_coords.y
+					=== coord_to_find.y) {
+					alert("Correct!");
+					return;
+				} else if (selected_coords.x === coord_to_find.y && selected_coords.y
+					=== coord_to_find.x) {
+					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_find.x}, ${coord_to_find.y}).`);
+				} else {
+					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_find.x}, ${coord_to_find.y}).`);
 				}
 			}
 		</script>
