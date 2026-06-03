@@ -58,7 +58,7 @@
 				<canvas id="coordinate-identification" width="501" height="501">
 				</canvas>
 				<div style="text-align: center;">
-					<input id="coordinate-identification-input" onkeydown="check_coord_id_answer()">
+					<input id="coordinate-identification-input" onkeydown="check_coord_id_answer(event)">
 				</div>
 			</div>
 			<h2>Plotting Coordinates</h2>
@@ -189,6 +189,19 @@
 				draw_grid(canvas_dat);
 				draw_dot(canvas_dat, selected_coords.x, selected_coords.y,
 					canvas_dat.width / 64);
+			}
+			function check_coord_id_answer(e) {
+				if(event.key === 'Enter') {
+					let answer =
+						document.getElementById("coordinate-identification-input")
+						.value.replace(/\s/g,'');
+					if (answer === `(${id_coords.x},${id_coords.y})`) {
+						alert("Correct!");
+					} else {
+						alert(`The correct answer was (${id_coords.x}, ${id_coords.y}).`);
+					}
+					draw_coord_id();
+				}
 			}
 		</script>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
