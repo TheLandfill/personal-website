@@ -166,9 +166,10 @@
 
 			function set_coord_to_find() {
 				coords_to_find = gen_random_coord();
+				coords_to_find.y = -coords_to_find.y;
 				selected_coords = {};
 				document.getElementById("coord-to-find").textContent =
-					`\\((${coords_to_find.x}, ${-coords_to_find.y})\\)`;
+					`\\((${coords_to_find.x}, ${coords_to_find.y})\\)`;
 			}
 
 			function draw_coord_plot() {
