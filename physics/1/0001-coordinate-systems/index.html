@@ -76,6 +76,20 @@
 				onclick="check_plotting_coord_answer(event)">Submit</button>
 				</div>
 			</div>
+			<table id="skill-stats">
+				<tr>
+					<td>Labeling Coordinates</td>
+					<td id="labeling-coordinates-skill"></td>
+				</tr>
+				<tr>
+					<td>Plotting Coordinates</td>
+					<td id="plotting-coordinates-skill"></td>
+				</tr>
+				<tr>
+					<td>Coordinate Order</td>
+					<td id="coordinate-order-skill"></td>
+				</tr>
+			</table>
 		</div>
 		<div id="footer">
 			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
@@ -84,6 +98,111 @@
 			let id_coords = {};
 			let coord_to_find = {};
 			let selected_coords = {};
+			let concept_accuracy = {
+				labeling = {
+					correct: 0,
+					incorrect: 0
+				},
+				plotting = {
+					correct: 0,
+					incorrect: 0
+				},
+				coordinate_order = {
+					correct: 0,
+					incorrect: 0
+				}
+			};
+			// This inc_beta is a modified version of
+			// https://github.com/codeplea/incbeta/blob/master/incbeta.c
+			function get_prob_above(x, a, b) {
+				const too_small = 1e-30;
+				const success_epsilon = 1e-8;
+				let subtract_from_one = true;
+				if (x * (a + b + 2.0) > (a + 1.0)) {
+					x = 1.0 - x;
+					let c = b;
+					b = a;
+					a = c;
+					subtract_from_one = false;
+				}
+				let lbeta_ab = Math.lgamma(a) + Math.lgamma(b) - Math.lgamma(a + b);
+				let front = Math.exp(Math.log(x) * a + Math.log(1.0 - x) * b - lbeta_ab) / a;
+				let f = 1.0;
+				let c = 1.0;
+				let d = 0.0;
+				for (let i = 0; i <= 200; i++) {
+					let m = (i - (i % 2)) / 2;
+					let numerator = 1.0;
+					if (i == 0) {
+						numerator = 1.0;
+					} else if (i % 2) {
+						numerator = -((a + m) * (a + b + m) * x)
+							/ ((a + 2.0 * m) * (a + 2.0 * m + 1.0));
+					} else {
+						numerator = (m * (b - m) * x)
+							/ ((a + 2.0 * m - 1.0) * (a + 2.0 * m));
+					}
+					d = 1.0 + numerator * d;
+					if (Math.abs(d) < too_small) {
+						d = too_small;
+					}
+					d = 1.0 / d;
+					c = 1.0 + numerator / c;
+					if (Math.abs(c) < too_small) {
+						c = too_small;
+					}
+					let cd = c * d;
+					f *= cd;
+					if (Math.abs(1.0 - cd) < success_epsilon) {
+						let out = front * (f - 1.0);
+						if (subtract_from_one) {
+							out = 1.0 - out;
+						}
+						return out;
+					}
+				}
+				return NaN;
+			}
+
+			enum SKILLS {
+				LABELING,
+				PLOTTING,
+				COORDINATE_ORDER
+			};
+
+			function update_skill(skill) {
+				let skill = 0;
+				switch (skill) {
+					case LABELING:
+						skill = get_prob_above(
+							0.6,
+							concept_accuracy.labeling.correct + 1,
+							concept_accuracy.labeling.incorrect + 3
+						);
+						document.getElementById("labeling-coordinates-skill").innerText = Math.round(100 * skill);
+						break;
+					case PLOTTING:
+						skill = get_prob_above(
+							0.6,
+							concept_accuracy.plotting.correct + 1,
+							concept_accuracy.plotting.incorrect + 3
+						);
+						document.getElementById("plotting-coordinates-skill").innerText = Math.round(100 * skill);
+						break;
+					case COORDINATE_ORDER:
+						skill = get_prob_above(
+							0.6,
+							concept_accuracy.coordinate_order.correct + 1,
+							concept_accuracy.coordinate_order.incorrect + 3
+						);
+						document.getElementById("coordinate-order-skill").innerText = Math.round(100 * skill);
+						break;
+				}
+			}
+
+			update_skill(LABELING);
+			update_skill(PLOTTING);
+			update_skill(COORDINATE_ORDER);
 
 			function gen_random_coord() {
 				return { "x": Math.floor(Math.random() * 15 - 7), "y": Math.floor(Math.random() * 15 - 7) };
@@ -215,10 +334,22 @@
 						.value.replace(/\s/g,'');
 					if (answer === `(${id_coords.x},${id_coords.y})`) {
 						alert("Correct!");
+						concept_accuracy.labeling.correct++;
+						concept_accuracy.coordinate_order.correct++;
+						update_skill(LABELING);
+						update_skill(COORDINATE_ORDER);
+					} else if (answer[0] != '(' || answer[answer.length - 1] != ')') {
+						alert("Remember that your coordinates should always start and end with parentheses!");
+						return;
+					} else if (answer === `(${id_coords.y},${id_coords.x})`) {
+						concept_accuracy.labeling.correct++;
+						concept_accuracy.coordinate_order.incorrect++;
+						update_skill(LABELING);
+						update_skill(COORDINATE_ORDER);
+						alert(`You mixed up the order of the coordinates. You should have gotten (${id_coords.x}, ${id_coords.y}).`);
 					} else {
-						if (answer[0] != '(' || answer[answer.length - 1] != ')') {
-							alert("Remember that your coordinates should always start and end with parentheses!");
-						}
+						concept_accuracy.labeling.incorrect++;
+						update_skill(LABELING);
 						alert(`The correct answer was (${id_coords.x}, ${id_coords.y}).`);
 					}
 					draw_coord_id();
@@ -231,11 +362,21 @@
 				}
 				if (selected_coords.x === coords_to_find.x && selected_coords.y
 					=== coords_to_find.y) {
+					concept_accuracy.plotting.correct++;
+					concept_accuracy.coordinate_order.correct++;
+					update_skill(PLOTTING);
+					update_skill(COORDINATE_ORDER);
 					alert("Correct!");
 				} else if (selected_coords.x === coords_to_find.y && selected_coords.y
 					=== coords_to_find.x) {
+					concept_accuracy.plotting.correct++;
+					concept_accuracy.coordinate_order.incorrect++;
+					update_skill(PLOTTING);
+					update_skill(COORDINATE_ORDER);
 					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coords_to_find.x}, ${coords_to_find.y}).`);
 				} else {
+					concept_accuracy.plotting.incorrect++;
+					update_skill(PLOTTING);
 					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coords_to_find.x}, ${coords_to_find.y}).`);
 				}
 				draw_coord_plot();
