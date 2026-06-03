@@ -164,6 +164,12 @@
 				return NaN;
 			}
 
+			const SKILLS = Object.freeze({
+				LABELING:			Symbol("LABELING"),
+				PLOTTING:			Symbol("PLOTTING"),
+				COORDINATE_ORDER:	Symbol("COORDINATE_ORDER")
+			});
+
 			enum SKILLS {
 				LABELING,
 				PLOTTING,
@@ -173,7 +179,7 @@
 			function update_skill(skill) {
 				let skill = 0;
 				switch (skill) {
-					case LABELING:
+					case SKILLS.LABELING:
 						skill = get_prob_above(
 							0.6,
 							concept_accuracy.labeling.correct + 1,
@@ -181,7 +187,7 @@
 						);
 						document.getElementById("labeling-coordinates-skill").innerText = Math.round(100 * skill);
 						break;
-					case PLOTTING:
+					case SKILLS.PLOTTING:
 						skill = get_prob_above(
 							0.6,
 							concept_accuracy.plotting.correct + 1,
@@ -189,7 +195,7 @@
 						);
 						document.getElementById("plotting-coordinates-skill").innerText = Math.round(100 * skill);
 						break;
-					case COORDINATE_ORDER:
+					case SKILLS.COORDINATE_ORDER:
 						skill = get_prob_above(
 							0.6,
 							concept_accuracy.coordinate_order.correct + 1,
@@ -200,9 +206,9 @@
 				}
 			}
 
-			update_skill(LABELING);
-			update_skill(PLOTTING);
-			update_skill(COORDINATE_ORDER);
+			update_skill(SKILLS.LABELING);
+			update_skill(SKILLS.PLOTTING);
+			update_skill(SKILLS.COORDINATE_ORDER);
 
 			function gen_random_coord() {
 				return { "x": Math.floor(Math.random() * 15 - 7), "y": Math.floor(Math.random() * 15 - 7) };
@@ -336,20 +342,20 @@
 						alert("Correct!");
 						concept_accuracy.labeling.correct++;
 						concept_accuracy.coordinate_order.correct++;
-						update_skill(LABELING);
-						update_skill(COORDINATE_ORDER);
+						update_skill(SKILLS.LABELING);
+						update_skill(SKILLS.COORDINATE_ORDER);
 					} else if (answer[0] != '(' || answer[answer.length - 1] != ')') {
 						alert("Remember that your coordinates should always start and end with parentheses!");
 						return;
 					} else if (answer === `(${id_coords.y},${id_coords.x})`) {
 						concept_accuracy.labeling.correct++;
 						concept_accuracy.coordinate_order.incorrect++;
-						update_skill(LABELING);
-						update_skill(COORDINATE_ORDER);
+						update_skill(SKILLS.LABELING);
+						update_skill(SKILLS.COORDINATE_ORDER);
 						alert(`You mixed up the order of the coordinates. You should have gotten (${id_coords.x}, ${id_coords.y}).`);
 					} else {
 						concept_accuracy.labeling.incorrect++;
-						update_skill(LABELING);
+						update_skill(SKILLS.LABELING);
 						alert(`The correct answer was (${id_coords.x}, ${id_coords.y}).`);
 					}
 					draw_coord_id();
@@ -364,19 +370,19 @@
 					=== coords_to_find.y) {
 					concept_accuracy.plotting.correct++;
 					concept_accuracy.coordinate_order.correct++;
-					update_skill(PLOTTING);
-					update_skill(COORDINATE_ORDER);
+					update_skill(SKILLS.PLOTTING);
+					update_skill(SKILLS.COORDINATE_ORDER);
 					alert("Correct!");
 				} else if (selected_coords.x === coords_to_find.y && selected_coords.y
 					=== coords_to_find.x) {
 					concept_accuracy.plotting.correct++;
 					concept_accuracy.coordinate_order.incorrect++;
-					update_skill(PLOTTING);
-					update_skill(COORDINATE_ORDER);
+					update_skill(SKILLS.PLOTTING);
+					update_skill(SKILLS.COORDINATE_ORDER);
 					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coords_to_find.x}, ${coords_to_find.y}).`);
 				} else {
 					concept_accuracy.plotting.incorrect++;
-					update_skill(PLOTTING);
+					update_skill(SKILLS.PLOTTING);
 					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coords_to_find.x}, ${coords_to_find.y}).`);
 				}
 				draw_coord_plot();
