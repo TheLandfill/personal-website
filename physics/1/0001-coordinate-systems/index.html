@@ -177,6 +177,7 @@
 
 			function update_skill(s) {
 				let skill = 0;
+				let skill_element;
 				switch (s) {
 					case SKILLS.LABELING:
 						skill = get_prob_above(
@@ -184,7 +185,7 @@
 							concept_accuracy.labeling.correct + 1,
 							concept_accuracy.labeling.incorrect + 3
 						);
-						document.getElementById("labeling-coordinates-skill").innerText = Math.round(100 * skill);
+						skill_element = document.getElementById("labeling-coordinates-skill");
 						break;
 					case SKILLS.PLOTTING:
 						skill = get_prob_above(
@@ -192,7 +193,7 @@
 							concept_accuracy.plotting.correct + 1,
 							concept_accuracy.plotting.incorrect + 3
 						);
-						document.getElementById("plotting-coordinates-skill").innerText = Math.round(100 * skill);
+						skill_element = document.getElementById("plotting-coordinates-skill");
 						break;
 					case SKILLS.COORDINATE_ORDER:
 						skill = get_prob_above(
@@ -200,8 +201,12 @@
 							concept_accuracy.coordinate_order.correct + 1,
 							concept_accuracy.coordinate_order.incorrect + 3
 						);
-						document.getElementById("coordinate-order-skill").innerText = Math.round(100 * skill);
+						skill_element = document.getElementById("coordinate-order-skill");
 						break;
+				}
+				skill_element.innerText = "";
+				for (let i = 0; i < skill; i += 5) {
+					skill_element.innerText += "▮"
 				}
 			}
 
