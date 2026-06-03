@@ -71,7 +71,7 @@
 				<div id="coord-to-find" style="text-align: center;">
 				</div>
 				<button type="button"
-				onclick="check_plotting_coord_answer()">Submit</button>
+				onclick="check_plotting_coord_answer(event)">Submit</button>
 			</div>
 		</div>
 		<div id="footer">
@@ -216,13 +216,13 @@
 				if (selected_coords.x === coord_to_find.x && selected_coords.y
 					=== coord_to_find.y) {
 					alert("Correct!");
-					return;
 				} else if (selected_coords.x === coord_to_find.y && selected_coords.y
 					=== coord_to_find.x) {
 					alert(`You mixed up the order of the coordinates. You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_find.x}, ${coord_to_find.y}).`);
 				} else {
 					alert(`You selected the point (${selected_coords.x}, ${selected_coords.y}) instead of (${coord_to_find.x}, ${coord_to_find.y}).`);
 				}
+				draw_coord_plot();
 			}
 		</script>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
