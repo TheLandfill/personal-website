@@ -221,7 +221,7 @@
 			}
 
 			function check_plotting_coord_answer(e) {
-				if (selected_coords.keys(obj).length === 0) {
+				if (Object.keys(selected_coords).length === 0) {
 					return;
 				}
 				if (selected_coords.x === coord_to_find.x && selected_coords.y
