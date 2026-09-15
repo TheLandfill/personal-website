@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta data-rh="true" property="og:image" content="/home/joseph/Documents/personal-website/resources/joseph-mellor.jpg">
+		<meta data-rh="true" name="twitter:image:src" content="/home/joseph/Documents/personal-website/resources/joseph-mellor.jpg">
+		<meta name="description" content="My content on Physics, Differential Geometry, Abstract Algebra, Finite Field Theory, and Differential Forms.">
+		<link rel="prefetch" href="/home/joseph/Documents/personal-website/resources/blue-universe-blurred.svg">
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				var a = document.querySelector('.blur-image');
+				if (!a) return !1;
+				var c = document.querySelector('.full-image'),
+					b = c.getAttribute("data-src"),
+					img = new Image;
+
+				img.src = b;
+				img.onload = function () {
+					a.classList.add('image-loaded'),
+					c.style.backgroundImage = 'url(' + b + ')';
+				};
+			});
+		</script>
+		<!--<script src="/js/lgamma.js"></script>-->
+		<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+		<link rel="icon" href="/home/joseph/Documents/personal-website/resources/favicon.png">
+		<link rel="stylesheet" href="/home/joseph/Documents/personal-website/css/nanobs.css">
+		<link rel="stylesheet" href="/home/joseph/Documents/personal-website/css/general.css">
+		<style>
+			.short-name {
+				width: 10%;
+				min-width: 5ch;
+			}
+			.short-name input {
+				width: 100%;
+			}
+			.long-name {
+				width: 90%;
+			}
+			.long-name input {
+				width: 100%;
+			}
+			.input-rows {
+				margin-bottom: 0.75em;
+			}
+			#constraints .long-name {
+				width: 82.5%;
+			}
+			.prior-probability-entry {
+				width: 7.5%;
+				min-width: 5ch;
+			}
+			.prior-probability-entry input {
+				width: 100%
+			}
+			.buttons {
+				margin-bottom: 0.75em;
+			}
+			.T {
+				background-color: #80FFCE;
+			}
+			.F {
+				background-color: #DC143C;
+			}
+			.null-hyp {
+				-moz-appearance: textfield;
+				-webkit-appearance: textfield;
+				background-color: white;
+				background-color: -moz-field;
+				color: #000000;
+				border: 1px solid darkgray;
+				border-radius: 3px;
+				font-size: 0.875rem;
+				width: 100%;
+				box-shadow: 1px 1px 1px 0 lightgray inset;
+				padding: 2px;
+			}
+			.number-input-like {
+				height: 24px;
+				width: 54px;
+			}
+			.divider {
+				width: 1ch;
+				min-width: 1ch !important;
+				background-color: #000000;
+			}
+			#constraints-to-hypothesis {
+				width: 100%;
+			}
+			#constraints-to-hypothesis table {
+				margin: 0 auto;
+			}
+			#hypothesis-to-evidence-probabilities table {
+				margin: 0 auto;
+			}
+			#constraints-to-hypothesis td {
+				border: 2px solid #000000;
+				min-width: 5ch;
+			}
+			#total-priors {
+				text-align: right;
+			}
+			.perc-prob {
+				text-align: right;
+			};
+		</style>
+		<!--<link rel="stylesheet" href="/home/joseph/Documents/personal-website/css/canvas.css">-->
+		<title>Joseph Mellor's Personal Website</title>
+	</head>
+	<body>
+		<div class="full-image" style="position:fixed;top:0;left:0;height:100vh;width:100vw;z-index:-1;background-color:#0A1238;" data-src="/home/joseph/Documents/personal-website/resources/blue-universe-956981.jpg">
+			<div class="blur-image" style="height:100vh;width:100vw;background-color:#0A1238;background-image: url(/home/joseph/Documents/personal-website/resources/blue-universe-blurred.svg);">
+			</div>
+		</div>
+		<div id="super-header">
+			<div id="header">
+				<a href="/"><h1>Joseph Mellor</h1></a>
+			</div>
+			<nav>
+				<a href="/designs/" >Designs</a>
+				<a href="/articles/" >Articles</a>
+				<a href="https://github.com/TheLandfill" >Github</a>
+				<a href="https://www.linkedin.com/in/joseph-mellor-a9425b1ab" >LinkedIn</a>
+			</nav>
+		</div>
+		<div id="content">
+			<h2>Hypothesis Evaluator</h2>
+			<p>This webpage evaluates the plausibility of different hypotheses
+			given constraints and evidence.
+			</p>
+			<h3>Hypotheses</h3>
+			<p>Put your list of hypotheses in the table below along with an
+			abbreviation so you can identify it later. There will always be an
+			extra null-ish hypothesis corresponding to "Something else is going
+			on" that you don't have to interact with.
+			</p>
+			<div id="hypotheses-buttons" class="buttons">
+				<button type="button"
+					onclick="add_row_to_hypotheses(event)">Add
+					Hypothesis</button>
+				<button type="button" disabled
+					onclick="remove_row_from_hypotheses(event)">Remove
+					Hypothesis</button>
+			</div>
+			<div id="hypotheses" class="input-rows"></div>
+			<h3>Constraints</h3>
+			<p>Put your list of constraints in the table below along with an
+			abbreviation so you can identify it later. Fill in the first column
+			with the credibility of the constraint.
+			</p>
+			<div id="constraints-buttons" class="buttons">
+				<button type="button"
+					onclick="add_row_to_constraints(event)">Add
+					Constraint</button>
+				<button type="button" disabled
+					onclick="remove_row_from_constraints(event)">Remove
+					Constraint</button>
+			</div>
+			<div id="constraints" class="input-rows"></div>
+			<h4>Lock In The Constraints</h4>
+			<p>After this point, you won't be able to change the number of
+			constraints because there's no way to resolve the Hypothesis
+			Plausibility section without resetting the probabilities. Click the
+			button below to lock everything in. If you do need to change the
+			number of constraints, click the button that replaces the button
+			below to reset all the probabilities.
+			</p>
+			<div id="constraint-lock-in" class="buttons">
+				<button type="button" onclick="lock_in_constraints()">Lock In
+				Number of Constraints</button>
+			</div>
+			<h3>Hypothesis Plausibility</h3>
+			<p>Given each of the possible worlds specified by the constraints
+			being <span style="color: #80ffc8">true</span> or <span
+			style="color: #dc143c;">false</span>, assign a credibility to each
+			hypothesis. To enforce the probabilities must add to 100% rule, the
+			null-ish hypothesis will be set to 100% - (the sum of all other
+			probabilities). The null-ish probability will be clamped to be
+			between 5% and 95%, so other probabilities will be clamped so that
+			the total never goes above 100%.
+			</p>
+			<div id="constraints-to-hypothesis"></div>
+			<p>The table below gives how well each hypothesis fits into your
+			understanding of the world.
+			</p>
+			<div id="prior-for-hypothesis"></div>
+			<h3>Evidence</h3>
+			<p>Put your list of evidence in the table below along with an
+			abbreviation so you can identify it later.
+			</p>
+			<div id="evidence-buttons" class="buttons">
+				<button type="button" onclick="add_row_to_evidence(event)">Add
+					Evidence</button>
+				<button type="button" disabled
+					onclick="remove_row_from_evidence(event)">Remove
+					Evidence</button>
+			</div>
+			<div id="evidence" class="input-rows"></div>
+			<h3>Hypothesis Predictions</h3>
+			<p>Fill out the table with how well each hypothesis predicts the
+			evidence.
+			</p>
+			<div id="hypothesis-to-evidence-probabilities"></div>
+			<h3>Hypothesis Credibility</h3>
+			<p>Credibility below.</p>
+			<div id="hyp-post-prob"></div>
+		</div>
+		<div id="footer">
+			<a href="https://www.pexels.com/photo/blue-universe-956981/">Photo by Felix Mittermeier from Pexels</a>
+		</div>
+		<script>
+			let num_hypotheses = 1;
+			let hypotheses = [""];
+			let short_hypotheses = [""];
+			let num_constraints = 1;
+			let constraints = [""];
+			let short_constraints = [""];
+			let num_evidence = 1;
+			let evidence = [""];
+			let short_evidence = [""];
+			const default_prob = 0.95;
+			let constraint_prior_probabilities = [default_prob];
+			let world_probabilities = [];
+			let cons_to_hyp = [];
+			let hyp_prior_probabilities = [];
+			let hyp_post_prob = [];
+			let hyp_to_ev = [[default_prob]];
+			let cur_constraints_state = "";
+			let cur_hypotheses_state = "";
+			const debounce_time = 500;
+
+			function clean_hypotheses() {
+				for (let i = 0; i < num_hypotheses; i++) {
+					short_hypotheses[i] =
+						document.getElementById(`short-hypotheses-${i}`).value;
+					hypotheses[i] =
+						document.getElementById(`hypotheses-${i}`).value;
+				}
+			}
+
+			function clean_constraints() {
+				for (let i = 0; i < num_constraints; i++) {
+					short_constraints[i] =
+						document.getElementById(`short-constraints-${i}`).value;
+					constraints[i] =
+						document.getElementById(`constraints-${i}`).value;
+				}
+			}
+
+			function clean_evidence() {
+				for (let i = 0; i < num_evidence; i++) {
+					short_evidence[i] =
+						document.getElementById(`short-evidence-${i}`).value;
+					evidence[i] =
+						document.getElementById(`evidence-${i}`).value;
+				}
+			}
+
+			function clean_hyp_priors() {
+				for (let i = 0; i < num_hypotheses + 1; i++) {
+					document.getElementById(`prior-hypothesis-prob-${i}`).innerHTML =
+						`${(100 * hyp_prior_probabilities[i]).toFixed(1)}%`;
+				}
+				clean_hyp_post();
+			}
+
+			function clean_hyp_to_ev() {
+				for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+					for (let ev = 0; ev < num_evidence; ev++) {
+						hyp_to_ev[hyp][ev] =
+							+document.getElementById(`hyp-to-ev-${ev}-${hyp}`).value / 100.0;
+					}
+				}
+			}
+
+			function clean_hyp_post() {
+				let cur_total = 0;
+				for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+					let cur_val = +((100 * hyp_post_prob[hyp]).toFixed(2));
+					cur_total += cur_val;
+					document.getElementById(`hyp-prob-${hyp}`).innerHTML =
+						`${cur_val.toFixed(2)}%`;
+				}
+				document.getElementById(`hyp-prob-${num_hypotheses}`).innerHTML =
+					`${(100 - cur_total).toFixed(2)}%`;
+			}
+
+			function add_row_to_hypotheses(e) {
+				clean_hypotheses();
+				if (num_hypotheses == 1) {
+					document.getElementById("hypotheses-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_hypotheses(event)">Add
+							Hypothesis</button>
+						<button type="button"
+							onclick="remove_row_from_hypotheses(event)">Remove
+							Hypothesis</button>`;
+				}
+				if (num_hypotheses == 4) {
+					document.getElementById("hypotheses-buttons").innerHTML =
+						`<button type="button" disabled
+							onclick="add_row_to_hypotheses(event)">Add
+							Hypothesis</button>
+						<button type="button"
+							onclick="remove_row_from_hypotheses(event)">Remove
+							Hypothesis</button>`;
+				}
+				num_hypotheses++;
+				if (num_hypotheses >= hypotheses.length) {
+					hypotheses.push("");
+					short_hypotheses.push("");
+					hyp_to_ev.push(hyp_to_ev[0].slice(0));
+				}
+				fill_hypotheses();
+			}
+
+			function remove_row_from_hypotheses(e) {
+				clean_hypotheses();
+				if (num_hypotheses == 5) {
+					document.getElementById("hypotheses-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_hypotheses(event)">Add
+							Hypothesis</button>
+						<button type="button"
+							onclick="remove_row_from_hypotheses(event)">Remove
+							Hypothesis</button>`;
+				}
+				if (num_hypotheses == 2) {
+					document.getElementById("hypotheses-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_hypotheses(event)">Add
+							Hypothesis</button>
+						<button type="button" disabled
+							onclick="remove_row_from_hypotheses(event)">Remove
+							Hypothesis</button>`;
+				}
+				if (num_hypotheses > 1) {
+					num_hypotheses--;
+					fill_hypotheses();
+				}
+			}
+
+			function add_row_to_constraints(e) {
+				clean_constraints();
+				if (num_constraints == 1) {
+					document.getElementById("constraints-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_constraints(event)">Add
+							Constraint</button>
+						<button type="button"
+							onclick="remove_row_from_constraints(event)">Remove
+							Constraint</button>`;
+				}
+				if (num_constraints == 4) {
+					document.getElementById("constraints-buttons").innerHTML =
+						`<button type="button" disabled
+							onclick="add_row_to_constraints(event)">Add
+							Constraint</button>
+						<button type="button"
+							onclick="remove_row_from_constraints(event)">Remove
+							Constraint</button>`;
+				}
+				num_constraints++;
+				if (num_constraints >= constraints.length) {
+					constraints.push("");
+					short_constraints.push("");
+					constraint_prior_probabilities.push(default_prob);
+				}
+				fill_constraints();
+			}
+
+			function remove_row_from_constraints(e) {
+				clean_constraints();
+				for (let i = 0; i < num_constraints; i++) {
+					short_constraints[i] =
+						document.getElementById(`short-constraints-${i}`).value;
+					constraints[i] =
+						document.getElementById(`constraints-${i}`).value;
+				}
+				if (num_constraints == 5) {
+					document.getElementById("constraints-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_constraints(event)">Add
+							Constraint</button>
+						<button type="button"
+							onclick="remove_row_from_constraints(event)">Remove
+							Constraint</button>`;
+				}
+				if (num_constraints == 2) {
+					document.getElementById("constraints-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_constraints(event)">Add
+							Constraint</button>
+						<button type="button" disabled
+							onclick="remove_row_from_constraints(event)">Remove
+							Constraint</button>`;
+				}
+				if (num_constraints > 1) {
+					num_constraints--;
+					fill_constraints();
+				}
+			}
+
+			function add_row_to_evidence(e) {
+				clean_evidence();
+				if (num_evidence == 1) {
+					document.getElementById("evidence-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_evidence(event)">Add
+							Evidence</button>
+						<button type="button"
+							onclick="remove_row_from_evidence(event)">Remove
+							Evidence</button>`;
+				}
+				if (num_evidence == 9) {
+					document.getElementById("evidence-buttons").innerHTML =
+						`<button type="button" disabled
+							onclick="add_row_to_evidence(event)">Add
+							Evidence</button>
+						<button type="button"
+							onclick="remove_row_from_evidence(event)">Remove
+							Evidence</button>`;
+				}
+				num_evidence++;
+				if (num_evidence >= evidence.length) {
+					evidence.push("");
+					short_evidence.push("");
+					for (let i = 0; i < num_hypotheses; i++) {
+						hyp_to_ev[i].push(default_prob);
+					}
+				}
+				fill_evidence();
+			}
+
+			function remove_row_from_evidence(e) {
+				clean_evidence();
+				if (num_evidence == 10) {
+					document.getElementById("evidence-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_evidence(event)">Add
+							Evidence</button>
+						<button type="button"
+							onclick="remove_row_from_evidence(event)">Remove
+							Evidence</button>`;
+				}
+				if (num_evidence == 2) {
+					document.getElementById("evidence-buttons").innerHTML =
+						`<button type="button"
+							onclick="add_row_to_evidence(event)">Add
+							Evidence</button>
+						<button type="button" disabled
+							onclick="remove_row_from_evidence(event)">Remove
+							Evidence</button>`;
+				}
+				if (num_evidence > 1) {
+					num_evidence--;
+					fill_evidence();
+				}
+			}
+
+			function fill_hypotheses() {
+				let hypotheses_element = document.getElementById("hypotheses");
+				let str = "<table>";
+				str +=
+					`<tr>
+						<td class="short-name">Abbrev</td>
+						<td class="long-name">Full description</td>
+					</tr>`;
+				for (let i = 0; i < num_hypotheses; i++) {
+					str +=
+						`<tr>
+							<td class="short-name">
+								<input id="short-hypotheses-${i}" oninput="update_short_hypotheses(this, ${i})" value="${short_hypotheses[i]}">
+							</td>
+							<td class="long-name">
+								<input id="hypotheses-${i}" oninput="update_hypotheses(this, ${i})" value="${hypotheses[i]}">
+							</td>
+						</tr>`;
+				}
+				str += `<tr class="null">
+							<td><div class="null-hyp">NULL</div></td>
+							<td><div class="null-hyp">Something Not Listed</div></td>
+						</tr>`
+				str += "</table>";
+				hypotheses_element.innerHTML = str;
+			}
+
+			function fill_constraints() {
+				let constraints_element = document.getElementById("constraints");
+				let str = "<table>";
+				str +=
+					`<tr>
+						<td class="prior-probability-entry">Prior</td>
+						<td class="short-name">Abbrev</td>
+						<td class="long-name">Full description</td>
+					</tr>`;
+				for (let i = 0; i < num_constraints; i++) {
+					str +=
+						`<tr>
+							<td class="prior-probability-entry">
+								<input id="prior-probability-${i}" type="number" min="5" max="95" oninput="update_cons_prior_prob(this, ${i})" value="${Math.round(100 * constraint_prior_probabilities[i])}">
+							</td>
+							<td class="short-name">
+								<input id="short-constraints-${i}" oninput="update_short_constraints(this, ${i})" value="${short_constraints[i]}">
+							</td>
+							<td class="long-name">
+								<input id="constraints-${i}" oninput="update_constraints(this, ${i})" value="${constraints[i]}">
+							</td>
+						</tr>`;
+				}
+				str += "</table>";
+				constraints_element.innerHTML = str;
+			}
+
+			function fill_evidence() {
+				let evidence_element = document.getElementById("evidence");
+				let str = "<table>";
+				str +=
+					`<tr>
+						<td class="short-name">Abbrev</td>
+						<td class="long-name">Full description</td>
+					</tr>`;
+				for (let i = 0; i < num_evidence; i++) {
+					str +=
+						`<tr>
+							<td class="short-name">
+								<input id="short-evidence-${i}" oninput="update_short_evidence(this, ${i})" value="${short_evidence[i]}">
+							</td>
+							<td class="long-name">
+								<input id="evidence-${i}" oninput="update_evidence(this, ${i})" value="${evidence[i]}">
+							</td>
+						</tr>`;
+				}
+				str += "</table>";
+				evidence_element.innerHTML = str;
+			}
+
+			function constraint_entry(row, cur_mask) {
+				if ((row & cur_mask) !== 0) {
+					return `<td class="T"></td>`;
+				} else {
+					return `<td class="F"></td>`;
+				}
+			}
+
+			function fill_cons_to_hyp() {
+				let element = document.getElementById("constraints-to-hypothesis");
+				let str = "<table>";
+				str += "<tr>";
+				str += "<td>World</td>";
+				str += `<td class="divider"></td>`;
+				for (let i = 0; i < num_constraints; i++) {
+					str += `<td id="constraint-${i}-in-cth-table">${short_constraints[i]}</td>`;
+				}
+				str += `<td class="divider"></td>`;
+				for (let i = 0; i < num_hypotheses; i++) {
+					str += `<td id="hypothesis-${i}-in-cth-table">${short_hypotheses[i]}</td>`;
+				}
+				str += "<td>NULL</td>";
+				str += "</tr>";
+				let num_rows = 1 << num_constraints;
+				for (let i = 0; i < num_rows; i++) {
+					str += "<tr>";
+					str += `<td id="prior-world-probability-${i}" class="perc-prob">${(100 * world_probabilities[i]).toFixed(2)}%</td>`;
+					str += `<td class="divider"></td>`;
+					let cur_mask = num_rows >>> 1;
+					for (let j = 0; j < num_constraints; j++) {
+						str += constraint_entry(i, cur_mask);
+						cur_mask = cur_mask >>> 1;
+					}
+					str += `<td class="divider"></td>`;
+					for (let j = 0; j < num_hypotheses; j++) {
+						str += `<td><input id="constraint-to-hypothesis-${i}-${j}"
+						type="number" min="5" max="${100 - 5 * num_hypotheses}"
+						oninput="update_cons_to_hyp(this, ${i}, ${j})"
+						value="${Math.round(100 * cons_to_hyp[i][j])}"></td>`;
+					}
+					str += `<td><div id="constraint-to-hypothesis-${i}-${num_hypotheses}" class="null-hyp number-input-like">${Math.round(100 * cons_to_hyp[i][num_hypotheses])}</div></td>`
+					str += "</tr>";
+				}
+				str += `<tr>
+					<td id="total-priors" colspan="${num_constraints + 2}">Total</td>
+					<td class="divider"></td>`;
+				for (let i = 0; i < num_hypotheses + 1; i++) {
+					str += `<td id="prior-hypothesis-prob-${i}">${(100 * hyp_prior_probabilities[i]).toFixed(1)}%</td>`;
+				}
+				str += "</tr>";
+				str += "</table>";
+				element.innerHTML = str;
+			}
+
+			function fill_hyp_to_ev() {
+				let element =
+					document.getElementById("hypothesis-to-evidence-probabilities");
+				let str = "<table><tr><td></td>"
+				for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+					str += `<td>${short_hypotheses[hyp]}</td>`;
+				}
+				str += "<td>NULL</td></tr>";
+				for (let ev = 0; ev < num_evidence; ev++) {
+					str += `<tr><td>${short_evidence[ev]}</td>`;
+					for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+						str += `<td>
+						<input id="hyp-to-ev-${ev}-${hyp}"
+							type="number" min="5" max="95"
+							oninput="update_hyp_to_ev(this, ${hyp}, ${ev})"
+							value="${Math.round(100 * hyp_to_ev[hyp][ev])}">
+						</td>`;
+					}
+					str += `<td><div class="null-hyp number-input-like">50</div></td>`;
+					str += "</tr>";
+				}
+				str += "</table>";
+				element.innerHTML = str;
+			}
+
+			function update_cons_to_hyp(element, constraint_ind, hyp_ind) {
+				let max_val = 100 - 5 * num_hypotheses;
+				let cur_prob = cons_to_hyp[constraint_ind][hyp_ind];
+				cur_prob *= 100;
+				let diff = Math.abs(cur_prob - element.value);
+				if (
+					(diff <= 1.5) ||
+					(+element.value >= max_val) ||
+					(+element.value <= 0) ||
+					(element.value.length >= 2)
+				) {
+					inner_update_cons_to_hyp(element, constraint_ind, hyp_ind);
+				} else {
+					let update_cons_to_hyp_timeout_id = null;
+					window.clearTimeout(update_cons_to_hyp_timeout_id);
+					update_cons_to_hyp_timeout_id = window.setTimeout(() => {
+						inner_update_cons_to_hyp(element, constraint_ind, hyp_ind);
+					}, debounce_time);
+				}
+			}
+
+			function inner_update_cons_to_hyp(element, constraint_ind, hyp_ind) {
+				let max_val = 100 - 5 * num_hypotheses;
+				element.value = Math.min(max_val, +element.value);
+				element.value = Math.max(5, +element.value);
+				cons_to_hyp[constraint_ind][hyp_ind] = (+element.value) / 100.0;
+				let cur_sum = 0.0;
+				for (let i = 0; i < num_hypotheses + 1; i++) {
+					cur_sum += cons_to_hyp[constraint_ind][i];
+				}
+				if (cur_sum > 1) {
+					let amount_to_remove = Math.round(100 * (cur_sum - 1));
+					for (let i = num_hypotheses; amount_to_remove > 0 && i >= 0; i--) {
+						if (i === hyp_ind) {
+							continue;
+						}
+						let amount_can_remove = Math.round(100 * cons_to_hyp[constraint_ind][i] - 5);
+						if (amount_can_remove <= 0) {
+							continue;
+						}
+						let removal_amount =
+							Math.min(amount_to_remove, amount_can_remove);
+						cons_to_hyp[constraint_ind][i] -= removal_amount / 100.0;
+						let cur_elem =
+							document.getElementById(
+								`constraint-to-hypothesis-${constraint_ind}-${i}`
+							);
+						let value_to_set = Math.round(100 * cons_to_hyp[constraint_ind][i]);
+						if (i === num_hypotheses) {
+							cur_elem.innerHTML = value_to_set;
+						} else {
+							cur_elem.value = value_to_set;
+						}
+						amount_to_remove -= amount_can_remove;
+					}
+				} else if (cur_sum < 1) {
+					let amount_to_add = 1 - cur_sum;
+					cons_to_hyp[constraint_ind][num_hypotheses] += amount_to_add;
+					document.getElementById(
+						`constraint-to-hypothesis-${constraint_ind}-${num_hypotheses}`
+					).innerHTML
+						= Math.round(100 * cons_to_hyp[constraint_ind][num_hypotheses]);
+				}
+				calculate_prior_probabilities_for_hypotheses();
+				clean_hyp_priors();
+			}
+
+			function update_short_hypotheses(object, num) {
+				short_hypotheses[num] = object.value;
+				let element = document.getElementById(`hypothesis-${num}-in-cth-table`);
+				if (element != null) {
+					element.innerHTML = object.value;
+				}
+			}
+
+			function update_hypotheses(object, num) {
+				hypotheses[num] = object.value;
+			}
+
+			function update_short_constraints(object, num) {
+				short_constraints[num] = object.value;
+				let element = document.getElementById(`constraint-${num}-in-cth-table`);
+				if (element != null) {
+					element.innerHTML = object.value;
+				}
+			}
+
+			function update_constraints(object, num) {
+				constraints[num] = object.value;
+			}
+
+			function update_short_evidence(object, num) {
+				short_evidence[num] = object.value;
+			}
+
+			function update_evidence(object, num) {
+				evidence[num] = object.value;
+			}
+
+			function update_cons_prior_prob(object, num) {
+				let cur_prob = constraint_prior_probabilities[num] * 100;
+				let diff = Math.abs(cur_prob - object.value);
+				let update_cons_prior_prob_timeout_id = null;
+				window.clearTimeout(update_cons_prior_prob_timeout_id);
+				if (diff <= 1.5 || (+object.value >= 95) || (+object.value <= 0) || object.value.length >= 2) {
+					inner_update_cons_prior_prob(object, num);
+				} else {
+					update_cons_prior_prob_timeout_id = window.setTimeout(() => {
+						inner_update_cons_prior_prob(object, num);
+					}, debounce_time);
+				}
+			}
+
+			function inner_update_cons_prior_prob(object, num) {
+				object.value = Math.min(95, +object.value);
+				object.value = Math.max( 5, +object.value);
+				constraint_prior_probabilities[num] = +object.value / 100;
+				if (document.getElementById("prior-world-probability-0") !== null) {
+					calculate_prior_probabilities_for_hypotheses();
+					let num_rows = 1 << num_constraints;
+					for (let i = 0; i < num_rows; i++) {
+						document.getElementById(`prior-world-probability-${i}`).innerHTML
+							= `${Math.round(100 * world_probabilities[i])}%`;
+					}
+					clean_hyp_priors();
+				}
+			}
+
+			function lock_in_constraints() {
+				cur_constraints_state = document.getElementById("constraints-buttons").innerHTML;
+				cur_hypotheses_state = document.getElementById("hypotheses-buttons").innerHTML;
+				document.getElementById("constraints-buttons").innerHTML =
+						`<button type="button" disabled
+							onclick="add_row_to_constraints(event)">Add
+							Constraint</button>
+						<button type="button" disabled
+							onclick="remove_row_from_constraints(event)">Remove
+							Constraint</button>`;
+				document.getElementById("hypotheses-buttons").innerHTML =
+						`<button type="button" disabled
+							onclick="add_row_to_hypotheses(event)">Add
+							Hypothesis</button>
+						<button type="button" disabled
+							onclick="remove_row_from_hypotheses(event)">Remove
+							Hypothesis</button>`;
+				document.getElementById("constraint-lock-in").innerHTML =
+					`<button id="reset-constraints-button" type="button" onclick="reset_constraints()">Reset
+					Constraint to Hypothesis Credibility</button>`;
+				generate_initial_constraints_to_hypothesis();
+				clean_hypotheses();
+				clean_constraints();
+				calculate_prior_probabilities_for_hypotheses();
+				fill_cons_to_hyp();
+				fill_hyp_to_ev();
+				fill_hyp_prob();
+			}
+
+			function generate_initial_constraints_to_hypothesis() {
+				let default_prob = Math.round(100.0 / (num_hypotheses + 1));
+				let prob_adj = 100 - default_prob * (num_hypotheses + 1);
+				let prob_dist = [];
+				for (let i = 0; i < num_hypotheses + 1; i++) {
+					prob_dist.push(default_prob);
+				}
+				if (prob_adj > 0) {
+					prob_dist[0] += prob_adj;
+				} else {
+					prob_dist[num_hypotheses] += prob_adj;
+				}
+				for (let i = 0; i < num_hypotheses + 1; i++) {
+					prob_dist[i] /= 100.0;
+				}
+				let num_rows = 1 << num_constraints;
+				for (let i = 0; i < num_rows; i++) {
+					cons_to_hyp.push([]);
+					for (let j = 0; j < num_hypotheses + 1; j++) {
+						cons_to_hyp[i].push(prob_dist[j]);
+					}
+				}
+			}
+
+			function reset_constraints() {
+				document.getElementById("constraint-lock-in").innerHTML =
+					`<button type="button" onclick="lock_in_constraints()">Lock
+					In Number of Constraints and Hypotheses</button>`;
+				document.getElementById("constraints-buttons").innerHTML = cur_constraints_state;
+				document.getElementById("hypotheses-buttons").innerHTML = cur_hypotheses_state;
+				cons_to_hyp = [];
+				document.getElementById("constraints-to-hypothesis").innerHTML = "";
+				document.getElementById("hypothesis-to-evidence-probabilities").innerHTML = "";
+			}
+
+			let debug_array = [];
+
+			function calculate_world_probabilities(constraint_index, cur_prob,
+				true_or_false) {
+				debug_array.push(true_or_false);
+				let temp_prob = constraint_prior_probabilities[constraint_index];
+				if (true_or_false) {
+					cur_prob *= temp_prob;
+				} else {
+					cur_prob *= 1.0 - temp_prob;
+				}
+				if (constraint_index === num_constraints - 1) {
+					world_probabilities.push(cur_prob);
+					return;
+				}
+				calculate_world_probabilities(constraint_index + 1, cur_prob, false);
+				debug_array.pop();
+				calculate_world_probabilities(constraint_index + 1, cur_prob, true);
+				debug_array.pop();
+			}
+
+			function calculate_prior_probabilities_for_hypotheses() {
+				world_probabilities = [];
+				calculate_world_probabilities(0, 1.0, false);
+				debug_array.pop();
+				calculate_world_probabilities(0, 1.0, true);
+				debug_array.pop();
+				hyp_prior_probabilities = [];
+				for (let i = 0; i < num_hypotheses + 1; i++) {
+					hyp_prior_probabilities.push(0.0);
+				}
+				for (let world = 0; world < world_probabilities.length; world++) {
+					let wp = world_probabilities[world];
+					for (let hyp = 0; hyp < num_hypotheses + 1; hyp++) {
+						hyp_prior_probabilities[hyp] += wp * cons_to_hyp[world][hyp];
+					}
+				}
+				calculate_hyp_prob();
+			}
+
+			function update_hyp_to_ev(element, hyp, ev) {
+				let cur_prob = hyp_to_ev[hyp][ev];
+				const max_val = 95;
+				cur_prob *= 100;
+				let diff = Math.abs(cur_prob - element.value);
+				if (
+					(diff <= 1.5) ||
+					(+element.value >= max_val) ||
+					(+element.value <= 0) ||
+					(element.value.length >= 2)
+				) {
+					inner_update_hyp_to_ev(element, hyp, ev);
+				} else {
+					let update_hyp_to_ev_timeout_id = null;
+					window.clearTimeout(update_hyp_to_ev_timeout_id);
+					update_hyp_to_ev_timeout_id = window.setTimeout(() => {
+						inner_update_hyp_to_ev(element, hyp, ev);
+					}, debounce_time);
+				}
+			}
+
+			function inner_update_hyp_to_ev(element, hyp, ev) {
+				const max_val = 95;
+				const min_val =  5;
+				element.value = Math.min(max_val, +element.value);
+				element.value = Math.max(min_val, +element.value);
+				hyp_to_ev[hyp][ev] = (+element.value) / 100.0;
+				clean_hyp_to_ev();
+				calculate_hyp_prob();
+				clean_hyp_post();
+			}
+
+			function calculate_hyp_prob() {
+				hyp_post_prob = [];
+				let total_credibility = 0.0;
+				for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+					let cur_prob = hyp_prior_probabilities[hyp];
+					for (let ev = 0; ev < num_evidence; ev++) {
+						cur_prob *= hyp_to_ev[hyp][ev];
+					}
+					total_credibility += cur_prob;
+					hyp_post_prob.push(cur_prob);
+				}
+				let null_prob = hyp_prior_probabilities[num_hypotheses];
+				for (let ev = 0; ev < num_evidence; ev++) {
+					null_prob *= 0.5;
+				}
+				total_credibility += null_prob;
+				hyp_post_prob.push(null_prob);
+				for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+					hyp_post_prob[hyp] /= total_credibility;
+				}
+			}
+
+			function fill_hyp_prob() {
+				let elem = document.getElementById("hyp-post-prob");
+				let str = "<table>";
+				let cur_total = 0;
+				for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+					let cur_val = Math.round(100 * hyp_post_prob[hyp]);
+					cur_total += cur_val;
+					str += "<tr>";
+					str += `<td>${hypotheses[hyp]}</td>`;
+					str += `<td id="hyp-prob-${hyp}" class="perc-prob">${cur_val}%</td>`;
+					str += "</tr>"
+				}
+				str += `<tr><td>Something Not Listed</td><td id="hyp-prob-${num_hypotheses}" class="perc-prob">${100 - cur_total}%</td></tr>`;
+				str += "</table>";
+				elem.innerHTML = str;
+			}
+
+			fill_hypotheses();
+			fill_constraints();
+			fill_evidence();
+			function debug_setup() {
+				add_row_to_hypotheses();
+				let elem = document.getElementById("short-hypotheses-0");
+				elem.value = "GOOD";
+				update_hypotheses(elem, 0);
+				elem = document.getElementById("short-hypotheses-1");
+				elem.value = "EVIL";
+				update_hypotheses(elem, 1);
+				add_row_to_constraints();
+				add_row_to_constraints();
+				let debug_values = [ "UWU", "ARA", "OOO" ];
+				let debug_probs = [ 90, 80, 70 ];
+				for (let i = 0; i < 3; i++) {
+					elem = document.getElementById(`short-constraints-${i}`);
+					elem.value = debug_values[i];
+					update_short_constraints(elem, i);
+					elem = document.getElementById(`prior-probability-${i}`);
+					elem.value = debug_probs[i];
+					update_cons_prior_prob(elem, i);
+				}
+				let debug_ev = [ "AAA", "QVC", "DUC", "TTT", "LOL" ];
+				for (let i = 1; i < debug_ev.length; i++) {
+					add_row_to_evidence();
+				}
+				for (let i = 0; i < debug_ev.length; i++) {
+					elem = document.getElementById(`short-evidence-${i}`);
+					elem.value = debug_ev[i];
+					update_short_evidence(elem, i);
+				}
+				lock_in_constraints();
+			}
+
+			function moon_landing() {
+				const moon_short_hyp = [ "R", "F" ];
+				const moon_hyp = [ "The Moon Landing Happened", "NASA Faked the Moon Landing" ];
+				let elem;
+				for (let i = 0; i < moon_hyp.length; i++) {
+					if (i !== 0) {
+						add_row_to_hypotheses();
+					}
+					elem = document.getElementById(`short-hypotheses-${i}`);
+					elem.value = moon_short_hyp[i];
+					update_short_hypotheses(elem, i);
+					elem = document.getElementById(`hypotheses-${i}`);
+					elem.value = moon_hyp[i];
+					update_hypotheses(elem, i);
+				}
+				const moon_short_cons = [ "RT", "VT", "FT", "VA" ];
+				const moon_cons_prior = [ 95, 95, 5, 5 ];
+				const moon_cons = [
+					"Rocket Technology of the Time Was Advanced Enough to Support the Moon Landing",
+					"Video Technology of the Time Was Advanced Enough to Broadcast the Moon Landing",
+					"Film Technology Was Advanced Enough to Fake the Moon Landing",
+					"Van Allen Belts Would Kill Astronauts"
+				];
+				for (let i = 0; i < moon_cons.length; i++) {
+					if (i !== 0) {
+						add_row_to_constraints();
+					}
+					elem = document.getElementById(`short-constraints-${i}`);
+					elem.value = moon_short_cons[i];
+					update_short_constraints(elem, i);
+					elem = document.getElementById(`constraints-${i}`);
+					elem.value = moon_cons[i];
+					update_constraints(elem, i);
+					elem = document.getElementById(`prior-probability-${i}`);
+					elem.value = moon_cons_prior[i];
+					inner_update_cons_prior_prob(elem, i);
+				}
+				const moon_short_evidence = [ "MR", "SU", "LV", "LI", "FD",
+					"DT", "CS" ];
+				const moon_evidence = [
+					"NASA Would Claim They Have Rocks From the Moon",
+					"The Soviet Union Claimed the US Went to the Moon",
+					"They Would Broadcast Live Video of the Moon Landing",
+					"The Photos Have the Expected Lighting",
+					"The Astronauts Did Not Receive a Fatal Dose of Radiation",
+					"The Dust Would Have Parabolic Paths When Up in the Air",
+					"No One Actually Involved Claimed the Moon Landing Was a Hoax"
+				];
+				for (let i = 0; i < moon_short_evidence.length; i++) {
+					if (i !== 0) {
+						add_row_to_evidence();
+					}
+					elem = document.getElementById(`short-evidence-${i}`);
+					elem.value = moon_short_evidence[i];
+					update_short_evidence(elem, i);
+					elem = document.getElementById(`evidence-${i}`);
+					elem.value = moon_evidence[i];
+					update_evidence(elem, i);
+				}
+				lock_in_constraints();
+				const moon_cons_to_hyp = [
+					[  5,  5 ],
+					[  5,  5 ],
+					[  5, 90 ],
+					[  5, 90 ],
+					[  5,  5 ],
+					[  5,  5 ],
+					[  5, 90 ],
+					[  5, 90 ],
+					[  5,  5 ],
+					[  5,  5 ],
+					[  5, 90 ],
+					[  5, 90 ],
+					[ 90,  5 ],
+					[  5,  5 ],
+					[ 47, 47 ],
+					[  5, 90 ]
+				];
+				for (let cons = 0; cons < moon_cons_to_hyp.length; cons++) {
+					for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+						elem = document.getElementById(
+							`constraint-to-hypothesis-${cons}-${hyp}`
+						);
+						elem.value = moon_cons_to_hyp[cons][hyp];
+						inner_update_cons_to_hyp(elem, cons, hyp);
+					}
+				}
+				const moon_hyp_to_ev = [
+					[ 95, 95, 95, 95, 95, 95, 95 ],
+					[ 75,  5, 95, 25, 95,  5,  5 ],
+				];
+				for (let hyp = 0; hyp < num_hypotheses; hyp++) {
+					for (let ev = 0; ev < num_evidence; ev++) {
+						let id = `hyp-to-ev-${ev}-${hyp}`;
+						elem = document.getElementById(id);
+						elem.value = moon_hyp_to_ev[hyp][ev];
+						inner_update_hyp_to_ev(elem, hyp, ev);
+					}
+				}
+			}
+			moon_landing();
+		</script>
+	</body>
+</html>
