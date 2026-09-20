@@ -1,0 +1,796 @@
+{
+	"notes"    : [
+		"Wants a lot of energy",
+		"Burst draw isn't great",
+		"Goal is to overblock to support Osty",
+		"Draw isn't really good on Necrobinder",
+		"Worst in early game",
+		"Has trouble with last boss",
+		"Retain is stronger keyword than Ethereal"
+	],
+	"cards" : {
+		"S" : [
+			{
+				"name"     : "Demesne",
+				"effects"  : {
+					"energy"         : -3,
+					"cards to draw"  :  1,
+					"energy reserve" :  1,
+					"ethereal"       :  true
+				},
+				"effects+" : {
+					"energy"         : -2
+				},
+				"notes"    : [
+					"High priority upgrade",
+					"Duplication on Demesne wins fights immediately"
+				]
+			},
+			{
+				"name"     : "Friendship",
+				"effects"  : {
+					"energy"         : -1,
+					"strength"       : -2,
+					"target"         : "self",
+					"energy reserve" :  1
+				},
+				"effects+" : {
+					"strength"       : -1
+				},
+				"notes"    : [ "Upgrade is not needed", "Can mess with multiattacks" ]
+			},
+			{
+				"name"     : "Neurosurge",
+				"effects"  : {
+					"energy"             :  3,
+					"cards in hand"      :  2,
+					"doom per turn"      :  3,
+					"target"             : "self"
+				},
+				"effects+" : {
+					"energy"             :  4
+				},
+				"notes"    : [
+					"Effectively an extra turn",
+					"Works with Death's Door",
+					"Synergy with power relics",
+					"Do not clone or have multiple copies"
+				]
+			},
+			{
+				"name"     : "Call of the Void",
+				"effects"  : {
+					"energy"                 : -1,
+					"cards created per turn" :  1
+				},
+				"effects+" : {
+					"innate" : true
+				},
+				"notes"    : [
+					"Applies Ethereal to the card created",
+					"Good with Banshee's Cry"
+				]
+			},
+			{
+				"name"     : "Sleight of Flesh",
+				"effects"  : {
+					"energy"        : -2,
+					"debuff damage" :  9
+				},
+				"effects+" : {
+					"debuff damage" : 13
+				},
+				"notes"    : [
+					"Scales damage into endgame",
+					"Works with so much of what Necrobinder does"
+				]
+			},
+			{
+				"name"     : "Putrefy",
+				"effects"  : {
+					"energy"     : -1,
+					"target"     : "enemy",
+					"weak"       :  2,
+					"vulnerable" :  2
+				},
+				"effects+" : {
+					"weak"       :  3,
+					"vulnerable" :  3
+				},
+				"notes"    : [
+					"Applies Weak and Vulnerable"
+				]
+			},
+			{
+				"name"     : "Danse Macabre",
+				"effects"  : {
+					"energy"  : -1,
+					"block"   :  4,
+					"trigger" : "spend at least two energy"
+				},
+				"effects"  : {
+					"block"   :  6
+				},
+				"notes"    : [
+					"Combos with Borrowed Time",
+					"Can pick speculatively, but might not want to pick in Act One"
+				]
+			},
+			{
+				"name"     : "Lethality",
+				"effects"  : {
+					"energy"                    : -1,
+					"first attack damage boost" : 50,
+					"ethereal"                  : true
+				},
+				"effects+" : {
+					"first attack damage boost" : 75
+				},
+				"notes"    : [ "Fixes Friendship's Debuff", "Good with Reaper Form", "Good with Prep Time", "Applies to all attacks, including Osty attacks" ]
+			},
+			{
+				"name"     : "Delay",
+				"effects"  : {
+					"energy"           : -2,
+					"block"            : 11,
+					"energy next turn" :  1
+				},
+				"effects+" : {
+					"block"            : 13,
+					"energy next turn" :  2
+				},
+				"notes"    : [
+					"Upgrade is really good",
+					"Works with Danse Macabre",
+					"Works with Eradicate"
+				]
+			},
+			{
+				"name"     : "Reanimate",
+				"effects"  : {
+					"energy"  : -3,
+					"exhaust" : true,
+					"summon"  : 20
+				},
+				"effects+" : {
+					"summon"  : 25
+				},
+				"notes"    : [
+					"Good for a large Osty",
+					"Good for being duplicated",
+					"Electric Shrymp allows you to automatically play this card at the start of a fight",
+					"Only ignore if you don't have the energy or doing anything with Summon"
+				]
+			},
+			{
+				"name"     : "Enfeebling Touch",
+				"effects"  : {
+					"energy"   : -1,
+					"ethereal" : true,
+					"strength" : -8,
+					"target"   : "enemy"
+				},
+				"effects+" : {
+					"strength" : -11
+				},
+				"notes"    : [ "Ethereal synergy", "Good with Banshee's Cry", "Good with Spirit of Ash" ]
+			},
+			{
+				"name"     : "Defy",
+				"effects"  : {
+					"energy"    : -1,
+					"ethereal"  : true,
+					"block"     : 6,
+					"weak"      : 1
+				},
+				"notes"    : [
+					"Can do huge block",
+					"Good with Spirit of Ash",
+					"Good artifact strip"
+				]
+			},
+			{
+				"name"     : "Reaper Form",
+				"effects"  : {
+					"energy"                : -3,
+					"doom bonus to attacks" :  1
+				},
+				"effects+" : {
+					"retain" : true
+				},
+				"notes"    : [
+					"Doubles effective damage",
+					"Good with No Escape",
+					"Might be worth to take the damage up front",
+					"Good against Aeonglass and Test Subject",
+					"Don't force into a deck"
+				]
+			},
+			{
+				"name"     : "Bone Shards",
+				"effects"  : {
+					"energy"      : -1,
+					"osty health" :  0,
+					"osty damage" :  9,
+					"block"       :  9,
+					"target"      : "all enemies"
+				},
+				"effects+" : {
+					"osty damage" : 12,
+					"block"       : 12
+				},
+				"notes"    : [
+					"Great upgrade",
+					"Powerful early game",
+					"Play it once in long fights to generate block",
+					"Remove two cards + Bone Shards allows you to skip a lot of cards in Act One"
+				]
+			},
+			{
+				"name"     : "Pagestorm",
+				"effects"  : {
+					"energy"                : -1,
+					"card draw on ethereal" :  1
+				},
+				"effects+" : {
+					"energy"                :  0
+				},
+				"notes"    : [
+					"Gives passive draw",
+					"Good with Call of the Void",
+					"Completely free with Upgrade"
+				]
+			},
+			{
+				"name"     : "Banshee's Cry",
+				"effects"  : {
+					"energy"                      : -9,
+					"damage"                      : 33,
+					"all enemies"                 : true,
+					"energy cost on etheral play" : -2
+				},
+				"effects+" : {
+					"energy"                      : -7
+				},
+				"notes"    : [
+					"Works well with Lethality",
+					"Needs Ethereal cards"
+				]
+			},
+			{
+				"name"     : "Shared Fate",
+				"effects"  : {
+					"general" : {
+						"exhaust"       : true
+					},
+					"self" : {
+						"strength"      : -2
+					},
+					"enemy" : {
+						"strength"      : -2
+					}
+				},
+				"effects+" : {
+					"enemy" : {
+						"strength"      : -3
+					}
+				},
+				"notes"    : [
+					"Hard counters Dorito, Entomancer, and Aeonglass"
+				]
+			},
+			{
+				"name"     : "Capture Spirit",
+				"effects"  : {
+					"energy"             : -1,
+					"hp"                 : -3,
+					"souls in draw pile" :  3
+				},
+				"effects+" : {
+					"hp"                 : -4,
+					"souls in draw pile" :  4
+				},
+				"notes"    : [
+					"Good with passive draw",
+					"Just don't play on Dorito and Aeonglass"
+				]
+			},
+			{
+				"name"     : "Deathbringer",
+				"effects"  : {
+					"energy"      : -2,
+					"doom"        : 21,
+					"weak"        :  1,
+					"all enemies" : true
+				},
+				"effects+" : {
+					"doom"        : 21
+				},
+				"notes"    : [ "Strips two artifact off enemies" ]
+			},
+			{
+				"name"     : "Dirge",
+				"effects"  : {
+					"exhaust"             : true,
+					"energy"              : "x",
+					"summon"              : "3 x",
+					"souls in draw pile"  : "x"
+				},
+				"effects+" : {
+					"summon"              : "3 x",
+					"souls in draw pile"  : 0,
+					"souls+ in draw pile" : "x"
+				},
+				"notes"    : [
+					"Provides block and draw at the same time",
+					"Helps build Osty",
+					"Works with Soul stuff",
+					"Good with Borrowed Time",
+					"Works with Danse Macabre",
+					"Works with Intimidating Helmet"
+				]
+			},
+			{
+				"name"     : "Spirit of Ash",
+				"effects"  : {
+					"energy"                 : -1,
+					"block on ethereal play" :  4
+				},
+				"effects+" : {
+					"block on ethereal play" :  5
+				},
+				"notes"    : [
+					"Good with Defy",
+					"Good with Call of the Void",
+					"Can be hard to get work",
+					"Can be picked speculatively",
+					"Needs multiple Ethereal Cards"
+				]
+			}
+		],
+		"A" : [
+			{
+				"name"     : "Eradicate",
+				"effects"  : {
+					"retain"        :  true,
+					"energy"        : "x",
+					"damage"        :  11,
+					"times applied" : "x"
+				},
+				"effects+" : {
+					"damage"        :  14
+				},
+				"notes"    : [
+					"Good with big energy burst turns",
+					"Best in Act One",
+					"Good with Reaper Form",
+					"Good with Borrowed Time",
+					"Good with Reaper Form and Shroud",
+					"Can hold until kill",
+					"Not as good with Friendship",
+					"Good with Lethality",
+					"Good with Prep Time",
+					"Not needed once you don't need to solve damage"
+				]
+			},
+			{
+				"name"     : "Fetch",
+				"effects"  : {
+					"osty damage"        : 3,
+					"draw on first play" : 1
+				},
+				"effects+" : {
+					"osty damage"        : 6
+				},
+				"notes"    : [
+					"Osty needs to be alive to get the draw", 
+					"Osty synergy",
+					"Free damage",
+					"Punish on Aeonglass"
+				]
+			},
+			{
+				"name"     : "Hang",
+				"effects"  : {
+					"energy"          : -1,
+					"damage"          : 10,
+					"debuff"          :  1,
+					"hang multiplier" :  2
+				},
+				"effects+" : {
+					"damage"          : 13
+				},
+				"notes"    : [
+					"Needs second copy or replay",
+					"Counts as debuff, so procs Sleight of Flesh"
+				]
+			},
+			{
+				"name"     : "Undeath",
+				"effects"  : {
+					"block"                   : 7,
+					"undeath in discard pile" : 1
+				},
+				"effects+" : {
+					"block"                   : 7
+				},
+				"notes"    : [
+					"Can bloat deck if you need a looping deck",
+					"Buys time for powers",
+					"Not strong if you have frontload block and relic support",
+					"Good pick Act One",
+					"Good if you notice you're taking chip damage before powers in play"
+				]
+			},
+			{
+				"name"     : "Grave Warden",
+				"effects"  : {
+					"energy"             : -1,
+					"block"              :  8,
+					"souls in draw pile" :  1
+				},
+				"effects+" : {
+					"block"              : 11
+				},
+				"notes"    : [
+					"Can help overblock",
+					"Dorito and Aeonglass can mess with strategy, but one soul is usually not bad"
+				]
+			},
+			{
+				"name"     : "End of Days",
+				"effects"  : {
+					"energy"                            :  -3,
+					"doom"                              :  29,
+					"target"                            : "all enemies",
+					"kill enemies with sufficient doom" :  true
+				},
+				"effects+" : {
+					"doom"                              :  37
+				},
+				"notes"    : [
+					"Strong early",
+					"Falls off hard",
+					"Solves decimillipedes"
+				]
+			},
+			{
+				"name"     : "Borrowed Time",
+				"notes"    : [ "Works with Danse Macabre", "Good with Ice Cream" ]
+			},
+			{
+				"name"     : "Afterlife",
+				"notes"    : [
+					"Upgrade is really powerful",
+					"Good for scaling damage into Aeon",
+					"Good early game"
+				]
+			}
+		],
+		"B" : [
+			{
+				"name"     : "Transfigure",
+				"notes"    : [
+					"Solves long fights to outscale the enemy",
+					"Good on No Escape",
+					"Good on Hang",
+					"Good on Deathbringer",
+					"Doesn't need the upgrade"
+				]
+			},
+			{
+				"name"     : "Spur",
+				"notes"    : [
+					"Upgrade is really good",
+					"Good with Retain"
+				]
+			},
+			{
+				"name"     : "No Escape",
+				"notes"    : [ "Only good with other doom generation" ]
+			},
+			{
+				"name"     : "Countdown",
+				"notes"    : [ "Allows you to spend all your energy on block", "Good in statue fight", "Good with No Escape", "Really good with Death's Door" ]
+			},
+			{
+				"name"     : "Sow",
+				"notes"    : [ "Doesn't interfere with looping decks because of Retain", "Deals with Parasite and Cockroaches" ]
+			},
+			{
+				"name"     : "Calcify",
+				"notes"    : [
+					"Best in early game",
+					"Really good with any extra Osty attack",
+					"Combo with Fetch and Capture Spirit to repeatedly draw and play Fetch"
+				]
+			},
+			{
+				"name"     : "Invoke",
+				"notes"    : [ "Invoke is mainly good for the energy" ]
+			},
+			{
+				"name"     : "Pull Aggro",
+				"notes"    : [ "Good with boosting the block", "Good first block card" ]
+			},
+			{
+				"name"     : "Melancholy",
+				"notes"    : [ "Good with Bone Shards", "Only good for below curve", "Might need Danse Macabre", "Can bail you out in a bad run" ]
+			},
+			{
+				"name"     : "Oblivion",
+				"notes"    : [ "Really good with Sleight of Flesh", "Can block a lot with Shroud", "Requires other cards to move up" ]
+			},
+			{
+				"name"     : "Sentry Mode",
+				"notes"    : [
+					"Works with Calcify",
+					"Ethereal synergy",
+					"Solves damage early on"
+				]
+			},
+			{
+				"name"     : "The Scythe",
+				"notes"    : [ "Needs to be seen early", "Good with Lethality" ]
+			},
+			{
+				"name"     : "Death's Door",
+				"notes"    : [
+					"Works with Neurosurge applying Doom to yourself",
+					"Scales with Dexterity and Enchantments",
+					"One of the first cards to get good block",
+					"Not able to pick speculatively"
+				]
+			},
+			{
+				"name"     : "Reap",
+				"notes"    : [ "Good early", "Early game early", "Good fight against eel and parasites" ]
+			},
+			{
+				"name"     : "Shroud",
+				"notes"    : [ "Gains roughly three block per turn", "Good for Dorito and Aeonglass" ]
+			},
+			{
+				"name"     : "Haunt",
+				"notes"    : [
+					"Good with Capture Spirit",
+					"Needs soul synergy",
+					"Do not speculate"
+				]
+			},
+			{
+				"name"     : "Dredge",
+				"notes"    : [ "Upgrade gains Retain", "Still not good unless you have energy gen or zero-cost cards", "Good with Borrowed Time" ]
+			},
+			{
+				"name"     : "Debilitate",
+				"notes"    : [ "Vulnerable is not really useful", "Do not pick to speculate if you don't have weak.", "Probably not in Act One" ]
+			},
+			{
+				"name"     : "Negative Pulse",
+				"notes"    : [
+					"Good with AOE fights"
+				]
+			},
+			{
+				"name"     : "Defile",
+				"notes"    : [
+					"May need to pick early game especially in Overgrowth",
+					"Would be good on Ironclad"
+				]
+			},
+			{
+				"name"     : "High Five",
+				"notes"    : [
+					"Works with Danse Macabre",
+					"Vulnerable for two turns is good",
+					"Good for AOE fights",
+					"Good for early game"
+				]
+			},
+			{
+				"name"     : "Pull from Below",
+				"notes"    : [
+					"Can be a late-game damage solve",
+					"Possibly bad in a lot of situations, but one-card solves against certain fights"
+				]
+			},
+			{
+				"name"     : "Eidolon",
+				"notes"    : [
+					"Only good for Aeonglass if you have nothing else"
+				]
+			},
+			{
+				"name"     : "Time's Up",
+				"notes"    : [
+					"Good against bosses",
+					"Not played in Hallways",
+					"Really good with Reaper Form",
+					"Slow"
+				]
+			}
+		],
+		"C" : [
+			{
+				"name"     : "Cleanse",
+				"notes"    : [
+					"Overrated for solving Aeonglass",
+					"Not good on first turn",
+					"Can be good against Soul Fish"
+				]
+			},
+			{
+				"name"     : "Seance",
+				"notes"    : [
+					"Needs the upgrade (Drops cost to 0)",
+					"Can deal with Statuses from enemies, but too slow",
+					"Good against Soul Fish and maybe Aeonglass"
+				]
+			},
+			{
+				"name"     : "Sic 'Em",
+				"notes"    : [
+					"Can work with Fetch + Calcify Package",
+					"Multiple copies can do a lot in one turn"
+				]
+			},
+			{
+				"name"     : "Wisp",
+				"notes"    : [
+					"You'll know when you need energy",
+					"Much better upgraded",
+					"Needs upgrade"
+				]
+			},
+			{
+				"name"     : "Snap",
+				"notes"    : [
+					"You can use Retain to keep bad cards in your hand to avoid blocks",
+					"Has been used to solve Soul Fish"
+				]
+			},
+			{
+				"name"     : "Rattle",
+				"notes"    : [
+					"Needs a ton of Osty attacks to justify picking it"
+				]
+			},
+			{
+				"name"     : "Right Hand Hand",
+				"notes"    : [
+					"Good with Calcify",
+					"Bad with Borrowed Time"
+				]
+			},
+			{
+				"name"     : "Blight Strike",
+				"notes"    : [
+					"Works really nicely with Lethality",
+					"Bad for over-blocking"
+				]
+			},
+			{
+				"name"     : "Death March",
+				"notes"    : [
+					"Needs a lot of Souls"
+				]
+			},
+			{
+				"name"     : "Squeeze",
+				"notes"    : [
+					"Rarely does more than 35 - 40 damage"
+				]
+			},
+			{
+				"name"     : "Drain Power",
+				"notes"    : [
+					"Best in Act One",
+					"Desperation pick for long fights"
+				]
+			},
+			{
+				"name"     : "Poke",
+				"notes"    : [
+					"Desperation pick",
+					"Works with Calcify",
+					"Allows you to block and attack in the same turn and avoid chip damage",
+					"Good when you have a lot of Souls",
+					"Solid with the Bone Flute (Gain 2 Block when Osty Attacks)"
+				]
+			},
+			{
+				"name"     : "Scourge",
+				"notes"    : [ "Decently powerful upgrade", "Possibly good with No Escape" ]
+			},
+			{
+				"name"     : "Sculpting Strike",
+				"notes"    : [
+					"Can desperation solve a boss"
+				]
+			},
+			{
+				"name"     : "Necro Mastery",
+				"notes"    : [
+					"Doesn't block the turn you play it",
+					"Only a solution to Act one multi-enemy fights"
+				]
+			},
+			{
+				"name"     : "Devour Life",
+				"notes"    : [ "Needs to be upgraded to be good", "Requires Capture Soul", "Hard countered by Aeonglass and Dorito" ]
+			},
+			{
+				"name"     : "Sacrifice",
+				"notes"    : [ "Upgrades to zero energy", "Osty rarely has low HP and high Max HP" ]
+			},
+			{
+				"name"     : "Reave",
+				"notes"    : [
+					"Damage is worse than block, so this is worse than Grave Warden"
+				]
+			},
+			{
+				"name"     : "Parse",
+				"notes"    : [
+					"Needs a lot of energy",
+					"Capture Spirit is better"
+				]
+			},
+			{
+				"name"     : "Veilpiercer",
+				"notes"    : [
+					"Only works with Ethereal cards"
+				]
+			},
+			{
+				"name"     : "Misery",
+				"notes"    : [
+					"Doesn't work well with damage energy",
+					"Not really needed for multi-enemy attacks",
+					"Does nothing in boss fights",
+					"Good for block and damage as a zero-cost attack"
+				]
+			},
+			{
+				"name"     : "Severance",
+				"notes"    : [ "Doesn't do enough damage to justify energy cost", "Good with a lot of energy, but is rare", "Possible early game desparation pickup" ]
+			},
+			{
+				"name"     : "Flatten",
+				"notes"    : [ "Good for small decks only in early game", "Maybe a high Osty density" ]
+			}
+		],
+		"D" : [
+			{
+				"name"     : "Bury",
+				"notes"    : [
+					"Only good if you have Snecko",
+					"Only good in Act One"
+				]
+			},
+			{
+				"name"     : "Soul Storm",
+				"notes"    : [
+					"Takes too long to get good",
+					"Dorito and Aeonglass punish this too hard",
+					"Max of 30-40"
+				]
+			},
+			{
+				"name"     : "Graveblast",
+				"notes"    : [
+					"Damage is bad",
+					"You need to have already played the card",
+					"Energy cost means you can't pick strong cards"
+				]
+			},
+			{
+				"name"     : "Fear",
+				"notes"    : [
+					"Needs to be upgraded to consider taking"
+				]
+			}
+		]
+	}
+}

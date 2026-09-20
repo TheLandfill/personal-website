@@ -1,0 +1,417 @@
+{
+	"notes" : [
+		"None right now"
+	],
+	"cards" : {
+		"S" : [
+			{
+				"name"  : "Adrenaline",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Well-Laid Plans",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Afterimage",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tools of the Trade",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "The Hunt",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Footwork",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Blade of Ink",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Calculated Gamble",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Malaise",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Accuracy",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Noxious Fumes",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Piercing Wail",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Abrasive",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Expose",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Leg Sweep",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tracking",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hidden Daggers",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Prepared",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Sidestep",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Leading Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Blur",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Phantom Blades",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Backflip",
+				"notes" : [
+				]
+			}
+		],
+		"A" : [
+			{
+				"name"  : "Echoing Slash",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Assassinate",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Haze",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Infinite Blades",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Acrobatics",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Pinpoint",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Backstab",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Blade Dance",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Escape Plan",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Predator",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Flechettes",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Cloak and Dagger",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dodge and Roll",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Knife Trap",
+				"notes" : [
+				]
+			}
+		],
+		"B" : [
+			{
+				"name"  : "Outbreak",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Reflex",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Fan of Knives",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Ricochet",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Precise Cut",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Pounce",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bubble Bubble",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dagger Spray",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Snakebite",
+				"notes" : [
+				]
+			}
+		],
+		"C" : [
+			{
+				"name"  : "Sucker Punch",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tactician",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Mirage",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Serpent Form",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Anticipate",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dash",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Deflect",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Slice",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Skewer",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dagger Throw",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bullet Time",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bouncing Flask",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Accelerant",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Poisoned Stab",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Shadowmeld",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Shadow Step",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Untouchable",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Nightmare",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Flick-Flack",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Corrosive Wave",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Burst",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Grand Finale",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Storm of Steel",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Murder",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Expertise",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Strangle",
+				"notes" : [
+				]
+			}
+		],
+		"D" : [
+			{
+				"name"  : "Envenom",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hand Trick",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Memento Mori",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Up My Sleeve",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Finisher",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Deadly Poison",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Speedster",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Master Planner",
+				"notes" : [
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,422 @@
+{
+	"notes" : [
+	],
+	"cards" : {
+		"S" : [
+			{
+				"name"  : "Offering",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dominate",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bloodletting",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Colossus",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Inferno",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Pact's End",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Crimson Mantle",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Unmovable",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Uppercut",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Battle Trance",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tremble",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Burning Pact",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Cruelty",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dark Embrace",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Fiend Fire",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Impervious",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Pommel Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Primal Force",
+				"notes" : [
+				]
+			}
+		],
+		"A" : [
+			{
+				"name"  : "Feed",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Flame Barrier",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Corruption",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Feel No Pain",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Blood Wall",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Expect a Fight",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Anger",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bludgeon",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hemokinesis",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Pyre",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Rage",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Headbutt",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Second Wind",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Shrug It Off",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Stoke",
+				"notes" : [
+				]
+			}
+		],
+		"B" : [
+			{
+				"name"  : "Break",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Forgotten Ritual",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tear Asunder",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dismantle",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Breakthrough",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Ashen Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Unrelenting",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Cinder",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Evil Eye",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Thrash",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Aggression",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Spite",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Whirlwind",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Taunt",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Stomp",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Iron Wave",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Twin Strike",
+				"notes" : [
+				]
+			}
+		],
+		"C" : [
+			{
+				"name"  : "Vicious",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Stone Armor",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Rupture",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Pillage",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Thunderclap",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Stampede",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "True Grit",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Inflame",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Cascade",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Molten Fist",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Rampage",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bully",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Setup Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Infernal Blade",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Perfected Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Sword Boomerang",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Havoc",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hellraiser",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Brand",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Armaments",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Howl from Beyond",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Body Slam",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Drum of Battle",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Juggling",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Demon Form",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Fight Me",
+				"notes" : [
+				]
+			}
+		],
+		"D" : [
+			{
+				"name"  : "One-Two Punch",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Mangle",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Barricade",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Juggernaut",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Conflagration",
+				"notes" : [
+				]
+			}
+		]
+	}
+}
+

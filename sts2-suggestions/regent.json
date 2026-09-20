@@ -1,0 +1,426 @@
+{
+	"notes" : [
+	],
+	"cards" : {
+		"S" : [
+			{
+				"name"  : "Big Bang",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Reflect",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Child of the Stars",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Pillar of Creation",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Convergence",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "GUARDS!!!",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bulwark",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Meteor Shower",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Astral Pulse",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Know Thy Place",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Royal Gamble",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Spectrum Shift",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Glow",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Comet",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "The Sealed Throne",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Void Form",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "CHARGE!!",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Crash Landing",
+				"notes" : [
+				]
+			}
+		],
+		"A" : [
+			{
+				"name"  : "Particle Wall",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Royalties",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "The Smith",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tyranny",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Make It So",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Quasar",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "BEGONE!",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Orbit",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Radiate",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bundle of Joy",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Manifest Authority",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Kingly Kick",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Collision Course",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Gamma Blast",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Cloak of Stars",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Refine Blade",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Dying Star",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Gather Light",
+				"notes" : [
+				]
+			}
+		],
+		"B" : [
+			{
+				"name"  : "Bombardment",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Decisions, Decisions",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Kingly Punch",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Glitterstream",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Glimmer",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Black Hole",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Crush Under",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Guiding Star",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Alignment",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Heavenly Drill",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Supermassive",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hidden Cache",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Patter",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Photon Cut",
+				"notes" : [
+				]
+			}
+		],
+		"C" : [
+			{
+				"name"  : "Pale Blue Dot",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Wrought in War",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Spoils of Battle",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Shining Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Genesis",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Parry",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Foregone Conclusion",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Solar Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "I Am Invincible",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Seven Stars",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Cosmic Indifference",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Seeking Edge",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Celestial Might",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hegemony",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Sword Sage",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Arsenal",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Beat Into Shape",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Devastate",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Lunar Blast",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Knockout Blow",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Summon Forth",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Conqueror",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Terraforming",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Furnace",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Prophesize",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Neutron Aegis",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Stardust",
+				"notes" : [
+				]
+			}
+		],
+		"D" : [
+			{
+				"name"  : "Resonance",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Heirloom Hammer",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Monarch's Gaze",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Monologue",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Crescent Spear",
+				"notes" : [
+				]
+			}
+		]
+	}
+}

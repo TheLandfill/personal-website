@@ -1,0 +1,417 @@
+{
+	"notes" : [
+	],
+	"cards" : {
+		"S" : [
+			{
+				"name"  : "Echo Form",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Defragment",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Shatter",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Glacier",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Null",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Machine Learning",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Genetic Algorithm",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Trash to Treasure",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Darkness",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Modded",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Chill",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Supercritical",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Synchronize",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Barrage",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Capacitor",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Buffer",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Boot Sequence",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Overclock",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Ice Lance",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Loop",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Compact",
+				"notes" : [
+				]
+			}
+		],
+		"A" : [
+			{
+				"name"  : "Flak Cannon",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Coolant",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "TURBO",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Subroutine",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Rocket Punch",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Iteration",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hailstorm",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Shadow Shield",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Sunder",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Spinner",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Refract",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "FTL",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Signal Boost",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Cold Snap",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Charge Battery",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Coolheaded",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Ball Lightning",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Bulk Up",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Skim",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Go for the Eyes",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Fight Through",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Uproar",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Boost Away",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Gunk Up",
+				"notes" : [
+				]
+			}
+		],
+		"B" : [
+			{
+				"name"  : "Hologram",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "All for One",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Double Energy",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tesla Coil",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Fusion",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Creative AI",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Feral",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Rainbow",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Helix Drill",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Consuming Shadow",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Synthesis",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Leap",
+				"notes" : [
+				]
+			}
+		],
+		"C" : [
+			{
+				"name"  : "Multi-Cast",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Lighting Rod",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Smokestack",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Reboot",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Meteor Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Compile Driver",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Momentum Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hotfix",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Beam Cell",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Scavenge",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Glasswork",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Adaptive Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Tempest",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Storm",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "White Noise",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Voltaic",
+				"notes" : [
+				]
+			}
+		],
+		"D" : [
+			{
+				"name"  : "Sweeping Beam",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Thunder",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Focused Strike",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Scrape",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Claw",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Chaos",
+				"notes" : [
+				]
+			},
+			{
+				"name"  : "Hyperbeam",
+				"notes" : [
+				]
+			}
+		]
+	}
+}
+
